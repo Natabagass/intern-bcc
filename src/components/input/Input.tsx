@@ -20,7 +20,7 @@ const Input = ({
                 name={name}
                 required={required}
                 id={id} 
-                className={`rounded-md p-4 text-[14px] w-full text-black pl-4 outline-none placeholder:text-[14px] ${className}`}
+                className={`rounded-md p-3 text-[14px] w-full text-black pl-4 outline-none placeholder:text-[14px] ${className}`}
                 />
         </div>
     );

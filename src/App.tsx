@@ -4,6 +4,7 @@ import AuthRoute from './routes/AuthRoute';
 import Login from './pages/users/Login';
 import Home from './pages/auth/dashboard/Homepage';
 import PrivateRoute from './routes/PrivateRoute';
+import Signup from './pages/users/Signup';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Routes>
         <Route element={<AuthRoute />}>
           <Route path='/' element={<Login/>} />
+          <Route path='/Signup' element={<Signup/>} />
         </Route>
         
         <Route element={<PrivateRoute/>}>
