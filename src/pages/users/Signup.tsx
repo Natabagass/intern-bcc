@@ -7,8 +7,13 @@ import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { AiOutlineEye } from "react-icons/ai";
 
 const Signup = () => {
+    const [passwordShown, setPasswordShown] = useState(false);
+    const toggleShow = () => {
+        setPasswordShown(!passwordShown);
+    }
     const [forms, setForms] = useState({
         name: '',
         email: '',
@@ -81,7 +86,9 @@ const Signup = () => {
                                     placeholder="Password"
                                     className='mt-2 rounded-lg text-black pl-2 outline-none'
                                 />
-                                <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" />
+                                <button onClick={toggleShow} className="cursor-pointer flex items-center">
+                                    {!passwordShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                                </button>
                             </div>
                         </div>
 

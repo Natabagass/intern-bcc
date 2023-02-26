@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {lazy} from 'react';
 import { Route, Routes } from 'react-router-dom'
 import AuthRoute from './routes/AuthRoute';
-import Login from './pages/users/Login';
-import Home from './pages/auth/dashboard/Homepage';
 import PrivateRoute from './routes/PrivateRoute';
-import Signup from './pages/users/Signup';
+const Home = lazy(() => import('./pages/auth/dashboard/Homepage'))
+const Login = lazy(() => import('./pages/users/Login'))
+const Signup = lazy(() => import('./pages/users/Signup'))
 
 function App() {
   return (

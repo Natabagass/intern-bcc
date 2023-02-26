@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import {FaRegEyeSlash} from 'react-icons/fa'
+import {AiOutlineEye} from 'react-icons/ai'
 import Google from '../../assets/icons8-google.svg'
 import sideImg from '../../assets/card.png'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
@@ -9,6 +10,10 @@ import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
 
 const Login = () => {
+    const [passwordShown, setPasswordShown] = useState(false);
+    const toggleShow = () => {
+        setPasswordShown(!passwordShown);
+    }
     const [forms, setForms] = useState({
         email: '',
         password: '',
@@ -58,13 +63,15 @@ const Login = () => {
                             <Input
                                 value={forms.password}
                                 onChange={e => setForms({ ...forms, password: e.target.value })}
-                                type="password"
+                                type={passwordShown ? "text" : "password"}
                                 required
                                 id='password'
                                 placeholder="Password"
                                 className='mt-2 rounded-lg text-black pl-2 outline-none'
                             />
-                            <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1"/>
+                            <button onClick={toggleShow} className="cursor-pointer flex items-center">
+                                {!passwordShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1"/> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1"/>}
+                            </button>
                         </div>
                     </div>
 
