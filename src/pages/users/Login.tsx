@@ -8,15 +8,17 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
+    const navigate = useNavigate()
     const [validation, setValidation] = useState('')
     const [loading, setLoading] = useState(false)
     const toggleShow = () => {
         setPasswordShown(!passwordShown);
     }
+    const token = localStorage.getItem('auth')
     const [forms, setForms] = useState({
         email: '',
         password: '',
@@ -24,19 +26,15 @@ const Login = () => {
 
     const handleLogin = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
+        setLoading(true)
         await axios.post('https://reqres.in/api/login', forms)
             .then(res => {
-                console.log(res)
-                setLoading(true)
-                localStorage.setItem('auth', res.data.token);
-                setTimeout(() => {
-                    window.location.reload();
-                }, 2000)
+                localStorage.setItem('auth', res.data.token);    
+                navigate('/')
             })
             .catch(err => {
-                console.log(err)
                 setValidation(err.response.data.error)
-                console.log(validation)
+                setLoading(false)
             })
     }
     return (
@@ -93,10 +91,8 @@ const Login = () => {
                                 <Button className="p-3 text-[14px]" type="submit">Continue With Google</Button>
                             </div>
                         </div>
-                        <h2 className="text-[12px] mt-3 font-inter flex justify-center">Have An Account? &nbsp; <Link to='/signup' className="font-bold">Login</Link></h2>
-
+                        <h2 className="text-[12px] mt-3 font-inter flex justify-center">Doesn't Have Account? &nbsp; <Link to='/signup' className="font-bold">Signup</Link></h2>
                     </div>
-
                 </div>
             </div>
         </>

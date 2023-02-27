@@ -98,7 +98,7 @@ const Signup = () => {
                                 <LazyLoadImage className="" width={30} src={Google} alt="Google Icon"></LazyLoadImage>
                                 <Button className="p-3 text-[14px]" type="submit">Continue With Google</Button>
                             </div>
-                            <h2 className="text-[12px] mt-3 font-inter flex justify-center">Have An Account? &nbsp; <Link to='/' className="font-bold">Login</Link></h2>
+                            <h2 className="text-[12px] mt-3 font-inter flex justify-center">Have An Account? &nbsp; <Link to='/login' className="font-bold">Login</Link></h2>
                         </div>
                     </div>
 
