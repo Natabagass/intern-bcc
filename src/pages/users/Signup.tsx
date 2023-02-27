@@ -26,13 +26,12 @@ const Signup = () => {
                 <div className="mr-[20px]">
                     <LazyLoadImage
                         alt="Logo"
-                        className="w-[500px] h-[835px]"
+                        className="w-[500px] h-[850px]"
                         src={sideImg}
                     ></LazyLoadImage>
                 </div>
-                <div className="px-[50px] my-[50px] w-[500px] bg-[#D9D9D9]">
-                    <div className="py-[50px]">
-
+                <div className="h-[850px] my-[70px] w-[500px] bg-[#D9D9D9]">
+                    <div className=" px-[50px] py-[50px]">
                         <h3 className="font-bold font-inter text-[34px]">Sign Up</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[30px]'>

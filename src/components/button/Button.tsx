@@ -1,4 +1,5 @@
 import { Props } from "../../models/dto/forms/buttonTypes";
+import Loader from "../loader/Loader";
 
 const Button = ({
     type,
@@ -12,7 +13,7 @@ const Button = ({
             type={type}
             onClick={onClick}
             className={`rounded-lg flex items-center justify-center p-2 transition duration-100 ${className}`}
-        >{isLoading ? 'Loading' : `${children}`}</button>
+        >{isLoading ? <Loader/> : children}</button>
     );
 }
 

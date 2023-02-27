@@ -1,10 +1,9 @@
 import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
-    const navigate = useNavigate()
     const logout = () => {
         localStorage.removeItem('auth');
-        navigate('/')
+        window.location.replace('/')
     }
     return (
         <>
