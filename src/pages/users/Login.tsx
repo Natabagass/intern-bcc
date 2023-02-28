@@ -57,6 +57,7 @@ const Login = () => {
                                 value={forms.email}
                                 onChange={e => setForms({ ...forms, email: e.target.value })}
                                 type="text"
+                                name="email"
                                 required
                                 placeholder="E-mail"
                                 id='email'

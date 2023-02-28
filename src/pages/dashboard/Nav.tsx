@@ -10,11 +10,22 @@ const Nav = () => {
     }
 
     return (
-        <nav className='p-7 bg-slate-400'>
-            <div className="flex flex-wrap mx-[100px] justify-between">
+        <nav className='p-5 bg-slate-400'>
+            <div className="flex flex-wrap mx-[50px] justify-between">
                 <a href="/">
-                    <h1>Ini Nama Web</h1>
+                    <h1>Grent.</h1>
                 </a>
+                <div className="flex flex-row list-none">
+                    <li className="mr-5">
+                        <a href="/">Home</a>
+                    </li>
+                    <li className="mr-5">
+                        <a href="/graha">Graha</a>
+                    </li>
+                    <li>
+                        <a href="/faq">FAQ</a>
+                    </li>
+                </div>
                 <div>
                     <ul className="flex flex-row">
                         {
