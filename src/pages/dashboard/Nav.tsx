@@ -1,8 +1,30 @@
 import { useState } from "react";
+import styled from "styled-components";
 
+const HoverUnderline = styled.span`
+    position: relative;
+    display: inline-block;
+    &:hover::after {
+        content: "";
+        display: block;
+        height: 1.5px;
+        width: 100%;
+        background-color: #5a5c61;
+        position: absolute;
+        bottom: 0;
+        animation: slide 0.3s ease-in-out forwards;
+    }
+    @keyframes slide {
+        from {
+        transform: scaleX(0);
+        }
+        to {
+        transform: scaleX(1);
+        }
+    }
+`;
 
 const Nav = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false)
     const token = localStorage.getItem('auth')
     const logout = () => {
         localStorage.removeItem('auth');
@@ -10,20 +32,20 @@ const Nav = () => {
     }
 
     return (
-        <nav className='p-5 bg-slate-400'>
+        <nav className='p-3 top-0 fixed w-full z-10 bg-white scroll-smooth shadow-xl'>
             <div className="flex flex-wrap mx-[50px] items-center justify-between">
                 <a href="/">
-                    <h1 className="text-[32px] text-white">Grent <span className="text-black">.</span></h1>
+                    <h1 className="text-[32px] font-bold font-inter">grent.com</h1>
                 </a>
-                <div className="flex flex-row list-none">
-                    <li className="mr-5">
-                        <a href="/" className={window.location.pathname === '/' ? 'text-white' : 'text-black'}>Home</a>
+                <div className="flex flex-row font-inter list-none">
+                    <li className="mr-10">
+                        <a href="/" className={window.location.pathname === '/' ? 'text-black font-bold' : 'text-[#5a5c61] hover:text-black hover:font-medium transition'}><HoverUnderline>Home</HoverUnderline></a>
                     </li>
-                    <li className="mr-5">
-                        <a href="/graha" className={window.location.pathname === '/graha' ? 'text-white' : 'text-black'}>Graha</a>
+                    <li className="mr-10">
+                        <a href="/graha" className={window.location.pathname === '/graha' ? 'text-black font-bold' : 'text-[#5a5c61] hover:text-black hover:font-medium transition'}><HoverUnderline>Graha</HoverUnderline></a>
                     </li>
                     <li>
-                        <a href="/faq" className={window.location.pathname === '/faq' ? 'text-white' : 'text-black'}>FAQ</a>
+                        <a href="/faq" className={window.location.pathname === '/faq' ? 'text-black font-bold' : 'text-[#5a5c61] hover:text-black hover:font-medium transition'}><HoverUnderline>FAQ</HoverUnderline></a>
                     </li>
                 </div>
                 <div>
@@ -31,16 +53,16 @@ const Nav = () => {
                         {
                             token ?
                                 <li>
-                                    <button onClick={logout} className="p-2 bg-white rounded-lg mr-3 text-slate-500">Logout</button>
+                                    <button onClick={logout} className="p-2 bg-[#F78CB2] hover:bg-[#f379a3] text-white rounded-lg mr-3 px-5">Logout</button>
                                 </li>
                                 :
                                 <>
                                     <li>
-                                        <a className="p-2 bg-white rounded-lg mr-3 text-slate-500" href="/login">Login</a>
+                                        <a className="p-2 bg-[#F78CB2] hover:bg-[#f379a3] text-white rounded-lg mr-3 px-5" href="/login">Login</a>
                                     </li>
-                                    <li>
+                                    {/* <li>
                                         <a className="p-2 bg-slate-500 rounded-lg mr-3 text-white" href="/Signup">Signup</a>
-                                    </li>
+                                    </li> */}
                                 </>
                         }
                     </ul>

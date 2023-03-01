@@ -12,12 +12,12 @@ const Homepage = () => {
     return (
         <>
             <Nav />
-            <div className="my-[40px]">
+            <div className="my-[100px]">
 
                 <div className="flex flex-row mb-[30px] justify-around w-full">
                     <div className="w-[696px] mt-[100px]">
                         <h3 className="font-inter font-bold text-[64px] mb-[50px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                        <a href="/graha" className=" p-3 bg-slate-500 hover:bg-slate-600 rounded-lg text-white">Booking Sekarang</a>
+                        <a href="/graha" className=" p-3 bg-[#F78CB2] hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
                     </div>
                     <div>
                         <LazyLoadImage

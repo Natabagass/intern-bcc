@@ -18,7 +18,6 @@ const Login = () => {
     const toggleShow = () => {
         setPasswordShown(!passwordShown);
     }
-    const token = localStorage.getItem('auth')
     const [forms, setForms] = useState({
         email: '',
         password: '',
