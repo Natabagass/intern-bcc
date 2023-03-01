@@ -1,8 +1,13 @@
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import { Parallax, Mousewheel } from "swiper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Hero from '../../assets/card.png'
 import Nav from "./Nav";
 import ImgPage from '../../assets/mantap.jfif'
 import ImgHeroBtm from '../../assets/view.jpg'
+
 const Homepage = () => {
     return (
         <>
@@ -24,35 +29,81 @@ const Homepage = () => {
                 </div>
 
                 <div>
-                    <LazyLoadImage 
+                    <LazyLoadImage
                         src={ImgPage}
                         alt="Foto"
                         className="h-[704px] w-full"
                     />
                 </div>
 
-                <div className="flex my-[50px] flex-row mx-[50px] justify-between">
+                <div className="flex my-[50px] flex-row mx-[50px] justify-around">
                     <div className="w-[400px]">
                         <h3 className="font-inter font-bold text-[64px]">Mengapa Memilih Kami?</h3>
                     </div>
-                    <div className="font-inter">
-                        <div>
-                            <h1 className="text-[32px] font-bold">1. Discover</h1>
-                            <h3>Markicob</h3>
-                        </div>
-                        <div className="my-5">
-                            <h1 className="text-[32px] font-bold">2. Tes</h1>
-                            <h3>Markicob</h3>
-                        </div>
-                        <div className="my-5">
-                            <h1 className="text-[32px] font-bold">3. Haya</h1>
-                            <h3>Markicob</h3>
-                        </div>
+                    <div className="font-inter flex items-center w-[600px]">
+                        <Swiper
+                            direction={"horizontal"}
+                            speed={800}
+                            slidesPerView={1}
+                            mousewheel={true}
+                            parallax={true}
+                            modules={[Parallax, Mousewheel]}
+                            className="mySwiper"
+                        >
+                            <SwiperSlide>
+                                <div className="title font-bold text-[64px]" data-swiper-parallax="-400">
+                                    1. Discover
+                                </div>
+                                <div className="text mt-[20px]" data-swiper-parallax="-100">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="title font-bold text-[64px]" data-swiper-parallax="-400">
+                                    2. Found
+                                </div>
+                                <div className="text mt-[20px]" data-swiper-parallax="-100">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                            <SwiperSlide>
+                                <div className="title font-bold text-[64px]" data-swiper-parallax="-400">
+                                    3. Search
+                                </div>
+                                <div className="text mt-[20px]" data-swiper-parallax="-100">
+                                    <p>
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
+                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
+                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
+                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
+                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
+                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
+                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                        </Swiper>
                     </div>
                 </div>
 
                 <div>
-                    <LazyLoadImage 
+                    <LazyLoadImage
                         src={ImgHeroBtm}
                         alt="Foto"
                         className="h-[288px] w-full"

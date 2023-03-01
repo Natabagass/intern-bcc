@@ -8,6 +8,20 @@ const Home = lazy(() => {
     setTimeout(() => res(import("./pages/dashboard/Homepage")), 1000);
   });
 });
+
+const Graha = lazy(() => {
+  return new Promise<{ default: React.ComponentType<any> }>((res) => {
+    setTimeout(() => res(import("./pages/graha/Graha")), 1000);
+  });
+});
+
+const Faq = lazy(() => {
+  return new Promise<{ default: React.ComponentType<any> }>((res) => {
+    setTimeout(() => res(import("./pages/faq/Faq")), 1000);
+  });
+});
+
+
 const Login = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
     setTimeout(() => res(import("./pages/users/Login")), 1000);
@@ -28,10 +42,9 @@ function App() {
           <Route path='/' element={<Home />} />
           <Route element={<AuthRoute />}>
             <Route path='/login' element={<Login />} />
-            <Route path='/Signup' element={<Signup />} />
-          </Route>
-
-          <Route element={<PrivateRoute />}>
+            <Route path='/signup' element={<Signup />} />
+            <Route path='/graha' element={<Graha/>} />
+            <Route path='/faq' element={<Faq/>} />
           </Route>
         </Route>
       </Routes>

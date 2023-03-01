@@ -11,19 +11,19 @@ const Nav = () => {
 
     return (
         <nav className='p-5 bg-slate-400'>
-            <div className="flex flex-wrap mx-[50px] justify-between">
+            <div className="flex flex-wrap mx-[50px] items-center justify-between">
                 <a href="/">
-                    <h1>Grent.</h1>
+                    <h1 className="text-[32px] text-white">Grent <span className="text-black">.</span></h1>
                 </a>
                 <div className="flex flex-row list-none">
                     <li className="mr-5">
-                        <a href="/">Home</a>
+                        <a href="/" className={window.location.pathname === '/' ? 'text-white' : 'text-black'}>Home</a>
                     </li>
                     <li className="mr-5">
-                        <a href="/graha">Graha</a>
+                        <a href="/graha" className={window.location.pathname === '/graha' ? 'text-white' : 'text-black'}>Graha</a>
                     </li>
                     <li>
-                        <a href="/faq">FAQ</a>
+                        <a href="/faq" className={window.location.pathname === '/faq' ? 'text-white' : 'text-black'}>FAQ</a>
                     </li>
                 </div>
                 <div>
