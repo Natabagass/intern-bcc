@@ -9,7 +9,7 @@ const HoverUnderline = styled.span`
         display: block;
         height: 1.5px;
         width: 100%;
-        background-color: #5a5c61;
+        background-color: #F78CB2;
         position: absolute;
         bottom: 0;
         animation: slide 0.3s ease-in-out forwards;
@@ -39,13 +39,13 @@ const Nav = () => {
                 </a>
                 <div className="flex flex-row font-inter list-none">
                     <li className="mr-10">
-                        <a href="/" className={window.location.pathname === '/' ? 'text-black font-bold' : 'text-[#5a5c61] hover:text-black hover:font-medium transition'}><HoverUnderline>Home</HoverUnderline></a>
+                        <a href="/" className={window.location.pathname === '/' ? 'text-[#F78CB2] hover:text-[#dd7fa0] transition font-bold' : 'text-[#5a5c61] hover:text-[#F78CB2] hover:font-medium transition'}><HoverUnderline>Home</HoverUnderline></a>
                     </li>
                     <li className="mr-10">
-                        <a href="/graha" className={window.location.pathname === '/graha' ? 'text-black font-bold' : 'text-[#5a5c61] hover:text-black hover:font-medium transition'}><HoverUnderline>Graha</HoverUnderline></a>
+                        <a href="/graha" className={window.location.pathname === '/graha' ? 'text-[#F78CB2] hover:text-[#dd7fa0] transition font-bold' : 'text-[#5a5c61] hover:text-[#F78CB2] hover:font-medium transition'}><HoverUnderline>Graha</HoverUnderline></a>
                     </li>
                     <li>
-                        <a href="/faq" className={window.location.pathname === '/faq' ? 'text-black font-bold' : 'text-[#5a5c61] hover:text-black hover:font-medium transition'}><HoverUnderline>FAQ</HoverUnderline></a>
+                        <a href="/faq" className={window.location.pathname === '/faq' ? 'text-[#F78CB2] hover:text-[#dd7fa0] transition font-bold' : 'text-[#5a5c61] hover:text-[#F78CB2] hover:font-medium transition'}><HoverUnderline>FAQ</HoverUnderline></a>
                     </li>
                 </div>
                 <div>
