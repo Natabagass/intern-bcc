@@ -7,7 +7,7 @@ import Hero from '../../assets/card.png'
 import Nav from "./utils/Nav";
 import book from '../../assets/card.png'
 import ImgHeroBtm from '../../assets/view.jpg'
-import { layanan } from "../../models/dummy/dummy";
+import { layanan } from "../../models/dummy/layanan";
 import Footer from "./utils/Footer";
 
 const Homepage = () => {
