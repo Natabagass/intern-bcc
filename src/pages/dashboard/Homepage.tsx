@@ -8,6 +8,7 @@ import Nav from "./utils/Nav";
 import book from '../../assets/card.png'
 import ImgHeroBtm from '../../assets/view.jpg'
 import { layanan } from "../../models/dummy/dummy";
+import Footer from "./utils/Footer";
 
 const Homepage = () => {
     return (
@@ -134,6 +135,7 @@ const Homepage = () => {
                 </div>
 
             </div>
+            <Footer/>
         </>
     );
 }
