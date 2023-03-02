@@ -47,7 +47,7 @@ const Login = () => {
                     ></LazyLoadImage>
                 </div>
                 <div className="h-[610px] w-[500px] bg-[#D9D9D9]">
-                    <div className="px-[50px] py-[50px]">
+                    <div className="px-[50px] py-[80px]">
                         <h3 className="font-bold font-inter text-[34px]">Log in</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[50px]'>
@@ -58,7 +58,7 @@ const Login = () => {
                                 type="text"
                                 name="email"
                                 required
-                                placeholder="E-mail"
+                                placeholder="Masukkan E-mail anda"
                                 id='email'
                                 className='mt-2'
                             />
@@ -73,7 +73,7 @@ const Login = () => {
                                     type={passwordShown ? "text" : "password"}
                                     required
                                     id='password'
-                                    placeholder="Password"
+                                    placeholder="Masukkan kata sandi anda"
                                     className='mt-2 rounded-lg text-black pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
@@ -83,13 +83,8 @@ const Login = () => {
                         </div>
 
                         <div className="font-inter">
-                            <Button onClick={handleLogin} isLoading={loading} className="p-3 bg-white w-full mt-[50px] text-[14px]" type="submit">Login</Button>
+                            <Button onClick={handleLogin} isLoading={loading} className="p-3 bg-white w-full mt-[40px] text-[14px]" type="submit">Login</Button>
                             <span className="my-2 text-red-500 text-[14px] flex justify-center w-full">{validation}</span>
-                            <h1 className="w-full flex justify-center my-[10px] text-[12px] text-[#000000]">or</h1>
-                            <div className="relative flex items-center flex-row rounded-lg bg-white w-full justify-center">
-                                <LazyLoadImage className="" width={30} src={Google} alt="Google Icon"></LazyLoadImage>
-                                <Button className="p-3 text-[14px]" type="submit">Continue With Google</Button>
-                            </div>
                         </div>
                         <h2 className="text-[12px] mt-3 font-inter flex justify-center">Doesn't Have Account? &nbsp; <Link to='/signup' className="font-bold">Signup</Link></h2>
                     </div>
