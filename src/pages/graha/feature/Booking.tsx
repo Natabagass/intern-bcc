@@ -1,6 +1,6 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { gedung } from '../../../models/dummy/dummy'
-import Nav from "../../dashboard/Nav";
+import Nav from "../../dashboard/utils/Nav";
 import Ruang1 from '../../../assets/gedung.jpg'
 import Ruang2 from '../../../assets/gedung2.jpeg'
 import Ruang3 from '../../../assets/gedung1.jpg'

@@ -7,11 +7,11 @@ const HoverUnderline = styled.span`
     &:hover::after {
         content: "";
         display: block;
-        height: 1.5px;
+        height: 3.5px;
         width: 100%;
         background-color: #F78CB2;
         position: absolute;
-        bottom: 0;
+        bottom: -25px;
         animation: slide 0.3s ease-in-out forwards;
     }
     @keyframes slide {

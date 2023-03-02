@@ -1,4 +1,4 @@
-import Nav from "../dashboard/Nav";
+import Nav from "../dashboard/utils/Nav";
 import { gedung } from '../../models/dummy/dummy'
 import fotoGedung from '../../assets/gedung.jpg'
 import { LazyLoadImage } from "react-lazy-load-image-component";

@@ -33,38 +33,38 @@ const SuspenseWrapper = () => {
 
 const Home = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/dashboard/Homepage")), 1000);
+    setTimeout(() => res(import("./pages/dashboard/Homepage")), 1500);
   });
 });
 
 const Graha = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/graha/Graha")), 1000);
+    setTimeout(() => res(import("./pages/graha/Graha")), 1500);
   });
 });
 
 const Booking = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/graha/feature/Booking")), 1000);
+    setTimeout(() => res(import("./pages/graha/feature/Booking")), 1500);
   });
 });
 
 const Faq = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/faq/Faq")), 1000);
+    setTimeout(() => res(import("./pages/faq/Faq")), 1500);
   });
 });
 
 
 const Login = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/users/Login")), 1000);
+    setTimeout(() => res(import("./pages/users/Login")), 1500);
   });
 });
 
 const Signup = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/users/Signup")), 1000);
+    setTimeout(() => res(import("./pages/users/Signup")), 1500);
   });
 });
 

@@ -4,9 +4,10 @@ import "swiper/css/pagination";
 import { Parallax, Mousewheel } from "swiper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Hero from '../../assets/card.png'
-import Nav from "./Nav";
-import ImgPage from '../../assets/mantap.jfif'
+import Nav from "./utils/Nav";
+import book from '../../assets/card.png'
 import ImgHeroBtm from '../../assets/view.jpg'
+import { layanan } from "../../models/dummy/dummy";
 
 const Homepage = () => {
     return (
@@ -28,19 +29,39 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div>
-                    <LazyLoadImage
-                        src={ImgPage}
-                        alt="Foto"
-                        className="h-[704px] w-full"
-                    />
+                <div className="w-full bg-[#FEF3F7] min-h-fit">
+                    <div className="flex flex-col">
+                        <div className="mx-[70px] my-[50px]">
+                            <h1 className="font-inter font-bold text-[48px]">Layanan Kami</h1>
+                            <div className="flex flex-row justify-between">
+                                {
+                                    layanan.map(data => {
+                                        return (
+                                            <>
+                                                <div className="flex mt-5 flex-col">
+                                                    <LazyLoadImage
+                                                        src={book}
+                                                        alt='booking'
+                                                        className="w-[420px]"
+                                                    />
+                                                    <h1 className="font-bold font-inter text-[20px] flex justify-center mt-5">
+                                                        {data.keterangan}
+                                                    </h1>
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
-                <div className="flex my-[50px] flex-row mx-[50px] justify-around">
+                <div className="flex my-[50px] flex-row mx-[70px] justify-between">
                     <div className="w-[400px]">
                         <h3 className="font-inter font-bold text-[64px]">Mengapa Memilih Kami?</h3>
                     </div>
-                    <div className="font-inter flex items-center w-[600px]">
+                    <div className="font-inter flex items-center w-[800px]">
                         <Swiper
                             direction={"horizontal"}
                             speed={800}
@@ -102,12 +123,14 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div>
-                    <LazyLoadImage
-                        src={ImgHeroBtm}
-                        alt="Foto"
-                        className="h-[288px] w-full"
-                    />
+                <div className="w-full bg-[#FEF3F7] h-[288px]">
+                    <div>
+
+                    </div>
+                </div>
+
+                <div className="my-[100px]">
+                    <h1 className="font-bold font-inter text-[64px] flex justify-center">Saatnya Booking</h1>
                 </div>
 
             </div>
