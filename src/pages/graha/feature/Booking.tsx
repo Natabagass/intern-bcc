@@ -33,14 +33,14 @@ const Booking = () => {
                 <div className="flex items-stretch justify-between flex-row">
                     <LazyLoadImage
                         src={Ruang1}
-                        className="w-[75%] bg-cover bg-center h-[500px] rounded-xl"
+                        className="w-[75%] bg-cover bg-center h-[500px]"
                         alt="Gambar 1"
                     />
                     <div className="w-[25%] flex flex-col justify-between ml-5">
                         <div>
                             <LazyLoadImage
                                 src={Ruang2}
-                                className="bg-cover bg-center w-full h-[240px] rounded-xl"
+                                className="bg-cover bg-center w-full h-[240px]"
                                 alt="Gambar 1"
                             />
                         </div>
@@ -55,7 +55,7 @@ const Booking = () => {
                             </div>
                             <LazyLoadImage
                                 src={Ruang3}
-                                className="bg-cover bg-center w-full h-[240px] rounded-xl"
+                                className="bg-cover bg-center w-full h-[240px]"
                                 alt="Gambar 1"
                             />
                         </div>
