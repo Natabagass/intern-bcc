@@ -15,7 +15,7 @@ const Graha = () => {
                     {
                         gedung.map((data, index) => {
                             return (
-                                <div key={index} onClick={() => navigate('/graha/1')} className="mr-[20px] hover:opacity-80 cursor-pointer hover:-translate-y-2 transition rounded-xl border my-[30px] bg-white">
+                                <div key={index} onClick={() => navigate(`/graha/${data.id}`)} className="mr-[20px] hover:opacity-80 cursor-pointer hover:-translate-y-2 transition rounded-xl border my-[30px] bg-white">
                                     <div>
                                         <LazyLoadImage className="w-[400px] rounded-t-xl" src={fotoGedung} alt="Foto gedung" />
                                     </div>

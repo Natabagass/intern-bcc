@@ -8,6 +8,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -33,6 +53,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -58,6 +98,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -83,6 +143,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -108,6 +188,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -133,6 +233,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -158,6 +278,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -183,6 +323,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -208,6 +368,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -233,6 +413,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -258,6 +458,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
@@ -283,6 +503,26 @@ export const gedung = [
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
+        kapasitas: '100 Ribu Orang',
+        Luas: '2 Km²',
+        aturan: [
+            {
+                id:1,
+                barang: 'Jangan bawa miras'
+            },
+            {
+                id:2,
+                barang: 'Tidak boleh membawa pulang property'
+            },
+            {
+                id:3,
+                barang: 'Dilarang merusak property'
+            },
+            {
+                id:4,
+                barang: 'Tata ulang tempat setelah selesai'
+            },
+        ],
         fasilitas: [
             {
                 id:1,
