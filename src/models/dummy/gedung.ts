@@ -10,6 +10,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -55,6 +69,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -100,6 +128,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -145,6 +187,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -190,6 +246,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -235,6 +305,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -280,6 +364,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -325,6 +423,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -370,6 +482,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -415,6 +541,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -460,6 +600,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
@@ -505,6 +659,20 @@ export const gedung = [
         harga: 'Rp. 50jt-200jt',
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
+        tag: [
+            {
+                id: 1,
+                tipe: 'konser',
+            },
+            {
+                id: 2,
+                tipe: 'pernikahan',
+            },
+            {
+                id: 3,
+                tipe: 'seminar',
+            }
+        ],
         aturan: [
             {
                 id:1,
