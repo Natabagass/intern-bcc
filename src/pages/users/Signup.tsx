@@ -6,14 +6,17 @@ import Button from "../../components/button/Button";
 import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
 import axios from "axios";
 import { MdArrowBackIos } from "react-icons/md";
 
 const Signup = () => {
+    const navigate = useNavigate()
     const [passwordShown, setPasswordShown] = useState(false);
+    const [validation, setValidation] = useState('')
     const [loading, setLoading] = useState(false)
+    const [checked, setChecked] = useState(false)
     const [passwordRepeatShown, setPasswordRepeatShown] = useState(false);
     const toggleShow = () => {
         setPasswordShown(!passwordShown);
@@ -28,19 +31,18 @@ const Signup = () => {
         await axios.post('https://intern-production.up.railway.app/v0/register', forms)
             .then(res => {
                 console.log(res)
-                // localStorage.setItem('auth', res.data.token);
-                // navigate('/')
+                navigate('/login')
             })
             .catch(err => {
-                // setValidation(err.response.data.error)
+                setValidation(err.response.data.message)
                 setLoading(false)
             })
     }
 
     const [forms, setForms] = useState({
-        name: '',
+        nama: '',
         email: '',
-        phone: '',
+        number: '',
         password: '',
         passconfirm: ''
     })
@@ -68,27 +70,27 @@ const Signup = () => {
                         <h3 className="font-bold font-inter text-[34px]">Daftar</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[30px]'>
-                            <Label htmlFor="name" className="font-bold text-[24px]">Nama</Label>
+                            <Label htmlFor="nama" className="font-bold text-[24px]">Nama</Label>
                             <Input
-                                value={forms.name}
-                                onChange={e => setForms({ ...forms, name: e.target.value })}
+                                value={forms.nama}
+                                onChange={e => setForms({ ...forms, nama: e.target.value })}
                                 type="text"
                                 required
                                 placeholder="Masukkan nama anda"
-                                id='name'
+                                id='nama'
                                 className='mt-2 bg-[#F4F7FA]'
                             />
                         </div>
 
                         <div className='flex my-5 font-inter flex-col '>
-                            <Label htmlFor="phone" className="font-bold text-[24px]">Nomor HP</Label>
+                            <Label htmlFor="number" className="font-bold text-[24px]">Nomor HP</Label>
                             <Input
-                                value={forms.phone}
-                                onChange={e => setForms({ ...forms, phone: e.target.value })}
-                                type="text"
+                                value={forms.number}
+                                onChange={e => setForms({ ...forms, number: e.target.value })}
+                                type="number"
                                 required
                                 placeholder="Masukkan nomor HP anda"
-                                id='phone'
+                                id='number'
                                 className='mt-2 bg-[#F4F7FA]'
                             />
                         </div>
@@ -145,16 +147,19 @@ const Signup = () => {
                         <div className="flex w-full my-[20px] flex-row">
                             <input
                                 type="checkbox"
+                                onChange={() => setChecked(true)}
                                 required
+                                disabled={checked ? true : false}
                                 id="checklist"
-                                className="mr-2 bg-[]"
+                                className="mr-2"
                             />
                             <h1 className="text-[12px] font-inter">Saya menyetujui semua <span className="font-bold"> Ketentuan, Kebijakan Privasi</span></h1>
                         </div>
 
                         <div className="font-inter">
-                            <Button onClick={handleRegister} isLoading={loading} className="p-3 bg-[#F78CB2] text-white w-full text-[14px]" type="submit">Daftar</Button>
-                            <h2 className="text-[12px] mt-3 font-inter flex justify-center">Sudah mempunyai akun? &nbsp; <Link to='/login' className="font-bold">Masuk</Link></h2>
+                            <Button onClick={handleRegister} isLoading={loading} className="p-3 bg-[#F78CB2] text-white w-full text-[14px] disabled:opacity-[50%]" disabled={!checked ? true : false} type="submit">Daftar</Button>
+                            <span className="my-2 text-red-500 text-[13px] flex justify-center w-full">{validation}</span>
+                            <h2 className="text-[12px] mt-10 font-inter flex justify-center">Sudah mempunyai akun? &nbsp; <Link to='/login' className="font-bold">Masuk</Link></h2>
                         </div>
                     </div>
                 </div>

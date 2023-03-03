@@ -30,11 +30,11 @@ const Login = () => {
         await axios.post('https://intern-production.up.railway.app/v1/login', forms)
             .then(res => {
                 console.log(res)
-                // localStorage.setItem('auth', res.data.token);
-                // navigate('/')
+                localStorage.setItem('auth', res.data.data.token);
+                navigate('/')
             })
             .catch(err => {
-                // setValidation(err.response.data.error)
+                setValidation(err.response.data.Error)
                 setLoading(false)
             })
     }
@@ -96,7 +96,7 @@ const Login = () => {
                         <div className="font-inter">
                             <h1><a href="" className="my-3 text-[12px] opacity-[50%] flex justify-end w-full">Lupa kata sandi?</a></h1>
                             <Button onClick={handleLogin} isLoading={loading} className="p-3 bg-[#F78CB2] text-white w-full text-[14px]" type="submit">Masuk</Button>
-                            <span className="my-2 text-red-500 text-[14px] flex justify-center w-full">{validation}</span>
+                            <span className="my-2 text-red-500 text-[13px] flex justify-center w-full">{validation}</span>
                         </div>
                         <h2 className="text-[12px] mt-10 font-inter flex justify-center">Belum mempunyai akun? &nbsp; <Link to='/signup' className="font-bold">Daftar</Link></h2>
                     </div>

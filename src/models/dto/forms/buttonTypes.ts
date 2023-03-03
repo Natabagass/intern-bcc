@@ -5,5 +5,6 @@ export interface Props {
     onClick?: MouseEventHandler<HTMLButtonElement>,
     isLoading? : boolean,
     className?: string,
-    children?: string
+    children?: string,
+    disabled?: boolean
 }
