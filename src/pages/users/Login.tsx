@@ -9,6 +9,7 @@ import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
 import { Link, Navigate, useNavigate } from "react-router-dom";
+import { MdArrowBackIos } from "react-icons/md";
 
 const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -39,7 +40,13 @@ const Login = () => {
     }
     return (
         <>
-            <div className="flex justify-center text-[#1B1D21] flex-row">
+            <div className="flex justify-center font-inter text-[#1B1D21] flex-row">
+                <div className="mt-20">
+                    <a
+                        href="/"
+                        className="p-3 ml-10 absolute rounded-2xl flex text-[12px] shadow-md flex-row items-center text-[#F78CB2] mr-5 bg-white"
+                    ><MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
+                </div>
                 <LazyLoadImage
                     alt="Logo"
                     className="w-full h-screen"

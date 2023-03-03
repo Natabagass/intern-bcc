@@ -8,6 +8,8 @@ import Label from "../../components/label/Label";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
+import axios from "axios";
+import { MdArrowBackIos } from "react-icons/md";
 
 const Signup = () => {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -20,8 +22,19 @@ const Signup = () => {
         setPasswordRepeatShown(!passwordRepeatShown)
     }
 
-    const handleRegister = () => {
-
+    const handleRegister = async (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        setLoading(true)
+        await axios.post('https://intern-production.up.railway.app/v0/register', forms)
+            .then(res => {
+                console.log(res)
+                // localStorage.setItem('auth', res.data.token);
+                // navigate('/')
+            })
+            .catch(err => {
+                // setValidation(err.response.data.error)
+                setLoading(false)
+            })
     }
 
     const [forms, setForms] = useState({
@@ -29,11 +42,17 @@ const Signup = () => {
         email: '',
         phone: '',
         password: '',
-        passwordRepeat: ''
+        passconfirm: ''
     })
     return (
         <>
             <div className="flex justify-center text-[#1B1D21] flex-row">
+                <div className="mt-20">
+                    <a
+                        href="/"
+                        className="p-3 ml-10 absolute rounded-2xl flex text-[12px] shadow-md flex-row items-center text-[#F78CB2] mr-5 bg-white"
+                    ><MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
+                </div>
                 <LazyLoadImage
                     alt="Logo"
                     className="w-[50%] h-full"
@@ -106,14 +125,14 @@ const Signup = () => {
                         </div>
 
                         <div className='flex mt-6 flex-col'>
-                            <Label htmlFor='passwordRepeat' className="font-bold text-[24px]">Ulangi Kata Sandi</Label>
-                            <div className="relative flex items-center">
+                            <Label htmlFor='passconfirm' className="font-bold text-[24px]">Ulangi Kata Sandi</Label>
+                            <div className="relative flex items-cent er">
                                 <Input
-                                    value={forms.passwordRepeat}
-                                    onChange={e => setForms({ ...forms, passwordRepeat: e.target.value })}
+                                    value={forms.passconfirm}
+                                    onChange={e => setForms({ ...forms, passconfirm: e.target.value })}
                                     type={passwordRepeatShown ? "text" : "password"}
                                     required
-                                    id='passwordRepeat'
+                                    id='passconfirm'
                                     placeholder="Masukkan kata sandi anda"
                                     className='mt-2 bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />

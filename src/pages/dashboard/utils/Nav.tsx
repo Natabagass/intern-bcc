@@ -58,11 +58,11 @@ const Nav = () => {
                                 :
                                 <>
                                     <li>
-                                        <a className="p-2 bg-[#F78CB2] hover:bg-[#f379a3] text-white rounded-lg mr-3 px-5" href="/login">Login</a>
+                                        <a className="p-2 bg-white border-[#F78CB2] border text-[#F78CB2] hover:bg-[#f379a3] hover:text-white rounded-lg mr-3" href="/signup">Daftar</a>
                                     </li>
-                                    {/* <li>
-                                        <a className="p-2 bg-slate-500 rounded-lg mr-3 text-white" href="/Signup">Signup</a>
-                                    </li> */}
+                                    <li>
+                                        <a className="p-2 bg-[#F78CB2] hover:bg-white hover:text-[#F78CB2] hover:border hover:border-[#F78CB2] text-white rounded-lg mr-3 px-5" href="/login">masuk</a>
+                                    </li>
                                 </>
                         }
                     </ul>
