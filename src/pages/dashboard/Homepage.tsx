@@ -3,10 +3,9 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Parallax, Mousewheel } from "swiper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Hero from '../../assets/card.png'
+import Hero from '../../assets/logoHome.png'
 import Nav from "./utils/Nav";
 import book from '../../assets/card.png'
-import ImgHeroBtm from '../../assets/view.jpg'
 import { layanan } from "../../models/dummy/layanan";
 import Footer from "./utils/Footer";
 

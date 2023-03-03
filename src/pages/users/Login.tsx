@@ -2,8 +2,8 @@ import { useState } from "react";
 import axios from "axios";
 import { FaRegEyeSlash } from 'react-icons/fa'
 import { AiOutlineEye } from 'react-icons/ai'
-import Google from '../../assets/icons8-google.svg'
-import sideImg from '../../assets/card.png'
+import sideImg from '../../assets/image 12.png'
+import logo from '../../assets/grent.com.png'
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
@@ -26,31 +26,35 @@ const Login = () => {
     const handleLogin = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         setLoading(true)
-        await axios.post('https://reqres.in/api/login', forms)
+        await axios.post('https://intern-production.up.railway.app/v1/login', forms)
             .then(res => {
-                localStorage.setItem('auth', res.data.token);    
-                navigate('/')
+                console.log(res)
+                // localStorage.setItem('auth', res.data.token);
+                // navigate('/')
             })
             .catch(err => {
-                setValidation(err.response.data.error)
+                // setValidation(err.response.data.error)
                 setLoading(false)
             })
     }
     return (
         <>
-            <div className="flex justify-center min-h-screen items-center flex-row">
-                <div className="mr-[20px]">
+            <div className="flex justify-center text-[#1B1D21] flex-row">
+                <LazyLoadImage
+                    alt="Logo"
+                    className="w-full h-screen"
+                    src={sideImg}
+                />
+                <div className="flex flex-col items-center justify-around w-full">
                     <LazyLoadImage
                         alt="Logo"
-                        className="w-[500px]"
-                        src={sideImg}
-                    ></LazyLoadImage>
-                </div>
-                <div className="h-[610px] w-[500px] bg-[#D9D9D9]">
-                    <div className="px-[50px] py-[80px]">
-                        <h3 className="font-bold font-inter text-[34px]">Log in</h3>
+                        className="w-[25%]"
+                        src={logo}
+                    />
+                    <div className="w-[400px] -mt-[100px]">
+                        <h3 className="font-bold font-inter text-[34px]">Masuk</h3>
 
-                        <div className='flex my-5 font-inter flex-col mt-[50px]'>
+                        <div className='flex w-full font-inter flex-col mt-[30px]'>
                             <Label htmlFor="email" className="font-bold text-[24px]">E-mail</Label>
                             <Input
                                 value={forms.email}
@@ -60,11 +64,11 @@ const Login = () => {
                                 required
                                 placeholder="Masukkan E-mail anda"
                                 id='email'
-                                className='mt-2'
+                                className='mt-2 bg-[#F4F7FA]'
                             />
                         </div>
 
-                        <div className='flex mt-6 flex-col'>
+                        <div className='flex w-full mt-6 flex-col'>
                             <Label htmlFor='password' className="font-bold text-[24px]">Password</Label>
                             <div className="relative flex items-center">
                                 <Input
@@ -74,7 +78,7 @@ const Login = () => {
                                     required
                                     id='password'
                                     placeholder="Masukkan kata sandi anda"
-                                    className='mt-2 rounded-lg text-black pl-2 outline-none'
+                                    className='mt-2 rounded-lg bg-[#F4F7FA] pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
                                     {!passwordShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
@@ -83,10 +87,11 @@ const Login = () => {
                         </div>
 
                         <div className="font-inter">
-                            <Button onClick={handleLogin} isLoading={loading} className="p-3 bg-white w-full mt-[40px] text-[14px]" type="submit">Login</Button>
+                            <h1><a href="" className="my-3 text-[12px] opacity-[50%] flex justify-end w-full">Lupa kata sandi?</a></h1>
+                            <Button onClick={handleLogin} isLoading={loading} className="p-3 bg-[#F78CB2] text-white w-full text-[14px]" type="submit">Masuk</Button>
                             <span className="my-2 text-red-500 text-[14px] flex justify-center w-full">{validation}</span>
                         </div>
-                        <h2 className="text-[12px] mt-3 font-inter flex justify-center">Doesn't Have Account? &nbsp; <Link to='/signup' className="font-bold">Signup</Link></h2>
+                        <h2 className="text-[12px] mt-10 font-inter flex justify-center">Belum mempunyai akun? &nbsp; <Link to='/signup' className="font-bold">Daftar</Link></h2>
                     </div>
                 </div>
             </div>

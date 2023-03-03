@@ -1,6 +1,6 @@
 import { FaRegEyeSlash } from "react-icons/fa";
-import Google from '../../assets/icons8-google.svg'
-import sideImg from '../../assets/card.png'
+import logo from '../../assets/grent.com.png'
+import sideImg from '../../assets/image 14.png'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../../components/button/Button";
 import Input from "../../components/input/Input";
@@ -11,6 +11,7 @@ import { AiOutlineEye } from "react-icons/ai";
 
 const Signup = () => {
     const [passwordShown, setPasswordShown] = useState(false);
+    const [loading, setLoading] = useState(false)
     const [passwordRepeatShown, setPasswordRepeatShown] = useState(false);
     const toggleShow = () => {
         setPasswordShown(!passwordShown);
@@ -18,6 +19,11 @@ const Signup = () => {
     const toggleShowRepeat = () => {
         setPasswordRepeatShown(!passwordRepeatShown)
     }
+
+    const handleRegister = () => {
+
+    }
+
     const [forms, setForms] = useState({
         name: '',
         email: '',
@@ -27,16 +33,19 @@ const Signup = () => {
     })
     return (
         <>
-            <div className="flex justify-center min-h-screen items-center flex-row">
-                <div className="mr-[20px]">
+            <div className="flex justify-center text-[#1B1D21] flex-row">
+                <LazyLoadImage
+                    alt="Logo"
+                    className="w-[50%] h-full"
+                    src={sideImg}
+                />
+                <div className="flex flex-col items-center justify-around w-full">
                     <LazyLoadImage
                         alt="Logo"
-                        className="w-[500px] h-[850px]"
-                        src={sideImg}
-                    ></LazyLoadImage>
-                </div>
-                <div className="h-[850px] my-[70px] w-[500px] bg-[#D9D9D9]">
-                    <div className=" px-[50px] py-[50px]">
+                        className="w-[25%]"
+                        src={logo}
+                    />
+                    <div className="w-[400px] -mt-[100px]">
                         <h3 className="font-bold font-inter text-[34px]">Daftar</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[30px]'>
@@ -48,7 +57,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan nama anda"
                                 id='name'
-                                className='mt-2'
+                                className='mt-2 bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -61,7 +70,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan nomor HP anda"
                                 id='phone'
-                                className='mt-2'
+                                className='mt-2 bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -74,7 +83,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan E-mail anda"
                                 id='email'
-                                className='mt-2'
+                                className='mt-2 bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -88,7 +97,7 @@ const Signup = () => {
                                     required
                                     id='password'
                                     placeholder="Masukkan kata sandi anda"
-                                    className='mt-2 rounded-lg text-black pl-2 outline-none'
+                                    className='mt-2 bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
                                     {!passwordShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
@@ -106,7 +115,7 @@ const Signup = () => {
                                     required
                                     id='passwordRepeat'
                                     placeholder="Masukkan kata sandi anda"
-                                    className='mt-2 rounded-lg text-black pl-2 outline-none'
+                                    className='mt-2 bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />
                                 <button onClick={toggleShowRepeat} className="cursor-pointer flex items-center">
                                     {!passwordRepeatShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
@@ -119,17 +128,16 @@ const Signup = () => {
                                 type="checkbox"
                                 required
                                 id="checklist"
-                                className="mr-2"
+                                className="mr-2 bg-[]"
                             />
                             <h1 className="text-[12px] font-inter">Saya menyetujui semua <span className="font-bold"> Ketentuan, Kebijakan Privasi</span></h1>
                         </div>
 
                         <div className="font-inter">
-                            <Button className="p-3 bg-white w-full text-[14px]" type="submit">Sign Up</Button>
+                            <Button onClick={handleRegister} isLoading={loading} className="p-3 bg-[#F78CB2] text-white w-full text-[14px]" type="submit">Daftar</Button>
                             <h2 className="text-[12px] mt-3 font-inter flex justify-center">Sudah mempunyai akun? &nbsp; <Link to='/login' className="font-bold">Masuk</Link></h2>
                         </div>
                     </div>
-
                 </div>
             </div>
         </>
