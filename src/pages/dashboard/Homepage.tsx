@@ -39,11 +39,11 @@ const Homepage = () => {
                                     layanan.map(data => {
                                         return (
                                             <>
-                                                <div className="flex mt-5 flex-col">
+                                                <div className="flex mt-5 justify-between mr-10 flex-col">
                                                     <LazyLoadImage
                                                         src={book}
                                                         alt='booking'
-                                                        className="w-[420px]"
+                                                        className="w-full"
                                                     />
                                                     <h1 className="font-bold font-inter text-[20px] flex justify-center mt-5">
                                                         {data.keterangan}
