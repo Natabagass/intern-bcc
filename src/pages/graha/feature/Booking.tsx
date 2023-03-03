@@ -158,7 +158,7 @@ const Booking = () => {
                                                     type="button"
                                                     className="mt-7 w-full text-[#F78CB2] bg-white border border-[#F78CB2]"
                                                     children="Tanya Pemilik"
-                                                    onClick={() => navigate('/')}
+                                                    onClick={() => navigate('https://wa.me/6275156144979')}
                                                 />
 
                                                 <Button

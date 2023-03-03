@@ -3,9 +3,11 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Parallax, Mousewheel } from "swiper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Hero from '../../assets/logoHome.png'
+import Hero from '../../assets/logoHomeFix.png'
+import PesanOnline from '../../assets/pesan online.png'
+import MencariGedung from '../../assets/logoHome.png'
+import PesanGedung from '../../assets/pesan gedung.png'
 import Nav from "./utils/Nav";
-import book from '../../assets/card.png'
 import { layanan } from "../../models/dummy/layanan";
 import Footer from "./utils/Footer";
 
@@ -17,8 +19,8 @@ const Homepage = () => {
 
                 <div className="flex flex-row mb-[30px] justify-around w-full">
                     <div className="w-[696px] mt-[100px]">
-                        <h3 className="font-inter font-bold text-[64px] mb-[50px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit</h3>
-                        <a href="/graha" className=" p-3 bg-[#F78CB2] hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
+                        <h3 className="font-inter font-bold text-[64px] mb-[50px]">Masih bingung cari persewaan gedung? </h3>
+                        <a href="/graha" className="p-3 bg-[#F78CB2] hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
                     </div>
                     <div>
                         <LazyLoadImage
@@ -40,9 +42,9 @@ const Homepage = () => {
                                             <>
                                                 <div className="flex mt-5 justify-between mr-10 flex-col">
                                                     <LazyLoadImage
-                                                        src={book}
+                                                        src={PesanGedung}
                                                         alt='booking'
-                                                        className="w-full"
+                                                        className="w-full h-fit"
                                                     />
                                                     <h1 className="font-bold font-inter text-[20px] flex justify-center mt-5">
                                                         {data.keterangan}
@@ -125,7 +127,6 @@ const Homepage = () => {
 
                 <div className="w-full bg-[#FEF3F7] h-[288px]">
                     <div>
-
                     </div>
                 </div>
 
