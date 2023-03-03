@@ -154,12 +154,11 @@ const Booking = () => {
                                                 <h1 className="text-[16px] ">Mulai Dari</h1>
                                                 <h3 className="font-bold text-[25px]">{sub.harga}</h3>
 
-                                                <Button
-                                                    type="button"
-                                                    className="mt-7 w-full text-[#F78CB2] bg-white border border-[#F78CB2]"
-                                                    children="Tanya Pemilik"
-                                                    onClick={() => navigate('https://wa.me/6275156144979')}
-                                                />
+                                                <a
+                                                    href="https://wa.me/6275156144979"
+                                                    target='_blank'
+                                                    className="mt-7 p-2 flex justify-center rounded-lg w-full text-[#F78CB2] bg-white border border-[#F78CB2]"
+                                                >Tanya Pemilik</a>
 
                                                 <Button
                                                     type="submit"
