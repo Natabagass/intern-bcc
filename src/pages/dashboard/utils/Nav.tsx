@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useState } from "react";
 import styled from "styled-components";
 
@@ -26,9 +27,17 @@ const HoverUnderline = styled.span`
 
 const Nav = () => {
     const token = localStorage.getItem('auth')
-    const logout = () => {
-        localStorage.removeItem('auth');
-        window.location.replace('/')
+    const logout = async (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        await axios.get('https://intern-production.up.railway.app/v0/logout')
+            .then(res => {
+                console.log(res)
+                localStorage.removeItem('auth')
+                window.location.replace('/')
+            })
+            .catch(err => {
+                console.log(err)
+            })
     }
 
     return (

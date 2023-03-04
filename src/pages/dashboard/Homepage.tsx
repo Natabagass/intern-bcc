@@ -2,20 +2,23 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Parallax, Mousewheel } from "swiper";
+import foto1 from '../../assets/foto1.png'
+import foto2 from '../../assets/foto2.png'
+import foto3 from '../../assets/foto3.png'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Hero from '../../assets/logoHomeFix.png'
 import PesanOnline from '../../assets/pesan online.png'
 import LihatGedung from '../../assets/lihat gedung.png'
 import PesanGedung from '../../assets/pesan gedung.png'
 import Nav from "./utils/Nav";
-import { layanan } from "../../models/dummy/layanan";
+import { layanan, pemilikGraha } from "../../models/dummy/layanan";
 import Footer from "./utils/Footer";
 
 const Homepage = () => {
     return (
         <>
             <Nav />
-            <div className="my-[100px]">
+            <div className="my-[100px] font-inter">
 
                 <div className="flex flex-row mb-[30px] justify-around w-full">
                     <div className="w-[696px] mt-[100px]">
@@ -43,8 +46,8 @@ const Homepage = () => {
                                                 <div className="flex mt-5 justify-between mr-10 flex-col">
                                                     <LazyLoadImage
                                                         src={`
-                                                            ${data.keterangan === 'Pesan Online' ? PesanOnline : 
-                                                            data.keterangan === 'Lihat Gedung' ? LihatGedung : PesanGedung}
+                                                            ${data.keterangan === 'Pesan Online' ? PesanOnline :
+                                                                data.keterangan === 'Lihat Gedung' ? LihatGedung : PesanGedung}
                                                             `}
                                                         alt='booking'
                                                         className="w-full h-fit"
@@ -128,17 +131,43 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div className="w-full bg-[#FEF3F7] h-[288px]">
-                    <div>
+                <div className="w-full bg-[#FEF3F7] min-h-fit">
+                    <div className="flex flex-col">
+                        <div className="mx-[70px] my-[50px]">
+                            <h1 className="font-inter font-bold text-[48px]">Dari Pemilik Graha</h1>
+                            <div className="flex flex-row justify-between mt-8">
+                                {
+                                    pemilikGraha.map((data) => {
+                                        return (
+                                            <>
+                                                <div className="bg-white flex flex-col w-[30%] shadow-md justify-center items-center rounded-xl p-14">
+                                                    <LazyLoadImage src={`
+                                                            ${data.nama === 'Anthonio Priawan' ? foto1 :
+                                                            data.nama === 'Suryani Mahalini' ? foto2 : foto3}
+                                                            `}
+                                                        alt='Foto Pemilik'
+                                                        className="w-[150px]" />
+                                                    <div className="flex justify-center flex-wrap flex-col text-center">
+                                                        <h1 className="font-bold text-[24px] mt-7">{data.nama}</h1>
+                                                        <h3 className="text-[16px] opacity-[50%]">{data.gedung}</h3>
+                                                        <h3 className="text-[16px] mt-5">{data.komentar}</h3>
+                                                    </div>
+                                                </div>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="my-[100px]">
-                    <h1 className="font-bold font-inter text-[64px] flex justify-center">Saatnya Booking</h1>
+                <div className="my-[100px] mx-[70px]">
+                    <h1 className="font-bold font-inter text-[64px]">Apa Kata Pengguna</h1>
                 </div>
 
             </div>
-            <Footer/>
+            <Footer />
         </>
     );
 }
