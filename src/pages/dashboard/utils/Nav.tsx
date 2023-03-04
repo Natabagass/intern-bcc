@@ -1,6 +1,7 @@
 import axios from "axios";
-import { useState } from "react";
+import logo from '../../../assets/grent.com.png'
 import styled from "styled-components";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const HoverUnderline = styled.span`
     position: relative;
@@ -41,10 +42,14 @@ const Nav = () => {
     }
 
     return (
-        <nav className='p-3 top-0 fixed w-full z-10 bg-white scroll-smooth shadow-xl'>
+        <nav className='p-5 top-0 fixed w-full z-10 bg-white scroll-smooth shadow-xl'>
             <div className="flex flex-wrap mx-[50px] items-center justify-between">
                 <a href="/">
-                    <h1 className="text-[32px] font-bold font-inter">grent.com</h1>
+                    <LazyLoadImage
+                        src={logo}
+                        alt="Logo"
+                        className="w-[150px]"
+                    />
                 </a>
                 <div className="flex flex-row font-inter list-none">
                     <li className="mr-10">
