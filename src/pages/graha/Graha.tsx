@@ -5,7 +5,6 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import Footer from "../dashboard/utils/Footer";
 import {GrLocation} from 'react-icons/gr'
-import { useEffect, useState } from "react";
 
 const Graha = () => {
     const navigate = useNavigate()

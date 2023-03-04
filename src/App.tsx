@@ -8,14 +8,14 @@ function App() {
   return (
     <div className='app'>
       <Routes>
+        <Route path='/graha' element={<Graha />} />
+        <Route path='/faq' element={<Faq />} />
+        <Route path='/graha/:id' element={<Booking />} />
         <Route element={<SuspenseWrapper />}>
           <Route path='/' element={<Home />} />
           <Route element={<AuthRoute />}>
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/graha' element={<Graha/>} />
-            <Route path='/faq' element={<Faq/>} />
-            <Route path='/graha/:id' element={<Booking/>}/>
           </Route>
         </Route>
       </Routes>
