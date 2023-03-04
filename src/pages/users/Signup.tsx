@@ -149,6 +149,7 @@ const Signup = () => {
                                 type="checkbox"
                                 required
                                 disabled={checked ? true : false}
+                                onClick={() => {setChecked(true)}}
                                 id="checklist"
                                 className="mr-2"
                             />
