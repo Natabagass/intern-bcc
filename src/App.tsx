@@ -8,10 +8,10 @@ function App() {
   return (
     <div className='app'>
       <Routes>
+        <Route element={<SuspenseWrapper />}>
         <Route path='/graha' element={<Graha />} />
         <Route path='/faq' element={<Faq />} />
         <Route path='/graha/:id' element={<Booking />} />
-        <Route element={<SuspenseWrapper />}>
           <Route path='/' element={<Home />} />
           <Route element={<AuthRoute />}>
             <Route path='/login' element={<Login />} />
