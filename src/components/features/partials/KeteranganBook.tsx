@@ -2,14 +2,20 @@ import { useState } from "react";
 import { FaCircle } from "react-icons/fa";
 import Button from "../../button/Button";
 import Input from "../../input/Input";
+import Swal from 'sweetalert2'
 import Label from "../../label/Label";
 import { gedung } from '../../../models/dummy/gedung'
 import { GrLocation } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
+import withReactContent from "sweetalert2-react-content";
+
+
 
 const Keterangan = () => {
+    const notLoggedin = withReactContent(Swal)
     const [show, setShow] = useState(false)
     const token = localStorage.getItem('auth')
+    const [loggedIn, setLoggedIn] = useState('')
     const navigate = useNavigate()
     const [forms, setForms] = useState({
         nama: '',
@@ -171,14 +177,14 @@ const Keterangan = () => {
                                                             type='number'
                                                             required
                                                             id='number'
-                                                            placeholder="Masukkan kata sandi anda"
+                                                            placeholder="Masukkan nomer HP anda"
                                                             className='mt-2 bg-[#DEE4EB]  rounded-xl pl-2 outline-none'
                                                         />
                                                     </div>
                                                 </div>
 
                                                 <div className='flex mt-6 flex-col'>
-                                                    <Label htmlFor='alamat' className="text-[14]">Ulangi Kata Sandi</Label>
+                                                    <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
                                                     <div className="relative flex items-cent er">
                                                         <Input
                                                             value={forms.alamat}
@@ -186,7 +192,7 @@ const Keterangan = () => {
                                                             type='text'
                                                             required
                                                             id='alamat'
-                                                            placeholder="Masukkan kata sandi anda"
+                                                            placeholder="Masukkan alamat anda"
                                                             className='mt-2 bg-[#DEE4EB] rounded-xl pl-2 outline-none'
                                                         />
                                                     </div>
@@ -198,13 +204,28 @@ const Keterangan = () => {
                                                 className="mt-3 w-full text-white bg-[#F78CB2] hover:bg-[#f379a3]"
                                                 children="Ajukan Sewa"
                                                 onClick={() => {
-                                                    if (show){
+                                                    if (show) {
                                                         navigate('/')
-                                                    }else{
-                                                        setShow(true)
+                                                    } else {
+                                                        if (token) {
+                                                            setShow(true)
+                                                        } else {
+                                                            notLoggedin.fire({
+                                                                title: 'Apakah kamu mau masuk terlebih dahulu?',
+                                                                showCancelButton: true,
+                                                                confirmButtonText: 'Masuk',
+                                                            }).then((result) => {
+                                                                if (result.isConfirmed) {
+                                                                    navigate('/login')
+                                                                } else if (result.isDenied) {
+                                                                    Swal.fire('Kembali ke page', '', 'info')
+                                                                }
+                                                            })
+                                                        }
                                                     }
                                                 }}
                                             />
+
                                         </div>
                                     </div>
                                 </div>
