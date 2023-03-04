@@ -5,7 +5,7 @@ import { Parallax, Mousewheel } from "swiper";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Hero from '../../assets/logoHomeFix.png'
 import PesanOnline from '../../assets/pesan online.png'
-import MencariGedung from '../../assets/logoHome.png'
+import LihatGedung from '../../assets/lihat gedung.png'
 import PesanGedung from '../../assets/pesan gedung.png'
 import Nav from "./utils/Nav";
 import { layanan } from "../../models/dummy/layanan";
@@ -42,7 +42,10 @@ const Homepage = () => {
                                             <>
                                                 <div className="flex mt-5 justify-between mr-10 flex-col">
                                                     <LazyLoadImage
-                                                        src={PesanGedung}
+                                                        src={`
+                                                            ${data.keterangan === 'Pesan Online' ? PesanOnline : 
+                                                            data.keterangan === 'Lihat Gedung' ? LihatGedung : PesanGedung}
+                                                            `}
                                                         alt='booking'
                                                         className="w-full h-fit"
                                                     />

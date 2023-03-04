@@ -5,10 +5,10 @@ export const layanan = [
     },
     {
         id: 2,
-        keterangan: 'Mencari Gedung'
+        keterangan: 'Lihat Gedung'
     },
     {
         id: 3,
-        keterangan: 'Anti Capek'
+        keterangan: 'Pesan Gedung'
     },
 ]

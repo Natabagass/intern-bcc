@@ -5,6 +5,8 @@ const Input = ({
     placeholder,
     name,
     onChange,
+    onFocus,
+    onBlur,
     id,
     value,
     required,
@@ -15,12 +17,14 @@ const Input = ({
             <input 
                 placeholder={placeholder}
                 value={value}
+                onFocus={onFocus}
+                onBlur={onBlur}
                 onChange={onChange}
                 type={type} 
                 name={name}
                 required={required}
                 id={id} 
-                className={`rounded-md p-3 text-[14px] w-full text-black pl-4 outline-none placeholder:text-[14px] ${className}`}
+                className={`p-3 text-[14px] w-full text-black pl-4 outline-none placeholder:text-[14px] ${className}`}
                 />
         </div>
     );

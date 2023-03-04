@@ -27,13 +27,14 @@ const Login = () => {
     const handleLogin = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         setLoading(true)
-        await axios.post('https://intern-production.up.railway.app/v1/login', forms)
+        await axios.post('https://intern-production.up.railway.app/v0/login', forms)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('auth', res.data.data.token);
                 navigate('/')
             })
             .catch(err => {
+                console.log(err)
                 setValidation(err.response.data.Error)
                 setLoading(false)
             })
@@ -71,7 +72,7 @@ const Login = () => {
                                 required
                                 placeholder="Masukkan E-mail anda"
                                 id='email'
-                                className='mt-2 bg-[#F4F7FA]'
+                                className='mt-2 rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 

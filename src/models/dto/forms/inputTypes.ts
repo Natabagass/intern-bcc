@@ -1,8 +1,10 @@
-import { ChangeEventHandler } from "react"
+import { ChangeEventHandler, FocusEventHandler} from "react"
 
 export interface Props {
     placeholder?: string
     onChange?: ChangeEventHandler<HTMLInputElement>,
+    onBlur?: FocusEventHandler<HTMLInputElement>,
+    onFocus?: FocusEventHandler<HTMLInputElement>,
     type: 'text' | 'email' | 'number' | 'password' | 'checkbox' | 'date',
     name?: string,
     id?: string,

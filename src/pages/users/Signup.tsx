@@ -78,7 +78,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan nama anda"
                                 id='nama'
-                                className='mt-2 bg-[#F4F7FA]'
+                                className='mt-2 rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -91,7 +91,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan nomor HP anda"
                                 id='number'
-                                className='mt-2 bg-[#F4F7FA]'
+                                className='mt-2 rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -104,7 +104,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan E-mail anda"
                                 id='email'
-                                className='mt-2 bg-[#F4F7FA]'
+                                className='mt-2 rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -147,7 +147,6 @@ const Signup = () => {
                         <div className="flex w-full my-[20px] flex-row">
                             <input
                                 type="checkbox"
-                                onChange={() => setChecked(true)}
                                 required
                                 disabled={checked ? true : false}
                                 id="checklist"
