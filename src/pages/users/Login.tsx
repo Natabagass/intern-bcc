@@ -7,7 +7,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import AxiosInstance from "../../components/features/api/AxiosInstance";
 import Cookies from "js-cookie";
@@ -15,7 +15,6 @@ const axiosInstance = AxiosInstance();
 
 const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
-    const navigate = useNavigate()
     const [validation, setValidation] = useState('')
     const [loading, setLoading] = useState(false)
     const toggleShow = () => {
@@ -34,7 +33,9 @@ const Login = () => {
                 console.log(res)
                 const token = res.data.data.token
                 Cookies.set('auth', token, {expires: 1})
-                navigate('/')
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1000)
             })
             .catch(err => {
                 console.log(err)

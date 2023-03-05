@@ -3,9 +3,11 @@ import logo from '../../../assets/grent.com.png'
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AxiosInstance from "../../../components/features/api/AxiosInstance";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 const axiosInstance = AxiosInstance()
+import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
+import {IoLogOutOutline} from 'react-icons/io5'
 
 const HoverUnderline = styled.span`
     position: relative;
@@ -32,10 +34,13 @@ const HoverUnderline = styled.span`
 
 const Nav = () => {
     const token = Cookies.get('auth')
+    const [isOpen, setIsOpen] = useState(false);
+    const [nama, setNama] = useState('')
     const getdata = async () => {
         await axiosInstance.get('/validate')
             .then(res => {
                 console.log(res)
+                setNama(res.data.data)
             })
             .catch(err => {
                 console.log(err)
@@ -44,7 +49,7 @@ const Nav = () => {
 
     useEffect(() => {
         getdata()
-    }, [])
+    }, [token])
 
     const logout = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
@@ -84,9 +89,23 @@ const Nav = () => {
                     <ul className="flex flex-row">
                         {
                             token ?
-                                <li>
-                                    <button onClick={logout} className="p-2 bg-[#F78CB2] hover:bg-[#f379a3] text-white rounded-lg mr-3 px-5">Logout</button>
-                                </li>
+                                <div className="relative">
+                                    <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-white w-full hover:bg-[#f379a3] border hover:text-white border-[#F78CB2] text-[#F78CB2] rounded-lg mr-3 px-5 flex flex-row items-center">{nama}<MdOutlineKeyboardArrowDown className="text-[20px] ml-1 mt-1" /></button>
+                                    {isOpen && (
+                                        <div className="absolute mt-1 right-0 top-full w-full bg-white rounded-lg shadow-lg z-10">
+                                            <ul>
+                                                <li>
+                                                    <button
+                                                        className="block w-full text-[#F78CB2] p-2 hover: rounded-lg hover:bg-gray-100"
+                                                        onClick={logout}
+                                                    >
+                                                        <span className="flex flex-row justify-end items-center">Logout <IoLogOutOutline className="ml-2 mr-5 mt-1"/></span>
+                                                    </button>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    )}
+                                </div>
                                 :
                                 <>
                                     <li>
