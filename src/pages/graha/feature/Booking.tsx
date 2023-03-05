@@ -8,7 +8,7 @@ import Ruang3 from '../../../assets/gedung1.jpg'
 import { useEffect, useState } from "react";
 import Button from "../../../components/button/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import Keterangan from "../../../components/features/partials/KeteranganBook";
+import Keterangan from "../../../components/features/partials/booking/KeteranganBook";
 
 const Booking = () => {
     const [nama, setNama] = useState('')

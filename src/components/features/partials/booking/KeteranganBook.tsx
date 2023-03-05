@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { FaCircle } from "react-icons/fa";
-import Button from "../../button/Button";
-import Input from "../../input/Input";
+import Button from "../../../button/Button";
+import Input from "../../../input/Input";
 import Swal from 'sweetalert2'
-import Label from "../../label/Label";
-import { gedung } from '../../../models/dummy/gedung'
+import Label from "../../../label/Label";
+import { gedung } from '../../../../models/dummy/gedung'
 import { GrLocation } from "react-icons/gr";
 import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";

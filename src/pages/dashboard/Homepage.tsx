@@ -13,6 +13,7 @@ import PesanGedung from '../../assets/pesan gedung.png'
 import Nav from "./utils/Nav";
 import { layanan, pemilikGraha } from "../../models/dummy/layanan";
 import Footer from "./utils/Footer";
+import RunComponent from "../../components/features/partials/home/RunningComponent";
 
 const Homepage = () => {
     return (
@@ -162,8 +163,11 @@ const Homepage = () => {
                     </div>
                 </div>
 
-                <div className="my-[100px] mx-[70px]">
-                    <h1 className="font-bold font-inter text-[64px]">Apa Kata Pengguna</h1>
+                <div className="my-[100px]">
+                    <div className="mx-[70px]">
+                        <h1 className="font-bold font-inter text-[64px]">Apa Kata Pengguna</h1>
+                    </div>
+                    <RunComponent/>
                 </div>
 
             </div>
