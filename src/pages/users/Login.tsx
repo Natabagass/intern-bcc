@@ -10,6 +10,7 @@ import Button from "../../components/button/Button";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import AxiosInstance from "../../components/features/api/AxiosInstance";
+import Cookies from "js-cookie";
 const axiosInstance = AxiosInstance();
 
 const Login = () => {
@@ -31,7 +32,8 @@ const Login = () => {
         await axiosInstance.post('/login', forms)
             .then(res => {
                 console.log(res)
-                localStorage.setItem('auth', res.data.data.token);
+                const token = res.data.data.token
+                Cookies.set('auth', token, {expires: 1})
                 navigate('/')
             })
             .catch(err => {

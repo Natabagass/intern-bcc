@@ -2,6 +2,10 @@ import axios from "axios";
 import logo from '../../../assets/grent.com.png'
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
+import AxiosInstance from "../../../components/features/api/AxiosInstance";
+import { useEffect } from "react";
+import Cookies from "js-cookie";
+const axiosInstance = AxiosInstance()
 
 const HoverUnderline = styled.span`
     position: relative;
@@ -27,13 +31,27 @@ const HoverUnderline = styled.span`
 `;
 
 const Nav = () => {
-    const token = localStorage.getItem('auth')
-    const logout = async (e: { preventDefault: () => void }) => {
-        e.preventDefault()
-        await axios.get('https://intern-production.up.railway.app/v0/logout')
+    const token = Cookies.get('auth')
+    const getdata = async () => {
+        await axiosInstance.get('/validate')
             .then(res => {
                 console.log(res)
-                localStorage.removeItem('auth')
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
+
+    useEffect(() => {
+        getdata()
+    }, [])
+
+    const logout = async (e: { preventDefault: () => void }) => {
+        e.preventDefault()
+        await axiosInstance.get('/logout')
+            .then(res => {
+                console.log(res)
+                Cookies.remove('auth')
                 window.location.replace('/')
             })
             .catch(err => {

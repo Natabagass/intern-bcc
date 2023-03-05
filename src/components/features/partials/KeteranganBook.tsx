@@ -17,7 +17,7 @@ const Keterangan = () => {
     const token = localStorage.getItem('auth')
     const navigate = useNavigate()
     const {id} = useParams()
-    const myId = parseInt(id, 10)
+    const myId = parseInt(id!, 10)
     const [forms, setForms] = useState({
         nama: '',
         tanggal: '',
