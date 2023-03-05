@@ -15,13 +15,13 @@ const Footer = () => {
                         <h1 className="text-[32px] font-bold">Layanan Kami</h1>
                         <ul className="mt-5">
                             <li>
-                                <a href="/">Home</a>
+                                <a href="/" className='hover:text-[#F898BA]'>Home</a>
                             </li>
                             <li className="mt-3">
-                                <a href="/graha">Graha</a>
+                                <a href="/graha" className='hover:text-[#F898BA]'>Graha</a>
                             </li>
                             <li className="mt-3">
-                                <a href="/faq">FAQ</a>
+                                <a href="/faq" className='hover:text-[#F898BA]'>FAQ</a>
                             </li>
                         </ul>
                     </div>
@@ -45,8 +45,8 @@ const Footer = () => {
                                 <span>grent@mail.com</span>
                             </li>
                             <li className='flex flex-row mt-3'>
-                                <a className='bg-[#F898BA] cursor-pointer mr-3 rounded-full text-[25px] text-white p-2'><AiOutlineInstagram/></a>
-                                <a className='bg-[#F898BA] cursor-pointer rounded-full text-[25px] text-white p-2'><HiOutlineMail/></a>
+                                <a className='bg-[#F898BA] cursor-pointer mr-3 rounded-full text-[25px] text-white hover:bg-slate-200 hover:text-[#F898BA] p-2'><AiOutlineInstagram/></a>
+                                <a className='bg-[#F898BA] cursor-pointer rounded-full text-[25px] hover:bg-slate-200 hover:text-[#F898BA] text-white p-2'><HiOutlineMail/></a>
                             </li>
                         </ul>
 
