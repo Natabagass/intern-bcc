@@ -10,6 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
 import axios from "axios";
 import { MdArrowBackIos } from "react-icons/md";
+import AxiosInstance from "../../components/features/api/AxiosInstance";
+const axiosInstance = AxiosInstance();
 
 const Signup = () => {
     const navigate = useNavigate()
@@ -28,7 +30,7 @@ const Signup = () => {
     const handleRegister = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         setLoading(true)
-        await axios.post('https://intern-production.up.railway.app/v0/register', forms)
+        await axiosInstance.post('/register', forms)
             .then(res => {
                 console.log(res)
                 navigate('/login')

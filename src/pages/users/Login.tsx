@@ -1,5 +1,4 @@
 import { useState } from "react";
-import axios from "axios";
 import { FaRegEyeSlash } from 'react-icons/fa'
 import { AiOutlineEye } from 'react-icons/ai'
 import sideImg from '../../assets/image 12.png'
@@ -10,6 +9,8 @@ import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
+import AxiosInstance from "../../components/features/api/AxiosInstance";
+const axiosInstance = AxiosInstance();
 
 const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -27,7 +28,7 @@ const Login = () => {
     const handleLogin = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
         setLoading(true)
-        await axios.post('https://intern-production.up.railway.app/v0/login', forms)
+        await axiosInstance.post('/login', forms)
             .then(res => {
                 console.log(res)
                 localStorage.setItem('auth', res.data.data.token);
