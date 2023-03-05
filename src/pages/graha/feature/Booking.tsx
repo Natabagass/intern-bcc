@@ -13,10 +13,11 @@ import Keterangan from "../../../components/features/partials/KeteranganBook";
 const Booking = () => {
     const [nama, setNama] = useState('')
     const navigate = useNavigate()
-    const params = useParams()
+    const {id} = useParams()
+    const myId = parseInt(id, 10)
     useEffect(() => {
         gedung.filter(data => {
-            if (data.id === 1) {
+            if (data.id === myId) {
                 setNama(data.name)
             }
         })

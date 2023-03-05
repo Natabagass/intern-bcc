@@ -6,7 +6,7 @@ import Swal from 'sweetalert2'
 import Label from "../../label/Label";
 import { gedung } from '../../../models/dummy/gedung'
 import { GrLocation } from "react-icons/gr";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 
 
@@ -15,8 +15,9 @@ const Keterangan = () => {
     const notLoggedin = withReactContent(Swal)
     const [show, setShow] = useState(false)
     const token = localStorage.getItem('auth')
-    const [loggedIn, setLoggedIn] = useState('')
     const navigate = useNavigate()
+    const {id} = useParams()
+    const myId = parseInt(id, 10)
     const [forms, setForms] = useState({
         nama: '',
         tanggal: '',
@@ -29,7 +30,7 @@ const Keterangan = () => {
             <div className="mt-[20px]">
                 {
                     gedung.filter(data => {
-                        if (data.id === 1) {
+                        if (data.id === myId) {
                             return data.id
                         }
                     }).map((sub) => {

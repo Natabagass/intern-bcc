@@ -122,7 +122,7 @@ export const gedung = [
     },
     {
         id: 3,
-        name: 'Graha Cakrawala',
+        name: 'Graha Awikwok',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
@@ -476,7 +476,7 @@ export const gedung = [
     },
     {
         id: 9,
-        name: 'Graha Cakrawala',
+        name: 'Graha HHH',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
         harga: 'Rp. 50jt-200jt',
