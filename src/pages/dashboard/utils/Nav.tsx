@@ -4,8 +4,7 @@ import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AxiosInstance from "../../../components/features/api/AxiosInstance";
 import { useEffect, useState } from "react";
-import Cookies from "js-cookie";
-const axiosInstance = AxiosInstance()
+import { Cookies } from 'react-cookie';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
 import {IoLogOutOutline} from 'react-icons/io5'
 
@@ -27,14 +26,16 @@ const HoverUnderline = styled.span`
         transform: scaleX(0);
         }
         to {
-        transform: scaleX(1);
+            transform: scaleX(1);
         }
     }
-`;
+    `;
 
-const Nav = () => {
-    const token = Cookies.get('auth')
-    const [isOpen, setIsOpen] = useState(false);
+    const Nav = () => {
+        const axiosInstance = AxiosInstance();
+        const cookies = new Cookies();
+        const token = cookies.get('auth')
+        const [isOpen, setIsOpen] = useState(false);
     const [nama, setNama] = useState('')
     const getdata = async () => {
         await axiosInstance.get('/validate')
@@ -55,8 +56,8 @@ const Nav = () => {
         await axiosInstance.get('/logout')
             .then(res => {
                 console.log(res)
-                Cookies.remove('auth')
-                window.location.replace('/')
+                cookies.remove('auth', {path: '/'})
+                // window.location.replace('/')
             })
             .catch(err => {
                 console.log(err)

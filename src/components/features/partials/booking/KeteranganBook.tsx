@@ -8,14 +8,13 @@ import { gedung } from '../../../../models/dummy/gedung'
 import { GrLocation } from "react-icons/gr";
 import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
-import Cookies from "js-cookie";
-
-
+import { Cookies } from 'react-cookie';
 
 const Keterangan = () => {
+    const cookies = new Cookies();
     const notLoggedin = withReactContent(Swal)
     const [show, setShow] = useState(false)
-    const token = localStorage.getItem('auth')
+    const token = cookies.get('auth')
     const navigate = useNavigate()
     const {id} = useParams()
     const myId = parseInt(id!, 10)

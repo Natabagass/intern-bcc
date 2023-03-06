@@ -1,5 +1,4 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { ReactNode, useEffect, useState } from "react";
 import "swiper/css";
 import { kataMereka } from "../../../../models/dummy/kataMereka";
 

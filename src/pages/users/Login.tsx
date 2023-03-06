@@ -10,8 +10,10 @@ import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import AxiosInstance from "../../components/features/api/AxiosInstance";
-import Cookies from "js-cookie";
 const axiosInstance = AxiosInstance();
+import { Cookies } from 'react-cookie';
+const cookies = new Cookies();
+
 
 const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
@@ -30,16 +32,13 @@ const Login = () => {
         setLoading(true)
         await axiosInstance.post('/login', forms)
             .then(res => {
-                console.log(res)
                 const token = res.data.data.token
-                Cookies.set('auth', token, {expires: 1})
-                localStorage.setItem('auth', res.data.data.token)
+                cookies.set('auth', token, { path: '/' });
                 setTimeout(() => {
                     window.location.reload()
                 }, 1000)
             })
             .catch(err => {
-                console.log(err)
                 setValidation(err.response.data.Error)
                 setLoading(false)
             })

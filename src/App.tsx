@@ -4,27 +4,30 @@ import PageLoading from './components/pageLoader/Loading';
 import Pembayaran from './pages/pembayaran/Pembayaran';
 import AuthRoute from './routes/AuthRoute';
 import PrivateRoute from './routes/PrivateRoute';
+import { CookiesProvider } from 'react-cookie'
 
 function App() {
   return (
-    <div className='app'>
-      <Routes>
-        <Route element={<SuspenseWrapper />}>
-          <Route path='/graha' element={<Graha />} />
-          <Route path='/faq' element={<Faq />} />
-          <Route path='/graha/:id' element={<Booking />} />
-          <Route path='/' element={<Home />} />
-          <Route element={<AuthRoute />}>
-            <Route path='/login' element={<Login />} />
-            <Route path='/signup' element={<Signup />} />
-          </Route>
+    <CookiesProvider>
+      <div className='app'>
+        <Routes>
+          <Route element={<SuspenseWrapper />}>
+            <Route path='/graha' element={<Graha />} />
+            <Route path='/faq' element={<Faq />} />
+            <Route path='/graha/:id' element={<Booking />} />
+            <Route path='/' element={<Home />} />
+            <Route element={<AuthRoute />}>
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
+            </Route>
 
-          <Route element={<PrivateRoute/>}>
-            <Route path='/pembayaraan/:id' element={<Pembayaran/>}/>
+            <Route element={<PrivateRoute />}>
+              <Route path='/pembayaraan/:id' element={<Pembayaran />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
-    </div>
+        </Routes>
+      </div>
+    </CookiesProvider>
   );
 }
 
