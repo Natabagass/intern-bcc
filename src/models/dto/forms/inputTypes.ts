@@ -7,6 +7,7 @@ export interface Props {
     onFocus?: FocusEventHandler<HTMLInputElement>,
     type: 'text' | 'email' | 'number' | 'password' | 'checkbox' | 'date',
     name?: string,
+    disabled?: boolean,
     id?: string,
     value?:string,
     required?: true,

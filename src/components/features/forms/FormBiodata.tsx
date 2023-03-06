@@ -1,24 +1,19 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Input from "../../input/Input";
+import { FormContext } from "../../../context/FormContext";
 import Label from "../../label/Label";
 
 const Biodata = () => {
-    const [forms, setForms] = useState({
-        nama: '',
-        tanggal: '',
-        keperluan: '',
-        nomer: '',
-        alamat: ''
-    })
+    const { formData, setFormData } = useContext(FormContext);
     return (
         <div>
             <Label className="font-medium text-[20px]">Biodata</Label>
             <div className='flex my-5 font-inter flex-col mt-[30px]'>
                 <Label htmlFor="nama" className="text-[14]">Nama</Label>
                 <Input
-                    value={forms.nama}
-                    onChange={e => setForms({ ...forms, nama: e.target.value })}
+                    value={formData.nama}
                     type="text"
+                    disabled={true}
                     required
                     placeholder="Masukkan nama anda"
                     id='nama'
@@ -29,7 +24,7 @@ const Biodata = () => {
             <div className='flex my-5 font-inter flex-col '>
                 <Label htmlFor="tanggal" className="text-[14]">Tanggal</Label>
                 <Input
-                    value={forms.tanggal}
+                    value={formData.tanggal}
                     type="text"
                     required
                     onFocus={(e) => (e.target.type = "date")}
@@ -43,7 +38,7 @@ const Biodata = () => {
             <div className='flex my-5 font-inter flex-col '>
                 <Label htmlFor="keperluan" className="text-[14]">Keperluan</Label>
                 <Input
-                    value={forms.keperluan}
+                    value={formData.keperluan}
                     type="text"
                     required
                     placeholder="Masukkan Keperluan anda"
@@ -56,7 +51,7 @@ const Biodata = () => {
                 <Label htmlFor='nomer' className="text-[14]">No HP</Label>
                 <div className="relative flex items-center">
                     <Input
-                        value={forms.nomer}
+                        value={formData.nomer}
                         type='number'
                         required
                         id='number'
@@ -70,7 +65,7 @@ const Biodata = () => {
                 <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
                 <div className="relative flex items-cent er">
                     <Input
-                        value={forms.alamat}
+                        value={formData.alamat}
                         type='text'
                         required
                         id='alamat'

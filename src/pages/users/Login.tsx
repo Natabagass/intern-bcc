@@ -64,7 +64,7 @@ const Login = () => {
                         src={logo}
                     />
                     <div className="w-[400px] -mt-[100px]">
-                        <h3 className="font-bold font-inter text-[34px]">Masuk</h3>
+                        <h3 className="font-bold font-inter text-[48px]">Masuk</h3>
 
                         <div className='flex w-full font-inter flex-col mt-[30px]'>
                             <Label htmlFor="email" className="font-bold text-[24px]">E-mail</Label>

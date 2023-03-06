@@ -37,7 +37,7 @@ const Homepage = () => {
 
                 <div className="w-full bg-[#FEF3F7] min-h-fit">
                     <div className="flex flex-col">
-                        <div className="mx-[70px] my-[50px]">
+                        <div className="mx-[70px] my-[20px]">
                             <h1 className="font-inter font-bold text-[48px]">Layanan Kami</h1>
                             <div className="flex flex-row justify-between">
                                 {
@@ -134,14 +134,14 @@ const Homepage = () => {
 
                 <div className="w-full bg-[#FEF3F7] min-h-fit">
                     <div className="flex flex-col">
-                        <div className="mx-[70px] my-[50px]">
+                        <div className="mx-[70px] mt-[20px]">
                             <h1 className="font-inter font-bold text-[48px]">Dari Pemilik Graha</h1>
                             <div className="flex flex-row justify-between mt-8">
                                 {
                                     pemilikGraha.map((data) => {
                                         return (
                                             <>
-                                                <div className="bg-white flex flex-col w-[30%] shadow-md justify-center items-center rounded-xl p-14">
+                                                <div className="bg-white flex flex-col mb-[50px] w-[30%] shadow-md justify-center items-center rounded-xl p-14">
                                                     <LazyLoadImage src={`
                                                             ${data.nama === 'Anthonio Priawan' ? foto1 :
                                                             data.nama === 'Suryani Mahalini' ? foto2 : foto3}

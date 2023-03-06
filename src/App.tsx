@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom'
 import PageLoading from './components/pageLoader/Loading';
 import Pembayaran from './pages/pembayaran/Pembayaran';
+import { FormProvider } from './context/FormContext';
 import AuthRoute from './routes/AuthRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import { CookiesProvider } from 'react-cookie'
@@ -9,24 +10,26 @@ import { CookiesProvider } from 'react-cookie'
 function App() {
   return (
     <CookiesProvider>
-      <div className='app'>
-        <Routes>
-          <Route element={<SuspenseWrapper />}>
-            <Route path='/graha' element={<Graha />} />
-            <Route path='/faq' element={<Faq />} />
-            <Route path='/graha/:id' element={<Booking />} />
-            <Route path='/' element={<Home />} />
-            <Route element={<AuthRoute />}>
-              <Route path='/login' element={<Login />} />
-              <Route path='/signup' element={<Signup />} />
-            </Route>
+      <FormProvider>
+        <div className='app'>
+          <Routes>
+            <Route element={<SuspenseWrapper />}>
+              <Route path='/graha' element={<Graha />} />
+              <Route path='/faq' element={<Faq />} />
+              <Route path='/graha/:id' element={<Booking />} />
+              <Route path='/' element={<Home />} />
+              <Route element={<AuthRoute />}>
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Signup />} />
+              </Route>
 
-            <Route element={<PrivateRoute />}>
-              <Route path='/graha/pembayaran/:id' element={<Pembayaran />} />
+              <Route element={<PrivateRoute />}>
+                <Route path='/graha/pembayaran/:id' element={<Pembayaran />} />
+              </Route>
             </Route>
-          </Route>
-        </Routes>
-      </div>
+          </Routes>
+        </div>
+      </FormProvider>
     </CookiesProvider>
   );
 }
@@ -38,6 +41,7 @@ const SuspenseWrapper = () => {
     </React.Suspense>
   )
 }
+
 
 const Home = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {

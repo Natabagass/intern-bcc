@@ -8,6 +8,7 @@ const Input = ({
     onFocus,
     onBlur,
     id,
+    disabled,
     value,
     required,
     className
@@ -17,6 +18,7 @@ const Input = ({
             <input 
                 placeholder={placeholder}
                 value={value}
+                disabled={disabled}
                 onFocus={onFocus}
                 onBlur={onBlur}
                 onChange={onChange}

@@ -69,7 +69,7 @@ const Signup = () => {
                         src={logo}
                     />
                     <div className="w-[400px] -mt-[100px]">
-                        <h3 className="font-bold font-inter text-[34px]">Daftar</h3>
+                        <h3 className="font-bold font-inter text-[48px]">Daftar</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[30px]'>
                             <Label htmlFor="nama" className="font-bold text-[24px]">Nama</Label>

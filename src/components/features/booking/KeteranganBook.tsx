@@ -9,59 +9,63 @@ import { GrLocation } from "react-icons/gr";
 import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import { Cookies } from 'react-cookie';
+import React, { useContext } from "react";
+import { FormContext } from "../../../context/FormContext";
 
 const Keterangan = () => {
     const cookies = new Cookies();
-    const [checked, setChecked] = useState(false)
     const swal = withReactContent(Swal)
-    const [show, setShow] = useState(false)
     const token = cookies.get('auth')
     const navigate = useNavigate()
+
+    const showSignInModal = () => {
+        return swal.fire({
+            title: 'Apakah kamu mau masuk terlebih dahulu?',
+            showCancelButton: true,
+            confirmButtonText: 'Masuk',
+        }).then((result) => {
+            if (result.isConfirmed) {
+                navigate('/login');
+            } else if (result.isDenied) {
+                swal.fire('Kembali ke page', '', 'info');
+            }
+        });
+    }
+    const showValidationError = (message: string) => {
+        return swal.fire({
+            title: message,
+            confirmButtonText: 'Kembali'
+        });
+    }
+    const showConfirmationDialog = (message: string) => {
+        return swal.fire({
+            title: message,
+            confirmButtonText: 'Benar',
+            showCancelButton: true,
+            icon: 'info'
+        });
+    }
+    const [show, setShow] = useState(false)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
-    const [forms, setForms] = useState({
-        nama: '',
-        tanggal: '',
-        keperluan: '',
-        nomer: '',
-        alamat: ''
-    })
+    const { formData, setFormData } = useContext(FormContext);
+
     const buttonFunct = () => {
-        if (token) {
-            setShow(true)
-            if (show) {
-                if (forms.nama == '' && forms.alamat == '' && forms.keperluan == '' && forms.tanggal == '' && forms.nomer == '') {
-                    swal.fire({
-                        title: 'Lengkapi dulu data yang diinput',
-                        confirmButtonText: 'Kembali'
-                    })
-                } else {
-                    swal.fire({
-                        title: 'Data yang sudah diinput apakah benar?',
-                        confirmButtonText: 'Benar',
-                        showCancelButton: true,
-                        icon: 'info'
-                    })
-                        .then((result) => {
-                            if (result.isConfirmed) {
-                                navigate(`/graha/pembayaran/${id}`)
-                            }
-                        })
-                }
-            }
-        } else {
-            swal.fire({
-                title: 'Apakah kamu mau masuk terlebih dahulu?',
-                showCancelButton: true,
-                confirmButtonText: 'Masuk',
-            }).then((result) => {
+        if (!token) return showSignInModal();
+
+        setShow(true);
+
+        if (!show) return;
+        const isFormDataEmpty = Object.values(formData).every((value) => value === '');
+
+        if (isFormDataEmpty) return showValidationError('Lengkapi dulu data yang diinput');
+
+        showConfirmationDialog('Data yang sudah diinput apakah benar?')
+            .then((result) => {
                 if (result.isConfirmed) {
-                    navigate('/login')
-                } else if (result.isDenied) {
-                    Swal.fire('Kembali ke page', '', 'info')
+                    navigate(`/graha/pembayaran/${id}#`);
                 }
-            })
-        }
+            });
     }
     return (
         <>
@@ -169,8 +173,8 @@ const Keterangan = () => {
                                                 <div className='flex my-5 font-inter flex-col mt-[30px]'>
                                                     <Label htmlFor="nama" className="text-[14]">Nama</Label>
                                                     <Input
-                                                        value={forms.nama}
-                                                        onChange={e => setForms({ ...forms, nama: e.target.value })}
+                                                        value={formData.nama}
+                                                        onChange={(e) => { setFormData({ ...formData, nama: e.target.value }) }}
                                                         type="text"
                                                         required
                                                         placeholder="Masukkan nama anda"
@@ -182,8 +186,8 @@ const Keterangan = () => {
                                                 <div className='flex my-5 font-inter flex-col '>
                                                     <Label htmlFor="tanggal" className="text-[14]">Tanggal</Label>
                                                     <Input
-                                                        value={forms.tanggal}
-                                                        onChange={e => setForms({ ...forms, tanggal: e.target.value })}
+                                                        value={formData.tanggal}
+                                                        onChange={(e) => { setFormData({ ...formData, tanggal: e.target.value }) }}
                                                         type="text"
                                                         required
                                                         onFocus={(e) => (e.target.type = "date")}
@@ -197,8 +201,8 @@ const Keterangan = () => {
                                                 <div className='flex my-5 font-inter flex-col '>
                                                     <Label htmlFor="keperluan" className="text-[14]">Keperluan</Label>
                                                     <Input
-                                                        value={forms.keperluan}
-                                                        onChange={e => setForms({ ...forms, keperluan: e.target.value })}
+                                                        value={formData.keperluan}
+                                                        onChange={(e) => { setFormData({ ...formData, keperluan: e.target.value }) }}
                                                         type="text"
                                                         required
                                                         placeholder="Masukkan Keperluan anda"
@@ -211,8 +215,8 @@ const Keterangan = () => {
                                                     <Label htmlFor='nomer' className="text-[14]">No HP</Label>
                                                     <div className="relative flex items-center">
                                                         <Input
-                                                            value={forms.nomer}
-                                                            onChange={e => setForms({ ...forms, nomer: e.target.value })}
+                                                            value={formData.nomer}
+                                                            onChange={(e) => { setFormData({ ...formData, nomer: e.target.value }) }}
                                                             type='number'
                                                             required
                                                             id='number'
@@ -226,8 +230,8 @@ const Keterangan = () => {
                                                     <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
                                                     <div className="relative flex items-cent er">
                                                         <Input
-                                                            value={forms.alamat}
-                                                            onChange={e => setForms({ ...forms, alamat: e.target.value })}
+                                                            value={formData.alamat}
+                                                            onChange={(e) => { setFormData({ ...formData, alamat: e.target.value }) }}
                                                             type='text'
                                                             required
                                                             id='alamat'
@@ -256,5 +260,6 @@ const Keterangan = () => {
         </>
     );
 }
+
 
 export default Keterangan;
