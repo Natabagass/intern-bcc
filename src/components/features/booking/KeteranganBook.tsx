@@ -13,7 +13,7 @@ import { Cookies } from 'react-cookie';
 const Keterangan = () => {
     const cookies = new Cookies();
     const [checked, setChecked] = useState(false)
-    const notLoggedin = withReactContent(Swal)
+    const swal = withReactContent(Swal)
     const [show, setShow] = useState(false)
     const token = cookies.get('auth')
     const navigate = useNavigate()
@@ -27,28 +27,40 @@ const Keterangan = () => {
         alamat: ''
     })
     const buttonFunct = () => {
-        if (show) {
-            navigate('/')
-        } else {
-            if (token) {
-                setShow(true)
-            } else {
-                notLoggedin.fire({
-                    title: 'Apakah kamu mau masuk terlebih dahulu?',
-                    showCancelButton: true,
-                    confirmButtonText: 'Masuk',
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        navigate('/login')
-                    } else if (result.isDenied) {
-                        Swal.fire('Kembali ke page', '', 'info')
-                    }
-                })
-                if(forms.nama != '' && forms.alamat != '' && forms.keperluan != '' && forms.tanggal != '' && forms.nomer != ''){
-                    setChecked(true)
-                    navigate(`/graha/pembayaran/${id}`)
+        if (token) {
+            setShow(true)
+            if (show) {
+                if (forms.nama == '' && forms.alamat == '' && forms.keperluan == '' && forms.tanggal == '' && forms.nomer == '') {
+                    swal.fire({
+                        title: 'Lengkapi dulu data yang diinput',
+                        confirmButtonText: 'Kembali'
+                    })
+                } else {
+                    swal.fire({
+                        title: 'Data yang sudah diinput apakah benar?',
+                        confirmButtonText: 'Benar',
+                        showCancelButton: true,
+                        icon: 'info'
+                    })
+                        .then((result) => {
+                            if (result.isConfirmed) {
+                                navigate(`/graha/pembayaran/${id}`)
+                            }
+                        })
                 }
             }
+        } else {
+            swal.fire({
+                title: 'Apakah kamu mau masuk terlebih dahulu?',
+                showCancelButton: true,
+                confirmButtonText: 'Masuk',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    navigate('/login')
+                } else if (result.isDenied) {
+                    Swal.fire('Kembali ke page', '', 'info')
+                }
+            })
         }
     }
     return (
