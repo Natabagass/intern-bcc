@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { FaCircle } from "react-icons/fa";
-import Button from "../../../button/Button";
-import Input from "../../../input/Input";
+import Button from "../../button/Button";
+import Input from "../../input/Input";
 import Swal from 'sweetalert2'
-import Label from "../../../label/Label";
-import { gedung } from '../../../../models/dummy/gedung'
+import Label from "../../label/Label";
+import { gedung } from '../../../models/dummy/gedung'
 import { GrLocation } from "react-icons/gr";
 import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
@@ -12,11 +12,12 @@ import { Cookies } from 'react-cookie';
 
 const Keterangan = () => {
     const cookies = new Cookies();
+    const [checked, setChecked] = useState(false)
     const notLoggedin = withReactContent(Swal)
     const [show, setShow] = useState(false)
     const token = cookies.get('auth')
     const navigate = useNavigate()
-    const {id} = useParams()
+    const { id } = useParams()
     const myId = parseInt(id!, 10)
     const [forms, setForms] = useState({
         nama: '',
@@ -25,6 +26,31 @@ const Keterangan = () => {
         nomer: '',
         alamat: ''
     })
+    const buttonFunct = () => {
+        if (show) {
+            navigate('/')
+        } else {
+            if (token) {
+                setShow(true)
+            } else {
+                notLoggedin.fire({
+                    title: 'Apakah kamu mau masuk terlebih dahulu?',
+                    showCancelButton: true,
+                    confirmButtonText: 'Masuk',
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        navigate('/login')
+                    } else if (result.isDenied) {
+                        Swal.fire('Kembali ke page', '', 'info')
+                    }
+                })
+                if(forms.nama != '' && forms.alamat != '' && forms.keperluan != '' && forms.tanggal != '' && forms.nomer != ''){
+                    setChecked(true)
+                    navigate(`/graha/pembayaran/${id}`)
+                }
+            }
+        }
+    }
     return (
         <>
             <div className="mt-[20px]">
@@ -204,27 +230,7 @@ const Keterangan = () => {
                                                 type="submit"
                                                 className="mt-3 w-full text-white bg-[#F78CB2] hover:bg-[#f379a3]"
                                                 children="Ajukan Sewa"
-                                                onClick={() => {
-                                                    if (show) {
-                                                        navigate('/')
-                                                    } else {
-                                                        if (token) {
-                                                            setShow(true)
-                                                        } else {
-                                                            notLoggedin.fire({
-                                                                title: 'Apakah kamu mau masuk terlebih dahulu?',
-                                                                showCancelButton: true,
-                                                                confirmButtonText: 'Masuk',
-                                                            }).then((result) => {
-                                                                if (result.isConfirmed) {
-                                                                    navigate('/login')
-                                                                } else if (result.isDenied) {
-                                                                    Swal.fire('Kembali ke page', '', 'info')
-                                                                }
-                                                            })
-                                                        }
-                                                    }
-                                                }}
+                                                onClick={() => buttonFunct()}
                                             />
 
                                         </div>

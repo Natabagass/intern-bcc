@@ -1,9 +1,9 @@
-import Nav from "../dashboard/utils/Nav";
+import Nav from "../../components/partials/Nav";
 import { gedung } from '../../models/dummy/gedung'
 import fotoGedung from '../../assets/gedung.jpg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
-import Footer from "../dashboard/utils/Footer";
+import Footer from "../../components/partials/Footer";
 import {GrLocation} from 'react-icons/gr'
 
 const Graha = () => {

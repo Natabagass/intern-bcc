@@ -1,14 +1,14 @@
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { IoIosArrowForward } from 'react-icons/io'
 import { gedung } from '../../../models/dummy/gedung'
-import Nav from "../../dashboard/utils/Nav";
-import Ruang1 from '../../../assets/gedung.jpg'
+import Nav from "../../../components/partials/Nav";
+import Ruang1 from '../../../assets/foto gedung 1.png'
 import Ruang2 from '../../../assets/gedung2.jpeg'
 import Ruang3 from '../../../assets/gedung1.jpg'
 import { useEffect, useState } from "react";
 import Button from "../../../components/button/Button";
 import { useNavigate, useParams } from "react-router-dom";
-import Keterangan from "../../../components/features/partials/booking/KeteranganBook";
+import Keterangan from "../../../components/features/booking/KeteranganBook";
 
 const Booking = () => {
     const [nama, setNama] = useState('')

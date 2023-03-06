@@ -10,10 +10,10 @@ import Hero from '../../assets/logoHomeFix.png'
 import PesanOnline from '../../assets/pesan online.png'
 import LihatGedung from '../../assets/lihat gedung.png'
 import PesanGedung from '../../assets/pesan gedung.png'
-import Nav from "./utils/Nav";
+import Nav from "../../components/partials/Nav";
 import { layanan, pemilikGraha } from "../../models/dummy/layanan";
-import Footer from "./utils/Footer";
-import RunComponent from "../../components/features/partials/home/RunningComponent";
+import Footer from "../../components/partials/Footer";
+import RunComponent from "../../components/features/home/RunningComponent";
 
 const Homepage = () => {
     return (

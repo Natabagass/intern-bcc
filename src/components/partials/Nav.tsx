@@ -1,8 +1,7 @@
-import axios from "axios";
-import logo from '../../../assets/grent.com.png'
+import logo from '../../assets/grent.com.png'
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import AxiosInstance from "../../../components/features/api/AxiosInstance";
+import AxiosInstance from "../features/api/AxiosInstance";
 import { useEffect, useState } from "react";
 import { Cookies } from 'react-cookie';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'

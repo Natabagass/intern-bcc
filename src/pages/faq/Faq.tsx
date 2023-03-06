@@ -1,4 +1,4 @@
-import Nav from "../dashboard/utils/Nav";
+import Nav from "../../components/partials/Nav";
 
 const Faq = () => {
     return (

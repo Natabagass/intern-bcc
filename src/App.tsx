@@ -22,7 +22,7 @@ function App() {
             </Route>
 
             <Route element={<PrivateRoute />}>
-              <Route path='/pembayaraan/:id' element={<Pembayaran />} />
+              <Route path='/graha/pembayaran/:id' element={<Pembayaran />} />
             </Route>
           </Route>
         </Routes>
