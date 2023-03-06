@@ -33,6 +33,7 @@ const Login = () => {
                 console.log(res)
                 const token = res.data.data.token
                 Cookies.set('auth', token, {expires: 1})
+                localStorage.setItem('auth', res.data.data.token)
                 setTimeout(() => {
                     window.location.reload()
                 }, 1000)

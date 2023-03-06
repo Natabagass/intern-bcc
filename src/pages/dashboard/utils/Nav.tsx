@@ -39,7 +39,6 @@ const Nav = () => {
     const getdata = async () => {
         await axiosInstance.get('/validate')
             .then(res => {
-                console.log(res)
                 setNama(res.data.data)
             })
             .catch(err => {
@@ -90,16 +89,19 @@ const Nav = () => {
                         {
                             token ?
                                 <div className="relative">
-                                    <button onClick={() => setIsOpen(!isOpen)} className="p-2 bg-white w-full hover:bg-[#f379a3] border hover:text-white border-[#F78CB2] text-[#F78CB2] rounded-lg mr-3 px-5 flex flex-row items-center">{nama}<MdOutlineKeyboardArrowDown className="text-[20px] ml-1 mt-1" /></button>
+                                    <button onClick={() => setIsOpen(!isOpen)} className="p-1 bg-white w-full hover:bg-[#f379a3] border hover:text-white border-[#F78CB2] text-[#F78CB2] rounded-lg px-3 flex flex-row items-center">{nama}<MdOutlineKeyboardArrowDown className="text-[20px] ml-1 mt-1" /></button>
                                     {isOpen && (
-                                        <div className="absolute mt-1 right-0 top-full w-full bg-white rounded-lg shadow-lg z-10">
+                                        <div className="absolute mt-5 right-0 top-full w-full bg-white rounded-b-lg shadow-lg z-10">
                                             <ul>
                                                 <li>
+                                                    <a href="" className="block w-full text-[#F78CB2] p-2 hover:bg-gray-100">Profile</a>
+                                                </li>
+                                                <li>
                                                     <button
-                                                        className="block w-full text-[#F78CB2] p-2 hover: rounded-lg hover:bg-gray-100"
+                                                        className="block w-full text-[#F78CB2] p-2 hover:rounded-b-lg hover:bg-gray-100"
                                                         onClick={logout}
                                                     >
-                                                        <span className="flex flex-row justify-end items-center">Logout <IoLogOutOutline className="ml-2 mr-5 mt-1"/></span>
+                                                        <span className="flex flex-row justify-start items-center">Logout <IoLogOutOutline className="ml-2 mr-5 mt-1"/></span>
                                                     </button>
                                                 </li>
                                             </ul>

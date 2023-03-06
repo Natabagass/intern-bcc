@@ -15,7 +15,7 @@ import Cookies from "js-cookie";
 const Keterangan = () => {
     const notLoggedin = withReactContent(Swal)
     const [show, setShow] = useState(false)
-    const token = Cookies.get('auth')
+    const token = localStorage.getItem('auth')
     const navigate = useNavigate()
     const {id} = useParams()
     const myId = parseInt(id!, 10)
@@ -34,19 +34,19 @@ const Keterangan = () => {
                         if (data.id === myId) {
                             return data.id
                         }
-                    }).map((sub) => {
+                    }).map((sub, index) => {
                         return (
                             <>
-                                <div className="flex flex-row justify-between ">
+                                <div key={index} className="flex flex-row justify-between ">
                                     <div className="flex flex-col p-5 font-inter w-[75%]">
                                         <h1 className="font-inter font-bold text-[32px]">{sub.name}</h1>
                                         <h3 className="text-[18px]">{sub.alamat}</h3>
                                         <h3 className="mt-2 opacity-[70%] flex flex-row items-center"><span className="mr-2"><GrLocation /></span>{sub.kecamatan}</h3>
                                         <div className="flex flex-row items-center mt-5">
                                             {
-                                                sub.tag.map((tag) => {
+                                                sub.tag.map((tag, index) => {
                                                     return (
-                                                        <div>
+                                                        <div key={index}>
                                                             <ul>
                                                                 <li className="mr-3">
                                                                     <h1
@@ -66,9 +66,9 @@ const Keterangan = () => {
                                         <div className="mt-[30px]">
                                             <h1 className="font-bold text-[32px] mt-5">Fasilitas</h1>
                                             {
-                                                sub.fasilitas.map((fasil) => {
+                                                sub.fasilitas.map((fasil, index) => {
                                                     return (
-                                                        <div>
+                                                        <div key={index}>
                                                             <ul>
                                                                 <li className="flex flex-row items-center mr-5">
                                                                     <span className="font-bold ml-3"><FaCircle className="text-[5px] mr-3" /></span>{fasil.barang}
@@ -102,9 +102,9 @@ const Keterangan = () => {
                                         <div className="mt-10">
                                             <h1 className="font-bold text-[20px]">Aturan</h1>
                                             {
-                                                sub.aturan.map((aturan) => {
+                                                sub.aturan.map((aturan, index) => {
                                                     return (
-                                                        <div>
+                                                        <div key={index}>
                                                             <ul>
                                                                 <li className="flex flex-row items-center mr-5">
                                                                     <span className="font-bold ml-3"><FaCircle className="text-[5px] mr-3" /></span>{aturan.barang}
