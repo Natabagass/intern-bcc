@@ -57,7 +57,7 @@ const HoverUnderline = styled.span`
             .then(res => {
                 console.log(res)
                 cookies.remove('auth', {path: '/'})
-                // window.location.replace('/')
+                window.location.replace('/')
             })
             .catch(err => {
                 console.log(err)
