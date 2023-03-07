@@ -5,7 +5,7 @@ export interface Props {
     onChange?: ChangeEventHandler<HTMLInputElement>,
     onBlur?: FocusEventHandler<HTMLInputElement>,
     onFocus?: FocusEventHandler<HTMLInputElement>,
-    type: 'text' | 'email' | 'number' | 'password' | 'checkbox' | 'date',
+    type: 'text' | 'email' | 'number' | 'password' | 'checkbox' | 'date' | 'radio',
     name?: string,
     disabled?: boolean,
     id?: string,

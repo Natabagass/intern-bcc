@@ -33,3 +33,18 @@ export const pemilikGraha = [
         komentar: '“ Graha yang elegan dan aesthetic kini hadir di grent.com ”'
     }
 ]
+
+export const diskon = [
+    {
+        id: 1,
+        jumlah : '30%'
+    },
+    {
+        id: 2,
+        jumlah : '50%'
+    },
+    {
+        id: 3,
+        jumlah : 'Bayar Lunas'
+    }
+]

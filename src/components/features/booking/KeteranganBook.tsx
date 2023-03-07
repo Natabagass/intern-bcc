@@ -63,7 +63,7 @@ const Keterangan = () => {
         showConfirmationDialog('Data yang sudah diinput apakah benar?')
             .then((result) => {
                 if (result.isConfirmed) {
-                    navigate(`/graha/pembayaran/${id}#`);
+                    window.location.replace(`/graha/pembayaran/${id}`)
                 }
             });
     }

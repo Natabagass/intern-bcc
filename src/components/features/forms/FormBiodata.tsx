@@ -1,49 +1,63 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import Input from "../../input/Input";
 import { FormContext } from "../../../context/FormContext";
 import Label from "../../label/Label";
+import { useParams } from "react-router-dom";
+import { gedung } from "../../../models/dummy/gedung";
 
 const Biodata = () => {
+    const [harga, setHarga] = useState('')
+    const { id } = useParams()
+    const myId = parseInt(id!, 10)
+    useEffect(() => {
+        gedung.filter(data => {
+            if (data.id === myId) {
+                setHarga(data.harga)
+            }
+        })
+    }, [])
     const { formData, setFormData } = useContext(FormContext);
     return (
         <div>
+            <div>
+                <h1>Mulai Dari</h1>
+                <h3 className="font-bold text-[32px] mb-5">{harga}</h3>
+                <hr className="w-full my-5" />
+            </div>
             <Label className="font-medium text-[20px]">Biodata</Label>
-            <div className='flex my-5 font-inter flex-col mt-[30px]'>
+            <div className='flex mb-5 font-inter flex-col mt-[15px]'>
                 <Label htmlFor="nama" className="text-[14]">Nama</Label>
                 <Input
-                    value={formData.nama}
                     type="text"
-                    disabled={true}
+                    disabled
                     required
-                    placeholder="Masukkan nama anda"
+                    placeholder={formData.nama}
                     id='nama'
-                    className='mt-2 rounded-xl bg-[#DEE4EB]'
+                    className='mt-2 rounded-xl bg-[#F4F7FA]'
                 />
             </div>
 
             <div className='flex my-5 font-inter flex-col '>
                 <Label htmlFor="tanggal" className="text-[14]">Tanggal</Label>
                 <Input
-                    value={formData.tanggal}
                     type="text"
                     required
-                    onFocus={(e) => (e.target.type = "date")}
-                    onBlur={(e) => (e.target.type = "text")}
-                    placeholder={`Masukkan tanggal sewa`}
+                    disabled
+                    placeholder={formData.tanggal}
                     id='tanggal'
-                    className='mt-2 rounded-xl bg-[#DEE4EB]'
+                    className='mt-2 rounded-xl bg-[#F4F7FA]'
                 />
             </div>
 
             <div className='flex my-5 font-inter flex-col '>
                 <Label htmlFor="keperluan" className="text-[14]">Keperluan</Label>
                 <Input
-                    value={formData.keperluan}
                     type="text"
                     required
-                    placeholder="Masukkan Keperluan anda"
+                    disabled
+                    placeholder={formData.keperluan}
                     id='keperluan'
-                    className='mt-2 rounded-xl bg-[#DEE4EB]'
+                    className='mt-2 rounded-xl bg-[#F4F7FA]'
                 />
             </div>
 
@@ -51,12 +65,12 @@ const Biodata = () => {
                 <Label htmlFor='nomer' className="text-[14]">No HP</Label>
                 <div className="relative flex items-center">
                     <Input
-                        value={formData.nomer}
                         type='number'
                         required
                         id='number'
-                        placeholder="Masukkan nomer HP anda"
-                        className='mt-2 bg-[#DEE4EB]  rounded-xl pl-2 outline-none'
+                        disabled
+                        placeholder={formData.nomer}
+                        className='mt-2 bg-[#F4F7FA]  rounded-xl pl-2 outline-none'
                     />
                 </div>
             </div>
@@ -65,12 +79,12 @@ const Biodata = () => {
                 <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
                 <div className="relative flex items-cent er">
                     <Input
-                        value={formData.alamat}
                         type='text'
+                        disabled
                         required
                         id='alamat'
-                        placeholder="Masukkan alamat anda"
-                        className='mt-2 bg-[#DEE4EB] rounded-xl pl-2 outline-none'
+                        placeholder={formData.alamat}
+                        className='mt-2 bg-[#F4F7FA] rounded-xl pl-2 outline-none'
                     />
                 </div>
             </div>
