@@ -4,9 +4,10 @@ import { FormContext } from "../../../context/FormContext";
 import Label from "../../label/Label";
 import { useParams } from "react-router-dom";
 import { gedung } from "../../../models/dummy/gedung";
+import * as CurrencyFormat from "react-currency-format";
 
 const Biodata = () => {
-    const [harga, setHarga] = useState('')
+    const [harga, setHarga] = useState(0)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
     useEffect(() => {
@@ -21,7 +22,7 @@ const Biodata = () => {
         <div>
             <div>
                 <h1>Mulai Dari</h1>
-                <h3 className="font-bold text-[32px] mb-5">{harga}</h3>
+                <CurrencyFormat className="text-[25px] font-bold" value={harga} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
                 <hr className="w-full my-5" />
             </div>
             <Label className="font-medium text-[20px]">Biodata</Label>

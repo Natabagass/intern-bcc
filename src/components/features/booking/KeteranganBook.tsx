@@ -10,6 +10,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import { Cookies } from 'react-cookie';
 import React, { useContext } from "react";
+import * as CurrencyFormat from 'react-currency-format';
 import { FormContext } from "../../../context/FormContext";
 
 const Keterangan = () => {
@@ -160,7 +161,7 @@ const Keterangan = () => {
                                     <div className='w-[25%] ml-5'>
                                         <div className="top-24 bg-white shadow-md sticky rounded-xl p-5">
                                             <h1 className="text-[16px] ">Mulai Dari</h1>
-                                            <h3 className="font-bold text-[25px]">{sub.harga}</h3>
+                                            <CurrencyFormat className="text-[25px] font-bold" value={sub.harga} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
 
                                             <a
                                                 href="https://wa.me/6275156144979"

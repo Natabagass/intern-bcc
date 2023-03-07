@@ -8,7 +8,6 @@ import Label from "../../components/label/Label";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AiOutlineEye } from "react-icons/ai";
-import axios from "axios";
 import { MdArrowBackIos } from "react-icons/md";
 import AxiosInstance from "../../components/features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();

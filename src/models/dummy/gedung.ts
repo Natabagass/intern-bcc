@@ -7,7 +7,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -66,7 +66,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -125,7 +125,7 @@ export const gedung = [
         name: 'Graha Awikwok',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -184,7 +184,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -243,7 +243,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -302,7 +302,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -361,7 +361,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -420,7 +420,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -479,7 +479,7 @@ export const gedung = [
         name: 'Graha HHH',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -538,7 +538,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -597,7 +597,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
@@ -656,7 +656,7 @@ export const gedung = [
         name: 'Graha Cakrawala',
         alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
         kecamatan: 'Lowokwaru',
-        harga: 'Rp. 50jt-200jt',
+        harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
         tag: [
