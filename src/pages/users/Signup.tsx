@@ -7,7 +7,7 @@ import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import AxiosInstance from "../../components/features/api/AxiosInstance";
+import AxiosInstance from "../../features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();
 
 const Signup = () => {
