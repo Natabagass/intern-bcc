@@ -2,14 +2,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Parallax, Mousewheel } from "swiper";
-import foto1 from '../../assets/foto1.png'
-import foto2 from '../../assets/foto2.png'
-import foto3 from '../../assets/foto3.png'
+import foto1 from '../../assets/pemilik1.svg'
+import foto2 from '../../assets/pemilik2.svg'
+import foto3 from '../../assets/pemilik3.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Hero from '../../assets/logoHomeFix.png'
-import PesanOnline from '../../assets/pesan online.png'
-import LihatGedung from '../../assets/lihat gedung.png'
-import PesanGedung from '../../assets/pesan gedung.png'
+import Hero from '../../assets/home.svg'
+import PesanOnline from '../../assets/layanan1.svg'
+import LihatGedung from '../../assets/layanan2.svg'
+import PesanGedung from '../../assets/layanan3.svg'
 import Nav from "../../components/partials/Nav";
 import { layanan, pemilikGraha } from "../../models/dummy/layanan";
 import Footer from "../../components/partials/Footer";

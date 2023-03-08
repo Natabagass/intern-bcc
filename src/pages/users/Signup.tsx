@@ -1,14 +1,12 @@
-import { FaRegEyeSlash } from "react-icons/fa";
-import logo from '../../assets/grent.com.png'
-import sideImg from '../../assets/image 14.png'
+import logo from '../../assets/grent.com.svg'
+import icon from '../../components/icons/Icons';
+import sideImg from '../../assets/Daftar image.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../../components/button/Button";
 import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { AiOutlineEye } from "react-icons/ai";
-import { MdArrowBackIos } from "react-icons/md";
 import AxiosInstance from "../../components/features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();
 
@@ -54,7 +52,7 @@ const Signup = () => {
                     <a
                         href="/"
                         className="p-3 ml-10 absolute rounded-2xl flex text-[12px] shadow-md flex-row items-center text-[#F78CB2] mr-5 bg-white"
-                    ><MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
+                    ><icon.MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
                 </div>
                 <LazyLoadImage
                     alt="Logo"
@@ -122,7 +120,7 @@ const Signup = () => {
                                     className='mt-2 bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
-                                    {!passwordShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                                    {!passwordShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                                 </button>
                             </div>
                         </div>
@@ -140,7 +138,7 @@ const Signup = () => {
                                     className='mt-2 bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />
                                 <button onClick={toggleShowRepeat} className="cursor-pointer flex items-center">
-                                    {!passwordRepeatShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                                    {!passwordRepeatShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                                 </button>
                             </div>
                         </div>

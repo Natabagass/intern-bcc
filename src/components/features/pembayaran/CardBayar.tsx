@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
-import { MdOutlineArrowForwardIos } from "react-icons/md";
-import { TbDiscount2 } from "react-icons/tb";
+import icon from '../../../components/icons/Icons';
 import { useNavigate, useParams } from "react-router-dom";
 import { gedung } from "../../../models/dummy/gedung";
 import Button from "../../button/Button";
@@ -50,10 +49,10 @@ const Bayar = () => {
                         Bayar Lunas</Button>
                 </div>
                 <div className="flex rounded-lg p-3 border hover:bg-[#F78CB2] hover:text-white flex-row items-center">
-                    <TbDiscount2 className="mr-3 text-[20px]" />
+                    <icon.TbDiscount2 className="mr-3 text-[20px]" />
                     <div onClick={() => navigate('/')} className="flex cursor-pointer flex-row justify-between w-full items-center">
                         <h1>Pakai Promo Agar Lebih Hemat</h1>
-                        <MdOutlineArrowForwardIos />
+                        <icon.MdOutlineArrowForwardIos />
                     </div>
                 </div>
 

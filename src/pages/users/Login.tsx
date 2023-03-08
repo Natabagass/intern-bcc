@@ -1,14 +1,12 @@
 import { useState } from "react";
-import { FaRegEyeSlash } from 'react-icons/fa'
-import { AiOutlineEye } from 'react-icons/ai'
-import sideImg from '../../assets/image 12.png'
-import logo from '../../assets/grent.com.png'
+import sideImg from '../../assets/login image.svg'
+import logo from '../../assets/grent.com.svg'
+import icon from '../../components/icons/Icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
-import { MdArrowBackIos } from "react-icons/md";
 import AxiosInstance from "../../components/features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();
 import { Cookies } from 'react-cookie';
@@ -45,16 +43,16 @@ const Login = () => {
     }
     return (
         <>
-            <div className="flex justify-center font-inter text-[#1B1D21] flex-row">
+            <div className="flex justify-between font-inter text-[#1B1D21] flex-row">
                 <div className="mt-20">
                     <a
                         href="/"
                         className="p-3 ml-10 absolute rounded-2xl flex text-[12px] shadow-md flex-row items-center text-[#F78CB2] mr-5 bg-white"
-                    ><MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
+                    ><icon.MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
                 </div>
                 <LazyLoadImage
                     alt="Logo"
-                    className="w-full h-screen"
+                    className="w-[50%] h-screen"
                     src={sideImg}
                 />
                 <div className="flex flex-col items-center justify-around w-full">
@@ -93,7 +91,7 @@ const Login = () => {
                                     className='mt-2 rounded-lg bg-[#F4F7FA] pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
-                                    {!passwordShown ? <FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                                    {!passwordShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                                 </button>
                             </div>
                         </div>

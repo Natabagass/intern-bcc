@@ -1,15 +1,14 @@
 import { useState } from "react";
-import { FaCircle } from "react-icons/fa";
+import icon from '../../../components/icons/Icons';
 import Button from "../../button/Button";
 import Input from "../../input/Input";
 import Swal from 'sweetalert2'
 import Label from "../../label/Label";
 import { gedung } from '../../../models/dummy/gedung'
-import { GrLocation } from "react-icons/gr";
 import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import { Cookies } from 'react-cookie';
-import React, { useContext } from "react";
+import { useContext } from "react";
 import * as CurrencyFormat from 'react-currency-format';
 import { FormContext } from "../../../context/FormContext";
 
@@ -83,7 +82,7 @@ const Keterangan = () => {
                                     <div className="flex flex-col p-5 font-inter w-[75%]">
                                         <h1 className="font-inter font-bold text-[32px]">{sub.name}</h1>
                                         <h3 className="text-[18px]">{sub.alamat}</h3>
-                                        <h3 className="mt-2 opacity-[70%] flex flex-row items-center"><span className="mr-2"><GrLocation /></span>{sub.kecamatan}</h3>
+                                        <h3 className="mt-2 opacity-[70%] flex flex-row items-center"><span className="mr-2"><icon.GrLocation /></span>{sub.kecamatan}</h3>
                                         <div className="flex flex-row items-center mt-5">
                                             {
                                                 sub.tag.map((tag, index) => {
@@ -113,7 +112,7 @@ const Keterangan = () => {
                                                         <div key={index}>
                                                             <ul>
                                                                 <li className="flex flex-row items-center mr-5">
-                                                                    <span className="font-bold ml-3"><FaCircle className="text-[5px] mr-3" /></span>{fasil.barang}
+                                                                    <span className="font-bold ml-3"><icon.FaCircle className="text-[5px] mr-3" /></span>{fasil.barang}
                                                                 </li>
                                                             </ul>
                                                         </div>
@@ -126,7 +125,7 @@ const Keterangan = () => {
                                         <div className="mt-10">
                                             <h1 className="font-bold text-[20px]">Spesifikasi Luas</h1>
                                             <div className="flex flex-row items-center">
-                                                <span className="font-bold ml-3"><FaCircle className="text-[5px] mr-3" /></span>
+                                                <span className="font-bold ml-3"><icon.FaCircle className="text-[5px] mr-3" /></span>
                                                 <h3>{sub.Luas}</h3>
                                             </div>
                                         </div>
@@ -135,7 +134,7 @@ const Keterangan = () => {
                                         <div className="mt-10">
                                             <h1 className="font-bold text-[20px] mt-5">Kapasitas</h1>
                                             <div className="flex flex-row items-center">
-                                                <span className="font-bold ml-3"><FaCircle className="text-[5px] mr-3" /></span>
+                                                <span className="font-bold ml-3"><icon.FaCircle className="text-[5px] mr-3" /></span>
                                                 <h3 className="font-medium text-[16px]">{sub.kapasitas}</h3>
                                             </div>
                                         </div>
@@ -149,7 +148,7 @@ const Keterangan = () => {
                                                         <div key={index}>
                                                             <ul>
                                                                 <li className="flex flex-row items-center mr-5">
-                                                                    <span className="font-bold ml-3"><FaCircle className="text-[5px] mr-3" /></span>{aturan.barang}
+                                                                    <span className="font-bold ml-3"><icon.FaCircle className="text-[5px] mr-3" /></span>{aturan.barang}
                                                                 </li>
                                                             </ul>
                                                         </div>

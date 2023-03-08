@@ -1,10 +1,10 @@
 import Nav from "../../components/partials/Nav";
+import icon from '../../components/icons/Icons';
 import { gedung } from '../../models/dummy/gedung'
-import fotoGedung from '../../assets/gedung.jpg'
+import fotoGedung from '../../assets/cakrawala.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/partials/Footer";
-import {GrLocation} from 'react-icons/gr'
 import CurrencyFormat from "react-currency-format";
 
 const Graha = () => {
@@ -26,7 +26,7 @@ const Graha = () => {
                                             <h1 className="text-[18px] font-bold">{data.name}</h1>
                                             <div className="my-5 font-inter text-[12px]">
                                                 <h3>{data.alamat}</h3>
-                                                <h3 className="mt-1 text-[#6A7682] flex flex-row items-center"><span className="mr-2"><GrLocation/></span>{data.kecamatan}</h3>
+                                                <h3 className="mt-1 text-[#6A7682] flex flex-row items-center"><span className="mr-2"><icon.GrLocation/></span>{data.kecamatan}</h3>
                                             </div>
                                             <div className="flex flex-col">
                                                 <h3 className="text-[10px] text-[#1B1D21]">Mulai Dari</h3>

@@ -1,4 +1,4 @@
-import logo from '../../assets/grent.com.png'
+import logo from '../../assets/grent.com.svg'
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import AxiosInstance from "../features/api/AxiosInstance";
