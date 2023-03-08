@@ -14,16 +14,49 @@ import Nav from "../../components/partials/Nav";
 import { layanan, pemilikGraha } from "../../models/dummy/layanan";
 import Footer from "../../components/partials/Footer";
 import RunComponent from "../../features/home/RunningComponent";
+import Typewriter from "typewriter-effect";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Homepage = () => {
+    useEffect(() => {
+        AOS.init({
+            delay: 200,
+            duration: 500,
+            easing: 'ease-in-sine'
+        });
+    }, [])
     return (
         <>
             <Nav />
             <div className="my-[100px] font-inter">
                 <div className="flex flex-row mb-[30px] items-center justify-around w-full">
-                    <div className="w-[35%]">
-                        <h3 className="font-inter font-bold text-[50px] mb-[50px]">Masih bingung cari persewaan gedung? </h3>
-                        <a href="/graha" className="p-3 bg-[#F78CB2] hover:bg-[#f379a3] justify-end rounded-lg text-white">Booking Sekarang</a>
+                    <div className="w-[45%] flex justify-between flex-col">
+                        <div className="text-[48px] w-full font-bold">
+                            <Typewriter
+                                onInit={(typewriter) => {
+                                    typewriter.typeString('Bingung cari persewaan gedung acara?')
+                                        .changeDeleteSpeed(100)
+                                        .changeDelay(100)
+                                        .pauseFor(2500)
+                                        .deleteChars(6)
+                                        .typeString('pernikahan?')
+                                        .pauseFor(2500)
+                                        .deleteChars(11)
+                                        .typeString('konser?')
+                                        .pauseFor(2500)
+                                        .start();
+                                }}
+                                options={{
+                                    loop: true,
+                                    deleteSpeed: 200,
+                                }}
+
+                            />
+                        </div>
+                        <h1 data-aos="fade-right" className="text-[20px] w-[70%] mt-5">Gausah risau kini semua pilihan sudah tersedia dalam satu platform</h1>
+                        <a data-aos="fade-left" href="/graha" className="p-3 bg-[#F78CB2] w-[25%] mt-6 justify-end hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
                     </div>
                     <div>
                         <LazyLoadImage
@@ -38,7 +71,7 @@ const Homepage = () => {
                     <div className="flex flex-col">
                         <div className="mx-[70px] my-[20px]">
                             <h1 className="font-inter font-bold text-[48px]">Layanan Kami</h1>
-                            <div className="flex flex-row justify-between">
+                            <div data-aos="fade-up" className="flex flex-row justify-between">
                                 {
                                     layanan.map(data => {
                                         return (
@@ -135,7 +168,7 @@ const Homepage = () => {
                     <div className="flex flex-col">
                         <div className="mx-[70px] mt-[20px]">
                             <h1 className="font-inter font-bold text-[48px]">Dari Pemilik Graha</h1>
-                            <div className="flex flex-row justify-between mt-8">
+                            <div data-aos="fade-up" className="flex flex-row justify-between mt-8">
                                 {
                                     pemilikGraha.map((data) => {
                                         return (
@@ -166,7 +199,7 @@ const Homepage = () => {
                     <div className="mx-[70px]">
                         <h1 className="font-bold font-inter text-[64px]">Apa Kata Pengguna</h1>
                     </div>
-                    <RunComponent/>
+                    <RunComponent />
                 </div>
 
             </div>

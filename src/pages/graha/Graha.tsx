@@ -7,14 +7,23 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../components/partials/Footer";
 import CurrencyFormat from "react-currency-format";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
+import { useEffect } from "react";
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 const Graha = () => {
+    useEffect(() => {
+        AOS.init({
+            delay: 200,
+            duration: 500
+        });
+    }, [])
     const navigate = useNavigate()
     return (
         <>
             <Nav />
             <div className="mx-[100px] my-[100px]">
-                <div className="grid grid-cols-4 w-full">
+                <div data-aos="fade-up" className="grid grid-cols-4 w-full">
                     {
                         gedung.map((data, index) => {
                             return (
