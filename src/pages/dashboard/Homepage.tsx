@@ -114,49 +114,31 @@ const Homepage = () => {
                         >
                             <SwiperSlide>
                                 <div className="title font-bold text-[64px]" data-swiper-parallax="-400">
-                                    1. Discover
+                                    Lengkap
                                 </div>
-                                <div className="text mt-[20px]" data-swiper-parallax="-100">
+                                <div className="text text-[24px] mt-[20px]" data-swiper-parallax="-100">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                        Detail dan Informasi mengenai gedung yang kita sajikan akurat dan lengkap
                                     </p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="title font-bold text-[64px]" data-swiper-parallax="-400">
-                                    2. Found
+                                    Found
                                 </div>
-                                <div className="text mt-[20px]" data-swiper-parallax="-100">
+                                <div className="text text-[24px] mt-[20px]" data-swiper-parallax="-100">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                        Booking dan pembayaran bisa dilakukan secara langsung melalui web kami dan pastinya terpercaya
                                     </p>
                                 </div>
                             </SwiperSlide>
                             <SwiperSlide>
                                 <div className="title font-bold text-[64px]" data-swiper-parallax="-400">
-                                    3. Search
+                                    Akurat
                                 </div>
-                                <div className="text mt-[20px]" data-swiper-parallax="-100">
+                                <div className="text text-[24px] mt-[20px]" data-swiper-parallax="-100">
                                     <p>
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam
-                                        dictum mattis velit, sit amet faucibus felis iaculis nec. Nulla
-                                        laoreet justo vitae porttitor porttitor. Suspendisse in sem justo.
-                                        Integer laoreet magna nec elit suscipit, ac laoreet nibh euismod.
-                                        Aliquam hendrerit lorem at elit facilisis rutrum. Ut at
-                                        ullamcorper velit. Nulla ligula nisi, imperdiet ut lacinia nec,
-                                        tincidunt ut libero. Aenean feugiat non eros quis feugiat.
+                                        Kualitas dari pelayanan serta kepuasan pengguna dapat anda lihat pada review pengguna
                                     </p>
                                 </div>
                             </SwiperSlide>
