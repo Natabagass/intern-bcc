@@ -4,8 +4,8 @@ export interface Ctx {
 };
 
 export interface PembayaranContextType {
-    step: Ctx,
-    harga: Ctx,
-    setHarga: React.Dispatch<React.SetStateAction<Ctx>>
-    setStep: React.Dispatch<React.SetStateAction<Ctx>>;
+    step: number,
+    harga: number,
+    setHarga: React.Dispatch<React.SetStateAction<Ctx["harga"]>>
+    setStep: React.Dispatch<React.SetStateAction<Ctx["step"]>>;
 };

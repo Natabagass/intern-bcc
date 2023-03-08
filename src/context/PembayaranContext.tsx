@@ -11,15 +11,15 @@ type PembayaranProviderProps = {
 };
 
 export const PembayaranContext = createContext<PembayaranContextType>({
-    step: initial,
-    harga: initial,
-    setStep: (step) => {  },
-    setHarga: (harga) => { },
+    step: initial.step,
+    harga: initial.harga,
+    setStep: () => { },
+    setHarga: () => { },
 });
 
 export const PembayaranProvider: React.FC<PembayaranProviderProps> = ({ children }) => {
-    const [step, setStep] = useState<Ctx>(initial);
-    const [harga, setHarga] = useState<Ctx>(initial)
+    const [step, setStep] = useState<Ctx["step"]>(initial.step);
+    const [harga, setHarga] = useState<Ctx["harga"]>(initial.harga)
 
     return (
         <PembayaranContext.Provider value={{ setStep, harga, setHarga, step }}>

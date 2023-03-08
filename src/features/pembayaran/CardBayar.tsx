@@ -4,20 +4,21 @@ import { gedung } from "../../models/dummy/gedung";
 import Button from "../../components/button/Button";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
 import { PembayaranContext } from "../../context/PembayaranContext";
+import Lunas from "./CardPelunasan";
 
 const Bayar = () => {
-    const {step, setStep} = useContext(PembayaranContext)
+    const {setStep, setHarga, harga} = useContext(PembayaranContext)
     const [tab, setTab] = useState('')
+    const [jumlah, setJumlah] = useState(0)
     const layanan = 500000
     const [totalBiaya, setTotalBiaya] = useState(0)
-    const [harga, setHarga] = useState(0)
     const [dp, setDp] = useState(0)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
     useEffect(() => {
         gedung.filter(data => {
             if (data.id === myId) {
-                setHarga(data.harga)
+                setJumlah(data.harga)
             }
         })
     }, [])
@@ -30,8 +31,9 @@ const Bayar = () => {
                         className={`${tab === '30%' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
                             setTab('30%')
-                            const total = harga * 0.3
+                            const total = jumlah * 0.3
                             setDp(total)
+                            setHarga(totalBiaya)
                             setTotalBiaya(total + layanan)
                         }}
                     >
@@ -40,8 +42,9 @@ const Bayar = () => {
                         className={`${tab === "50%" ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => { 
                             setTab('50%')
-                            const total = harga * 0.5
+                            const total = jumlah * 0.5
                             setDp(total)
+                            setHarga(totalBiaya)
                             setTotalBiaya(total + layanan)
                         }}
                     >
@@ -50,8 +53,9 @@ const Bayar = () => {
                         className={`${tab === 'Bayar Lunas' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => { 
                             setTab('Bayar Lunas')
-                            const total = harga * 1
+                            const total = jumlah * 1
                             setDp(total)
+                            setHarga(totalBiaya)
                             setTotalBiaya(total + layanan)
                         }}
                     >
@@ -84,8 +88,9 @@ const Bayar = () => {
                         <span className="text-[16px] font-bold">{rupiahFormatter(totalBiaya)}</span>
                     </div>
                 </div>
-                <Button 
-                    onClick={() => {}}
+                <Button
+                    type="button" 
+                    onClick={() => setStep(2)}
                     className="bg-[#F78CB2] hover:bg-white hover:border-[#F78CB2] hover:border hover:text-[#F78CB2] rounded-xl w-full text-white mt-8"
                     >
                         Bayar

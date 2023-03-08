@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import icon from '../../components/icons/Icons';
 import { useParams } from "react-router-dom";
@@ -7,22 +7,16 @@ import Biodata from "../../features/forms/FormBiodata";
 import { gedung } from "../../models/dummy/gedung";
 import Footer from "../../components/partials/Footer";
 import Nav from "../../components/partials/Nav";
-import Bayar from "../../features/pembayaran/CardBayar";
+import { PembayaranContext } from "../../context/PembayaranContext";
 import Lunas from "../../features/pembayaran/CardPelunasan";
+import Bayar from "../../features/pembayaran/CardBayar";
 
 const Pembayaran = () => {
     const [nama, setNama] = useState('')
-    const [step, setStep] = useState(1)
+    const { step, setStep } = useContext(PembayaranContext)
+    console.log(step)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
-    const stepper = () => {
-        switch(step){
-            case 1:
-                return <Bayar/>
-            case 2:
-                return <Lunas/>
-        }
-    }
     useEffect(() => {
         gedung.filter(data => {
             if (data.id === myId) {
@@ -73,7 +67,7 @@ const Pembayaran = () => {
                     </div>
 
                     <div className="w-[50%]">
-                        <Lunas/>
+                        {step === 1 ? <Bayar/> : <Lunas/>}
                     </div>
                 </div>
             </div>

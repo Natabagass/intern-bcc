@@ -7,8 +7,12 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../../components/button/Button";
 import Timer from "../../components/timer/Timer";
 import Swal from "sweetalert2";
+import { PembayaranContext } from "../../context/PembayaranContext";
+import { useContext } from "react";
+import { rupiahFormatter } from "../../components/formatter/Rupiah";
 
 const Lunas = () => {
+    const {harga} = useContext(PembayaranContext)
     const berhasil = () => {
         Swal.fire({
             icon: 'success',
@@ -27,7 +31,7 @@ const Lunas = () => {
                 <div className="my-3 flex flex-row justify-between">
                     <div>
                         <h1>Biaya yang harus dibayarkan</h1>
-                        <h3 className="font-bold text-[24px] mt-3">Rp. 8.000.000</h3>
+                        <h3 className="font-bold text-[24px] mt-3">{rupiahFormatter(harga)}</h3>
                     </div>
                     <div>
                         <h1>Pilih Dalam Waktu</h1>
