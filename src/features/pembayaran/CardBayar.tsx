@@ -15,6 +15,11 @@ const Bayar = () => {
     const [dp, setDp] = useState(0)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
+
+    useEffect(() => {
+        harga
+    }, [setHarga(totalBiaya)])
+
     useEffect(() => {
         gedung.filter(data => {
             if (data.id === myId) {
