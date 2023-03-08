@@ -1,4 +1,3 @@
-import CurrencyFormat from "react-currency-format";
 import icons from "../../components/icons/Icons";
 import BCA from '../../assets/BCA.svg'
 import bri from '../../assets/bri.svg'

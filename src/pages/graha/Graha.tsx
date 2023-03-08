@@ -6,6 +6,7 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/partials/Footer";
 import CurrencyFormat from "react-currency-format";
+import { rupiahFormatter } from "../../components/formatter/Rupiah";
 
 const Graha = () => {
     const navigate = useNavigate()
@@ -30,8 +31,7 @@ const Graha = () => {
                                             </div>
                                             <div className="flex flex-col">
                                                 <h3 className="text-[10px] text-[#1B1D21]">Mulai Dari</h3>
-                                                <CurrencyFormat className="text-[16px] font-bold" value={data.harga} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
-                                            </div>
+                                                <span className="text-[16px] font-bold">{rupiahFormatter(data.harga)}</span>                                            </div>
                                         </div>
                                     </div>
                                 </div>

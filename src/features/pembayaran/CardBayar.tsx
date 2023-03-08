@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { gedung } from "../../models/dummy/gedung";
 import Button from "../../components/button/Button";
-import CurrencyFormat from "react-currency-format";
+import { rupiahFormatter } from "../../components/formatter/Rupiah";
 import { PembayaranContext } from "../../context/PembayaranContext";
 
 const Bayar = () => {
@@ -69,7 +69,7 @@ const Bayar = () => {
                     <h1 className="font-bold">Detail Pembayaran</h1>
                     <div className="mt-3 flex w-full justify-between flex-row">
                         <h3>Total Keseluruhan</h3>
-                        <CurrencyFormat className="text-[16px] font-bold" value={dp} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+                        <span className="text-[16px] font-bold">{rupiahFormatter(dp)}</span>
                     </div>
                 </div>
                 <hr />
@@ -81,7 +81,7 @@ const Bayar = () => {
                     </div>
                     <div className="mt-3 flex flex-row justify-between w-full">
                         <h1>Biaya yang harus dibayar</h1>
-                        <CurrencyFormat className="text-[16px] font-bold" value={totalBiaya} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+                        <span className="text-[16px] font-bold">{rupiahFormatter(totalBiaya)}</span>
                     </div>
                 </div>
                 <Button 

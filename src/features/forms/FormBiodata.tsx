@@ -4,7 +4,7 @@ import { FormContext } from "../../context/FormContext";
 import Label from "../../components/label/Label";
 import { useParams } from "react-router-dom";
 import { gedung } from "../../models/dummy/gedung";
-import * as CurrencyFormat from "react-currency-format";
+import { rupiahFormatter } from "../../components/formatter/Rupiah";
 
 const Biodata = () => {
     const [harga, setHarga] = useState(0)
@@ -22,7 +22,7 @@ const Biodata = () => {
         <div>
             <div>
                 <h1>Mulai Dari</h1>
-                <CurrencyFormat className="text-[25px] font-bold" value={harga} displayType={'text'} thousandSeparator={true} prefix={'Rp '} />
+                <span className="text-[25px] font-bold">{rupiahFormatter(harga)}</span>
                 <hr className="w-full my-5" />
             </div>
             <Label className="font-medium text-[20px]">Biodata</Label>
