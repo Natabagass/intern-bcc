@@ -3,16 +3,26 @@ import { LazyLoadImage } from "react-lazy-load-image-component";
 import icon from '../../components/icons/Icons';
 import { useParams } from "react-router-dom";
 import Ruang1 from '../../assets/ruang1.svg'
-import Biodata from "../../components/features/forms/FormBiodata";
+import Biodata from "../../features/forms/FormBiodata";
 import { gedung } from "../../models/dummy/gedung";
 import Footer from "../../components/partials/Footer";
 import Nav from "../../components/partials/Nav";
-import Bayar from "../../components/features/pembayaran/CardBayar";
+import Bayar from "../../features/pembayaran/CardBayar";
+import Lunas from "../../features/pembayaran/CardPelunasan";
 
 const Pembayaran = () => {
     const [nama, setNama] = useState('')
+    const [step, setStep] = useState(1)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
+    const stepper = () => {
+        switch(step){
+            case 1:
+                return <Bayar/>
+            case 2:
+                return <Lunas/>
+        }
+    }
     useEffect(() => {
         gedung.filter(data => {
             if (data.id === myId) {
@@ -63,7 +73,7 @@ const Pembayaran = () => {
                     </div>
 
                     <div className="w-[50%]">
-                        <Bayar/>
+                        <Lunas/>
                     </div>
                 </div>
             </div>

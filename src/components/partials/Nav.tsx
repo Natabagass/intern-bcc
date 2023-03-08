@@ -1,7 +1,7 @@
 import logo from '../../assets/grent.com.svg'
 import styled from "styled-components";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import AxiosInstance from "../features/api/AxiosInstance";
+import AxiosInstance from "../../features/api/AxiosInstance";
 import { useEffect, useState } from "react";
 import { Cookies } from 'react-cookie';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md'
@@ -114,7 +114,7 @@ const HoverUnderline = styled.span`
                                         <a className="p-2 bg-white border-[#F78CB2] border text-[#F78CB2] hover:bg-[#f379a3] hover:text-white rounded-lg mr-3" href="/signup">Daftar</a>
                                     </li>
                                     <li>
-                                        <a className="p-2 bg-[#F78CB2] hover:bg-white hover:text-[#F78CB2] hover:border hover:border-[#F78CB2] text-white rounded-lg mr-3 px-5" href="/login">masuk</a>
+                                        <a className="p-2 bg-[#F78CB2] hover:bg-white hover:text-[#F78CB2] hover:border hover:border-[#F78CB2] text-white rounded-lg mr-3 px-5" href="/login">Masuk</a>
                                     </li>
                                 </>
                         }

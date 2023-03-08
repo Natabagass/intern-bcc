@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from "framer-motion";
 import "swiper/css";
-import { kataMereka } from "../../../models/dummy/kataMereka";
+import { kataMereka } from "../../models/dummy/kataMereka";
 
 
 const rightVariants = {

@@ -1,16 +1,16 @@
 import { useState } from "react";
-import icon from '../../../components/icons/Icons';
-import Button from "../../button/Button";
-import Input from "../../input/Input";
+import icon from '../../components/icons/Icons';
+import Button from "../../components/button/Button";
+import Input from "../../components/input/Input";
 import Swal from 'sweetalert2'
-import Label from "../../label/Label";
-import { gedung } from '../../../models/dummy/gedung'
+import Label from "../../components/label/Label";
+import { gedung } from '../../models/dummy/gedung'
 import { useNavigate, useParams } from "react-router-dom";
 import withReactContent from "sweetalert2-react-content";
 import { Cookies } from 'react-cookie';
 import { useContext } from "react";
 import * as CurrencyFormat from 'react-currency-format';
-import { FormContext } from "../../../context/FormContext";
+import { FormContext } from "../../context/FormContext";
 
 const Keterangan = () => {
     const cookies = new Cookies();

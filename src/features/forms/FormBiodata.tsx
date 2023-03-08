@@ -1,9 +1,9 @@
 import { useState, useContext, useEffect } from "react";
-import Input from "../../input/Input";
-import { FormContext } from "../../../context/FormContext";
-import Label from "../../label/Label";
+import Input from "../../components/input/Input";
+import { FormContext } from "../../context/FormContext";
+import Label from "../../components/label/Label";
 import { useParams } from "react-router-dom";
-import { gedung } from "../../../models/dummy/gedung";
+import { gedung } from "../../models/dummy/gedung";
 import * as CurrencyFormat from "react-currency-format";
 
 const Biodata = () => {

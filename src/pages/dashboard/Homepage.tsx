@@ -13,18 +13,17 @@ import PesanGedung from '../../assets/layanan3.svg'
 import Nav from "../../components/partials/Nav";
 import { layanan, pemilikGraha } from "../../models/dummy/layanan";
 import Footer from "../../components/partials/Footer";
-import RunComponent from "../../components/features/home/RunningComponent";
+import RunComponent from "../../features/home/RunningComponent";
 
 const Homepage = () => {
     return (
         <>
             <Nav />
             <div className="my-[100px] font-inter">
-
-                <div className="flex flex-row mb-[30px] justify-around w-full">
-                    <div className="w-[696px] mt-[100px]">
-                        <h3 className="font-inter font-bold text-[64px] mb-[50px]">Masih bingung cari persewaan gedung? </h3>
-                        <a href="/graha" className="p-3 bg-[#F78CB2] hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
+                <div className="flex flex-row mb-[30px] items-center justify-around w-full">
+                    <div className="w-[35%]">
+                        <h3 className="font-inter font-bold text-[50px] mb-[50px]">Masih bingung cari persewaan gedung? </h3>
+                        <a href="/graha" className="p-3 bg-[#F78CB2] hover:bg-[#f379a3] justify-end rounded-lg text-white">Booking Sekarang</a>
                     </div>
                     <div>
                         <LazyLoadImage

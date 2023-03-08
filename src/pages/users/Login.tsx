@@ -7,7 +7,7 @@ import Input from "../../components/input/Input";
 import Label from "../../components/label/Label";
 import Button from "../../components/button/Button";
 import { Link } from "react-router-dom";
-import AxiosInstance from "../../components/features/api/AxiosInstance";
+import AxiosInstance from "../../features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();
 import { Cookies } from 'react-cookie';
 const cookies = new Cookies();
