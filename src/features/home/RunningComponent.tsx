@@ -50,10 +50,10 @@ const RunComponent = () => {
                         {
                             kataMereka.map((data, index) => {
                                 return (
-                                    <div className='bg-white flex flex-col mr-10 shadow-lg justify-center items-center rounded-xl p-5' key={index}>
+                                    <div className='bg-white flex flex-col mr-5 sm:mr-10 shadow-lg justify-center items-center rounded-xl p-2 sm:p-3 lg:p-5' key={index}>
                                         <div className="flex justify-center font-inter flex-col text-left w-[300px]">
-                                            <h1 className="font-bold text-[24px]">{data.nama}</h1>
-                                            <h3 className="mt-3">{data.review}</h3>
+                                            <h1 className="font-bold text-[16px] sm:text-[18px] lg:text-[24px]">{data.nama}</h1>
+                                            <h3 className="mt-3 text-[12px] sm:text-[14px] lg:text-[16px]">{data.review}</h3>
                                         </div>
                                     </div>
                                 );
@@ -68,10 +68,10 @@ const RunComponent = () => {
                         {
                             kataMereka.map((data, index) => {
                                 return (
-                                    <div className='bg-white flex flex-col ml-10 shadow-lg justify-center items-center rounded-xl p-5' key={index}>
+                                    <div className='bg-white flex flex-col mr-5 sm:mr-10 shadow-lg justify-center items-center rounded-xl p-2 sm:p-3 lg:p-5' key={index}>
                                         <div className="flex justify-center font-inter flex-col text-left w-[300px]">
-                                            <h1 className="font-bold text-[24px]">{data.nama}</h1>
-                                            <h3 className="mt-3">{data.review}</h3>
+                                            <h1 className="font-bold text-[16px] sm:text-[18px] lg:text-[24px]">{data.nama}</h1>
+                                            <h3 className="mt-3 text-[12px] sm:text-[14px] lg:text-[16px]">{data.review}</h3>
                                         </div>
                                     </div>
                                 );
