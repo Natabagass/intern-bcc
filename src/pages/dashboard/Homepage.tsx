@@ -247,7 +247,7 @@ const Homepage = () => {
                 </div>
 
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </>
     );
 }
