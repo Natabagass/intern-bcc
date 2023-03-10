@@ -51,7 +51,7 @@ const Login = () => {
                         href="/"
                         className="p-3 ml-10 absolute rounded-2xl hidden lg:flex text-[12px] shadow-md flex-row items-center text-[#F78CB2] mr-5 bg-white"
                     ><icon.MdArrowBackIos className="mr-2 text-[16px]" />Kembali ke beranda</a>
-                                        <a
+                    <a
                         href="/"
                         className="py-2 px-2 sm:px-3 ml-5 sm:ml-10 absolute rounded-2xl flex lg:hidden shadow-md items-center text-[#F78CB2] bg-white"
                     ><icon.MdArrowBackIos className="ml-2 text-center w-full text-[18px] sm:text-[22px]" /></a>
