@@ -58,7 +58,7 @@ const Booking = () => {
                         </div> */}
                     </div>
                 </div>
-                {/* <Keterangan /> */}
+                <Keterangan />
             </div>
         </>
     );
