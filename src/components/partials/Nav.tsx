@@ -43,7 +43,7 @@ const Nav = () => {
                 setNama(res.data.data)
             })
             .catch(err => {
-                console.log(err)
+                
             })
     }
 
