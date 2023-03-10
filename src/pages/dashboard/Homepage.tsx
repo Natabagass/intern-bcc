@@ -32,31 +32,33 @@ const Homepage = () => {
             <Nav />
             <div className="my-[100px] font-inter">
                 <div className="flex flex-row mb-[30px] items-center justify-around w-full">
-                    <div className="w-[80%] justify-center sm:w-[45%] lg:w-[40%] flex sm:justify-between flex-col">
+                    <div className="w-[80%] justify-center sm:w-[45%] lg:w-[35%] flex sm:justify-between flex-col">
                         <div className="text-[20px] sm:text-[24px] md:text-[32px] lg:text-[48px] w-full font-bold">
-                            <Typewriter
-                                onInit={(typewriter) => {
-                                    typewriter.typeString('Bingung cari persewaan gedung acara?')
-                                        .changeDeleteSpeed(100)
-                                        .changeDelay(100)
-                                        .pauseFor(2500)
-                                        .deleteChars(6)
-                                        .typeString('pernikahan?')
-                                        .pauseFor(2500)
-                                        .deleteChars(11)
-                                        .typeString('konser?')
-                                        .pauseFor(2500)
-                                        .start();
-                                }}
-                                options={{
-                                    loop: true,
-                                    deleteSpeed: 200,
-                                }}
-
-                            />
+                            <h1>
+                                Bingung cari persewaan gedung
+                                <Typewriter
+                                    onInit={(typewriter) => {
+                                        typewriter.typeString('Acara?')
+                                            .changeDeleteSpeed(100)
+                                            .changeDelay(100)
+                                            .pauseFor(2500)
+                                            .deleteChars(6)
+                                            .typeString('pernikahan?')
+                                            .pauseFor(2500)
+                                            .deleteChars(11)
+                                            .typeString('konser?')
+                                            .pauseFor(2500)
+                                            .start();
+                                    }}
+                                    options={{
+                                        loop: true,
+                                        deleteSpeed: 200,
+                                    }}
+                                />
+                            </h1>
                         </div>
-                        <h1 data-aos="fade-right" className="text-[14px] sm:text-[16px] md:text-[20px] w-[70%] sm:w-[90%] lg:w-[70%] mt-5">Gausah risau kini semua pilihan sudah tersedia dalam satu platform</h1>
-                        <a data-aos="fade-left" href="/graha" className="p-2 md:p-3 text-center sm:text-left bg-[#F78CB2] w-[60%] sm:w-[50%] md:w-[45%] lg:w-[40%] text-[12px]  sm:text-[14px] md:text-[16px] mt-6 justify-end hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
+                        <h1 data-aos="fade-right" className="text-[14px] sm:text-[16px] md:text-[20px] w-[70%] sm:w-[80%] lg:w-[100%] mt-5">Gausah risau kini semua pilihan sudah tersedia dalam satu platform</h1>
+                        <a data-aos="fade-left" href="/graha" className="p-2 md:p-3 text-center sm:text-left bg-[#F78CB2] w-[60%] sm:w-[50%] md:w-[45%] lg:w-[50%] text-[12px]  sm:text-[14px] md:text-[16px] mt-6 justify-end hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
                     </div>
                     <div className="w-[35%] hidden sm:flex">
                         <LazyLoadImage
@@ -172,6 +174,7 @@ const Homepage = () => {
                                     </p>
                                 </div>
                             </SwiperSlide>
+                            <h1 className="text-[12px] lg:text-[24px] mt-7 lg:mt-10 font-bold">Scroll Me!</h1>
                         </Swiper>
                     </div>
                 </div>

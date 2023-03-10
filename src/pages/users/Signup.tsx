@@ -29,9 +29,13 @@ const Signup = () => {
         setLoading(true)
         await axiosInstance.post('/register', forms)
             .then(res => {
-                navigate('/login')
+                setLoading(true)
+                setTimeout(() => {
+                    window.location.replace('/login')
+                }, 1000)
             })
             .catch(err => {
+                console.log(err)
                 setValidation(err.response.data.message)
                 setLoading(false)
             })

@@ -53,15 +53,17 @@ const Nav = () => {
 
     const logout = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        await axiosInstance.get('/logout')
-            .then(res => {
-                console.log(res)
-                cookies.remove('auth', { path: '/' })
-                window.location.replace('/')
-            })
-            .catch(err => {
-                console.log(err)
-            })
+        cookies.remove('auth', { path: '/' })
+        window.location.replace('/')
+        // await axiosInstance.get('/logout')
+        //     .then(res => {
+        //         console.log(res)
+        //         cookies.remove('auth', { path: '/' })
+        //         window.location.replace('/')
+        //     })
+        //     .catch(err => {
+        //         console.log(err)
+        //     })
     }
 
     return (
