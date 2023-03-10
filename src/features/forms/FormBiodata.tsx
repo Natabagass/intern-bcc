@@ -22,10 +22,10 @@ const Biodata = () => {
         <div>
             <div>
                 <h1>Mulai Dari</h1>
-                <span className="text-[25px] font-bold">{rupiahFormatter(harga)}</span>
+                <span className="text-[20px] lg:text-[25px] font-bold">{rupiahFormatter(harga)}</span>
                 <hr className="w-full my-5" />
             </div>
-            <Label className="font-medium text-[20px]">Biodata</Label>
+            <Label className="font-medium text-[18px] lg:text-[20px]">Biodata</Label>
             <div className='flex mb-5 font-inter flex-col mt-[15px]'>
                 <Label htmlFor="nama" className="text-[14]">Nama</Label>
                 <Input

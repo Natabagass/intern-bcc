@@ -6,11 +6,12 @@ import {GrLocation} from 'react-icons/gr'
 import { FaCircle } from "react-icons/fa";
 import { MdOutlineArrowForwardIos, MdOutlineKeyboardArrowDown } from "react-icons/md";
 import { TbDiscount2 } from "react-icons/tb";
-import {RxHamburgerMenu} from 'react-icons/rx'
+import {RxHamburgerMenu, RxCrossCircled} from 'react-icons/rx'
 import {BiLogIn} from 'react-icons/bi'
 
 const icons = {
     IoIosArrowForward,
+    RxCrossCircled,
     MdAppRegistration,
     BiLogIn,
     MdOutlineArrowForwardIos,

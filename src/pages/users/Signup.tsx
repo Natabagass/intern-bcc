@@ -29,12 +29,10 @@ const Signup = () => {
         setLoading(true)
         await axiosInstance.post('/register', forms)
             .then(res => {
-                console.log(res)
                 navigate('/login')
             })
             .catch(err => {
-                // setValidation(err.response.data.message)
-                console.log(err)
+                setValidation(err.response.data.message)
                 setLoading(false)
             })
     }
@@ -64,13 +62,13 @@ const Signup = () => {
                     className="hidden lg:inline w-[65%] h-full"
                     src={sideImg}
                 />
-                <div className="flex flex-col items-center my-[50px] justify-around w-[70%]">
+                <div className="flex flex-col items-center my-[50px] justify-center w-[70%]">
                     <LazyLoadImage
                         alt="Logo"
-                        className="w-[35%] sm:w-[25%]"
+                        className="w-[40%] mb-0 sm:mb-14 sm:w-[25%]"
                         src={logo}
                     />
-                    <div className="w-full lg:w-[60%] mt-14 sm:mt-8">
+                    <div className="w-full lg:w-[60%] mt-14 sm:mt-8 ">
                         <h3 className="font-bold font-inter text-[32px] xl:text-[48px]">Daftar</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[30px]'>

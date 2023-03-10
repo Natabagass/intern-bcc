@@ -40,7 +40,7 @@ const Nav = () => {
     const getdata = async () => {
         await axiosInstance.get('/validate')
             .then(res => {
-                setNama(res.data.data)
+                setNama(res.data.data.Nama)
             })
             .catch(err => {
                 
@@ -49,7 +49,7 @@ const Nav = () => {
 
     useEffect(() => {
         getdata()
-    }, [token])
+    }, [token])         
 
     const logout = async (e: { preventDefault: () => void }) => {
         e.preventDefault()

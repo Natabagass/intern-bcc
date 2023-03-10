@@ -30,17 +30,15 @@ const Login = () => {
         setLoading(true)
         await axiosInstance.post('/login', forms)
             .then(res => {
-                console.log(res)
-                // const token = res.data.data.token
-                // cookies.set('auth', token, { path: '/' });
-                // setTimeout(() => {
-                //     window.location.reload()
-                // }, 1000)
+                const token = res.data.data.token
+                cookies.set('auth', token, { path: '/' });
+                setTimeout(() => {
+                    window.location.reload()
+                }, 1000)
             })
             .catch(err => {
-                console.log(err)
-                // setValidation(err.response.data.Error)
-                // setLoading(false)
+                setValidation(err.response.data.Error)
+                setLoading(false)
             })
     }
     return (
@@ -63,15 +61,15 @@ const Login = () => {
                         src={sideImg}
                     />
                 </div>
-                <div className="flex flex-col my-[50px] lg:my-0 items-center justify-around w-full lg:w-[50%]">
+                <div className="flex flex-col my-[50px] lg:my-0 items-center justify-center w-full lg:w-[50%]">
                     <div>
                         <LazyLoadImage
                             alt="Logo"
-                            className="w-full"
+                            className="w-full mb-0 sm:mb-14 "
                             src={logo}
                         />
                     </div>
-                    <div className="w-[60%] mt-8 lg:mt-0">
+                    <div className="w-[80%] sm:w-[60%] mt-8 lg:mt-0">
                         <h3 className="font-bold font-inter text-[24px] lg:text-[48px]">Masuk</h3>
 
                         <div className='flex w-full font-inter flex-col mt-[30px]'>

@@ -31,36 +31,34 @@ const Booking = () => {
                     <icon.IoIosArrowForward className="opacity-[50%]" />
                     <span className="font-bold text-black opacity-[100%]">&nbsp; {nama}</span>
                 </div>
-                <div className="flex items-stretch justify-between flex-row">
+                <div className="flex items-stretch justify-between flex-col lg:flex-row">
                     <LazyLoadImage
                         src={Ruang1}
-                        className="w-[75%] bg-cover bg-center min-h-[400px]"
+                        className="xl:w-[80%] w-full lg:w-[70%] bg-cover bg-center min-h-[400px]"
                         alt="Gambar 1"
                     />
-                    <div className="w-[35%] ml-7 flex flex-col justify-between">
-                        <LazyLoadImage
-                            src={Ruang2}
-                            className="bg-cover bg-center w-full min-h-[200px]"
-                            alt="Gambar 1"
-                        />
-                        <div>
-                            <div className="flex justify-end">
-                                <Button
-                                    type="button"
-                                    className="px-3 absolute text-[#F78CB2] mt-52 mr-5 bg-white border-2 border-[#F78CB2]"
-                                    children="Lihat semua foto"
-                                    onClick={() => navigate('/')}
-                                />
-                            </div>
+                    <div className="lg:w-[25%] w-[50%] flex lg:flex-col flex-row xl:w-[30%] ml-0 mt-5 lg:mt-0 lg:ml-7">
+                            <LazyLoadImage
+                                src={Ruang2}
+                                className="bg-cover bg-center mb-0 lg:mb-44 mr-8 lg:mr-0 w-full min-h-[200px]"
+                                alt="Gambar 1"
+                            />
                             <LazyLoadImage
                                 src={Ruang3}
                                 className="bg-cover bg-center w-full min-h-[200px]"
                                 alt="Gambar 1"
                             />
-                        </div>
+                        {/* <div className="flex justify-end w-full">
+                            <Button
+                                type="button"
+                                className="px-3 absolute text-[#F78CB2] mt-52 mr-5 bg-white border-2 border-[#F78CB2]"
+                                children="Lihat semua foto"
+                                onClick={() => navigate('/')}
+                            />
+                        </div> */}
                     </div>
                 </div>
-                <Keterangan />
+                {/* <Keterangan /> */}
             </div>
         </>
     );

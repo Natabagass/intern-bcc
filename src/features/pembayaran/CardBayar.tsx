@@ -4,10 +4,10 @@ import { gedung } from "../../models/dummy/gedung";
 import Button from "../../components/button/Button";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
 import { PembayaranContext } from "../../context/PembayaranContext";
-import Lunas from "./CardPelunasan";
+import icons from "../../components/icons/Icons";
 
 const Bayar = () => {
-    const {setStep, setHarga, harga} = useContext(PembayaranContext)
+    const { setStep, setHarga, harga, setVisible } = useContext(PembayaranContext)
     const [tab, setTab] = useState('')
     const [jumlah, setJumlah] = useState(0)
     const layanan = 500000
@@ -30,7 +30,10 @@ const Bayar = () => {
     return (
         <>
             <div className="shadow-lg top-24 sticky p-[24px]">
-                <h1 className="font-bold">Pilih Metode Pembayaran</h1>
+                <div className="flex flex-row justify-between items-center">
+                    <h1 className="font-bold">Pilih Metode Pembayaran</h1>
+                    <button onClick={() => setVisible(false)}><icons.RxCrossCircled className="text-[24px] md:hidden flex text-[#F78CB2] mt-1"/></button>
+                </div>
                 <div className="my-3 flex flex-row">
                     <Button
                         className={`${tab === '30%' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
@@ -45,7 +48,7 @@ const Bayar = () => {
                         30%</Button>
                     <Button
                         className={`${tab === "50%" ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
-                        onClick={() => { 
+                        onClick={() => {
                             setTab('50%')
                             const total = jumlah * 0.5
                             setDp(total)
@@ -56,7 +59,7 @@ const Bayar = () => {
                         50%</Button>
                     <Button
                         className={`${tab === 'Bayar Lunas' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
-                        onClick={() => { 
+                        onClick={() => {
                             setTab('Bayar Lunas')
                             const total = jumlah * 1
                             setDp(total)
@@ -66,13 +69,6 @@ const Bayar = () => {
                     >
                         Bayar Lunas</Button>
                 </div>
-                {/* <div className="flex rounded-lg p-3 border hover:bg-[#F78CB2] hover:text-white flex-row items-center">
-                    <icon.TbDiscount2 className="mr-3 text-[20px]" />
-                    <div onClick={() => navigate('/')} className="flex cursor-pointer flex-row justify-between w-full items-center">
-                        <h1>Pakai Promo Agar Lebih Hemat</h1>
-                        <icon.MdOutlineArrowForwardIos />
-                    </div>
-                </div> */}
 
                 <div className="my-5">
                     <h1 className="font-bold">Detail Pembayaran</h1>
@@ -94,12 +90,12 @@ const Bayar = () => {
                     </div>
                 </div>
                 <Button
-                    type="button" 
+                    type="button"
                     onClick={() => setStep(2)}
                     className="bg-[#F78CB2] hover:bg-white hover:border-[#F78CB2] hover:border hover:text-[#F78CB2] rounded-xl w-full text-white mt-8"
-                    >
-                        Bayar
-                    </Button>
+                >
+                    Bayar
+                </Button>
             </div>
         </>
     );

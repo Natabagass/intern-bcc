@@ -12,14 +12,14 @@ import { useContext } from "react";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
 
 const Lunas = () => {
-    const {harga} = useContext(PembayaranContext)
+    const { harga, setVisible } = useContext(PembayaranContext)
     const berhasil = () => {
         Swal.fire({
             icon: 'success',
             showConfirmButton: false,
             title: 'Pembayaran Berhasil'
         }).then(result => {
-            if (result.dismiss){
+            if (result.dismiss) {
                 window.location.replace('/')
             }
         })
@@ -27,7 +27,10 @@ const Lunas = () => {
     return (
         <>
             <div className="shadow-lg top-24 sticky p-[24px] font-inter">
-                <h1 className="font-bold">Pilih Metode Pembayaran</h1>
+                <div className="flex flex-row justify-between items-center">
+                    <h1 className="font-bold">Pilih Metode Pembayaran</h1>
+                    <button onClick={() => setVisible(false)}><icons.RxCrossCircled className="text-[24px] md:hidden flex text-[#F78CB2] mt-1" /></button>
+                </div>
                 <div className="my-3 flex flex-row justify-between">
                     <div>
                         <h1>Biaya yang harus dibayarkan</h1>
