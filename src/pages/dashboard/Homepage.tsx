@@ -38,7 +38,7 @@ const Homepage = () => {
                                 Bingung cari persewaan gedung
                                 <Typewriter
                                     onInit={(typewriter) => {
-                                        typewriter.typeString('Acara?')
+                                        typewriter.typeString('acara?')
                                             .changeDeleteSpeed(100)
                                             .changeDelay(100)
                                             .pauseFor(2500)
@@ -58,7 +58,7 @@ const Homepage = () => {
                             </h1>
                         </div>
                         <h1 data-aos="fade-right" className="text-[14px] sm:text-[16px] md:text-[20px] w-[70%] sm:w-[80%] lg:w-[100%] mt-5">Gausah risau kini semua pilihan sudah tersedia dalam satu platform</h1>
-                        <a data-aos="fade-left" href="/graha" className="p-2 md:p-3 text-center sm:text-left bg-[#F78CB2] w-[60%] sm:w-[50%] md:w-[45%] lg:w-[50%] text-[12px]  sm:text-[14px] md:text-[16px] mt-6 justify-end hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
+                        <a data-aos="fade-left" href="/graha" className="p-2 md:p-3 text-center sm:text-left bg-[#F78CB2] w-[60%] sm:w-[50%] md:w-[50%] lg:w-[45%] text-[12px]  sm:text-[14px] md:text-[16px] mt-6 justify-end hover:bg-[#f379a3] rounded-lg text-white">Booking Sekarang</a>
                     </div>
                     <div className="w-[35%] hidden sm:flex">
                         <LazyLoadImage
@@ -250,7 +250,7 @@ const Homepage = () => {
                 </div>
 
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }

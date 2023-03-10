@@ -15,11 +15,13 @@ const Booking = () => {
     const navigate = useNavigate()
     const { id } = useParams()
     const myId = parseInt(id!, 10)
+
     useEffect(() => {
         gedung.filter(data => {
             if (data.id === myId) {
                 setNama(data.name)
             }
+            
         })
     }, [])
     return (

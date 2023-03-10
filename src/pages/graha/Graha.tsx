@@ -5,18 +5,29 @@ import fotoGedung from '../../assets/cakrawala.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/partials/Footer";
-import CurrencyFormat from "react-currency-format";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import { getGedung } from "../../features/service/gedung/getDataGedung";
 
 const Graha = () => {
+    const [gedungs, setGedungs] = useState([])
+    const getGedungs = async () => {
+        try {
+            const result = await getGedung()
+            console.log(result)
+        } catch(err) {
+            console.log(err)
+        }
+    }
+
     useEffect(() => {
         AOS.init({
             delay: 200,
             duration: 500
         });
+        getGedungs()
     }, [])
     const navigate = useNavigate()
     return (
@@ -50,7 +61,7 @@ const Graha = () => {
                     }
                 </div>
             </div>
-            {/* <Footer/> */}
+            <Footer/>
         </>
     );
 }
