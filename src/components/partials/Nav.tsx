@@ -98,7 +98,7 @@ const Nav = () => {
                                             <ul className='px-5'>
                                                 <div className='lg:hidden flex flex-col'>
                                                     <li className='my-2'>
-                                                        <a className="text-[#F78CB2] hover:text-[#eb6d99] flex text-[16px] sm:text-[18px] flex-row items-center" href="/home">Home</a>
+                                                        <a className="text-[#F78CB2] hover:text-[#eb6d99] flex text-[16px] sm:text-[18px] flex-row items-center" href="/">Home</a>
                                                     </li>
                                                     <li className='my-2'>
                                                         <a className="text-[#F78CB2] hover:text-[#eb6d99]   flex text-[16px] sm:text-[18px] flex-row items-center" href="/graha">Graha</a>

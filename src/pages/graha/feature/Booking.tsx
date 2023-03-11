@@ -33,31 +33,19 @@ const Booking = () => {
                     <icon.IoIosArrowForward className="opacity-[50%]" />
                     <span className="font-bold text-black opacity-[100%]">&nbsp; {nama}</span>
                 </div>
-                <div className="flex items-stretch justify-between flex-col lg:flex-row">
-                    <LazyLoadImage
-                        src={Ruang1}
-                        className="xl:w-[80%] w-full lg:w-[70%] bg-cover bg-center min-h-[400px]"
-                        alt="Gambar 1"
-                    />
-                    <div className="lg:w-[25%] w-[50%] flex lg:flex-col flex-row xl:w-[30%] ml-0 mt-5 lg:mt-0 lg:ml-7">
-                            <LazyLoadImage
-                                src={Ruang2}
-                                className="bg-cover bg-center mb-0 lg:mb-44 mr-8 lg:mr-0 w-full min-h-[200px]"
-                                alt="Gambar 1"
-                            />
-                            <LazyLoadImage
-                                src={Ruang3}
-                                className="bg-cover bg-center w-full min-h-[200px]"
-                                alt="Gambar 1"
-                            />
-                        {/* <div className="flex justify-end w-full">
+                <div className="flex items-stretch justify-between md:flex-row flex-col">
+                    <div className="md:w-[70%] w-full bg-cover bg-center min-h-[400px] rounded-lg" style={{backgroundImage: `url(${Ruang1})`}} />
+                    <div className="md:w-[30%] flex md:flex-col flex-row justify-between md:ml-5 md:mt-0 mt-5">
+                        <div className="bg-cover bg-center w-full min-h-[200px] rounded-lg md:mb-5 md:mr-0 mr-5" style={{ backgroundImage: `url(${Ruang2})` }} />
+                        <div className="flex justify-end w-full">
+                        <div className="bg-cover bg-center w-full min-h-[200px] rounded-lg" style={{ backgroundImage: `url(${Ruang3})` }} />
                             <Button
                                 type="button"
-                                className="px-3 absolute text-[#F78CB2] mt-52 mr-5 bg-white border-2 border-[#F78CB2]"
+                                className="px-2 xl:px-3 absolute text-[#F78CB2] text-[12px] lg:text-[16px] items-center mt-36 md:mt-32 flex mr-5 bg-white border-2 border-[#F78CB2]"
                                 children="Lihat semua foto"
                                 onClick={() => navigate('/')}
                             />
-                        </div> */}
+                        </div>
                     </div>
                 </div>
                 <Keterangan />
