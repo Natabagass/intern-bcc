@@ -1,5 +1,4 @@
 import AxiosInstance from "../../api/AxiosInstance";
-import { Props } from "../../../models/dto/forms/gedungTypes";
 import { useEffect, useState } from "react";
 const axiosInstance = AxiosInstance();
 

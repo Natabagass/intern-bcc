@@ -76,7 +76,7 @@ const Pembayaran = () => {
             <div className={`${!visible ? 'invisible' : 'visible'} fixed bottom-0 z-50 bg-white inline w-full md:hidden`}>
                 {step === 1 ? <Bayar /> : <Lunas />}
             </div>
-            {/* <Footer /> */}
+            <Footer />
         </>
     );
 }

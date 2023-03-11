@@ -7,6 +7,7 @@ import AuthRoute from './routes/AuthRoute';
 import PrivateRoute from './routes/PrivateRoute';
 import { CookiesProvider } from 'react-cookie'
 import { PembayaranProvider } from './context/PembayaranContext';
+import Profile from './pages/users/auth/Profile';
 
 function App() {
   return (
@@ -28,8 +29,8 @@ function App() {
 
                 <Route element={<PrivateRoute />}>
                   <Route path='/graha/pembayaran/:id' element={<Pembayaran />} />
+                  <Route path='/profile' element={<Profile/>} />
                 </Route>
-
               </Route>
             </Routes>
           </div>

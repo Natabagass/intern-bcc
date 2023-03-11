@@ -12,7 +12,7 @@ import 'aos/dist/aos.css';
 import { getGedung } from "../../features/service/gedung/getDataGedung";
 
 const Graha = () => {
-    const [gedungs, setGedungs] = useState([])
+    const [dataGedung, setDataGedung] = useState([])
     const getGedungs = async () => {
         try {
             const result = await getGedung()

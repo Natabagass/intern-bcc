@@ -94,9 +94,9 @@ const Nav = () => {
                                 <div className="relative">
                                     <button onClick={() => setIsOpen(!isOpen)} className="p-1 bg-white w-full hover:bg-[#f379a3] border hover:text-white border-[#F78CB2] text-[#F78CB2] rounded-lg px-3 flex flex-row items-center">{nama}<MdOutlineKeyboardArrowDown className="text-[20px] ml-1 mt-1" /></button>
                                     {isOpen && (
-                                        <div className="absolute mt-5 right-0 top-full w-full bg-white rounded-b-lg shadow-lg z-10">
-                                            <ul>
-                                                <div className='lg:hidden flex'>
+                                        <div className="absolute mt-5 w-[200%] right-0 top-full bg-white rounded-b-lg shadow-lg z-10">
+                                            <ul className='px-5'>
+                                                <div className='lg:hidden flex flex-col'>
                                                     <li className='my-2'>
                                                         <a className="text-[#F78CB2] hover:text-[#eb6d99] flex text-[16px] sm:text-[18px] flex-row items-center" href="/home">Home</a>
                                                     </li>
@@ -107,15 +107,16 @@ const Nav = () => {
                                                         <a className="text-[#F78CB2] hover:text-[#eb6d99]   flex text-[16px] sm:text-[18px] flex-row items-center" href="/faq">FAQ</a>
                                                     </li>
                                                 </div>
+                                                <hr className='my-2 lg:hidden flex' />
                                                 <li className='my-2'>
-                                                    <a href="" className="block w-full text-[#F78CB2] p-2 hover:bg-gray-100">Profile</a>
+                                                    <a href="/profile" className="w-full text-[#F78CB2] flex text-[16px] sm:text-[18px] hover:bg-gray-100">Profile</a>
                                                 </li>
                                                 <li className='my-2'>
                                                     <button
-                                                        className="block w-full text-[#F78CB2] p-2 hover:rounded-b-lg hover:bg-gray-100"
+                                                        className="w-full text-[#F78CB2] flex text-[16px] sm:text-[18px] hover:rounded-b-lg hover:bg-gray-100"
                                                         onClick={logout}
                                                     >
-                                                        <span className="flex flex-row justify-start items-center">Logout <IoLogOutOutline className="ml-2 mr-5 mt-1" /></span>
+                                                        <span className="flex flex-row justify-start items-center">Logout <IoLogOutOutline className="ml-2 text-[20px] mr-5 mt-1" /></span>
                                                     </button>
                                                 </li>
                                             </ul>

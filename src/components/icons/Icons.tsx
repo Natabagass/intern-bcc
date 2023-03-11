@@ -8,9 +8,11 @@ import { MdOutlineArrowForwardIos, MdOutlineKeyboardArrowDown } from "react-icon
 import { TbDiscount2 } from "react-icons/tb";
 import {RxHamburgerMenu, RxCrossCircled} from 'react-icons/rx'
 import {BiLogIn} from 'react-icons/bi'
+import {CgProfile} from 'react-icons/cg'
 
 const icons = {
     IoIosArrowForward,
+    CgProfile,
     RxCrossCircled,
     MdAppRegistration,
     BiLogIn,

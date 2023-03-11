@@ -16,6 +16,7 @@ const cookies = new Cookies();
 const Login = () => {
     const [passwordShown, setPasswordShown] = useState(false);
     const [validation, setValidation] = useState('')
+    const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
     const toggleShow = () => {
         setPasswordShown(!passwordShown);
@@ -38,7 +39,8 @@ const Login = () => {
             })
             .catch(err => {
                 console.log(err)
-                setValidation(err.response.data.message)
+                setValidation(err.response.data.Error)
+                setError(err.response.data.message)
                 setLoading(false)
             })
     }
@@ -103,6 +105,7 @@ const Login = () => {
                                     {!passwordShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                                 </button>
                             </div>
+                            <span className="mt-5 text-red-500 text-[13px] flex justify-center w-full">{error}</span>
                         </div>
 
                         <div className="font-inter">
