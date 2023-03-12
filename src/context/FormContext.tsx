@@ -7,6 +7,7 @@ const initialFormData: FormData = {
     keperluan: "",
     nomer: "",
     alamat: "",
+    fasilitas: ""
 };
 
 type FormProviderProps = {

@@ -12,13 +12,25 @@ import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
 import { PembayaranContext } from "../../context/PembayaranContext";
+import AxiosInstance from "../api/AxiosInstance";
 
 const Keterangan = () => {
-    const { setVisible } = useContext(PembayaranContext)
+    const axiosInstance = AxiosInstance()
+    const { setVisible, setHarga, harga } = useContext(PembayaranContext)
     const cookies = new Cookies();
     const swal = withReactContent(Swal)
     const token = cookies.get('auth')
     const navigate = useNavigate()
+
+    const handleSubmit = async () => {
+        await axiosInstance.post(`/booking/${id}`, formData)
+            .then(res => {
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const showSignInModal = () => {
         return swal.fire({
@@ -54,18 +66,15 @@ const Keterangan = () => {
 
     const buttonFunct = () => {
         if (!token) return showSignInModal();
-
         setShow(true);
-
         if (!show) return;
         const isFormDataEmpty = Object.values(formData).every((value) => value === '');
-
         if (isFormDataEmpty) return showValidationError('Lengkapi dulu data yang diinput');
 
         showConfirmationDialog('Data yang sudah diinput apakah benar?')
             .then((result) => {
                 if (result.isConfirmed) {
-                    window.location.replace(`/graha/pembayaran/${id}`)
+                    handleSubmit()
                 }
             });
     }
@@ -78,11 +87,15 @@ const Keterangan = () => {
                             return data.id
                         }
                     }).map((sub, index) => {
+                        setHarga(sub.harga)
                         return (
                             <>
                                 <div key={index} className="flex flex-row justify-between ">
-                                    <div className="flex flex-col p-5 font-inter w-[70%]">
-                                        <h1 className="font-inter font-bold text-[28px] lg:text-[32px]">{sub.name}</h1>
+                                    <div className="flex flex-col p-5 font-inter w-full md:w-[70%]">
+                                        <div className="flex flex-row justify-between">
+                                            <h1 className="font-inter font-bold text-[28px] lg:text-[32px]">{sub.name}</h1>
+
+                                        </div>
                                         <h3 className="text-[14px] lg:text-[18px]">{sub.alamat}</h3>
                                         <h3 className="mt-2 opacity-[70%] text-[13px] lg:text-[16px] flex flex-row items-center"><span className="mr-2"><icon.GrLocation /></span>{sub.kecamatan}</h3>
                                         <div className="flex flex-row items-center mt-5">
@@ -159,7 +172,7 @@ const Keterangan = () => {
                                             }
                                         </div>
                                     </div>
-                                    <div className='w-[30%] ml-5'>
+                                    <div className='w-[30%] ml-5 md:inline hidden'>
                                         <div className="top-24 bg-white shadow-md sticky rounded-xl p-5">
                                             <h1 className="text-[12px] lg:text-[16px] ">Mulai Dari</h1>
                                             <span className="text-[18px] lg:text-[25px] font-bold">{rupiahFormatter(sub.harga)}</span>
@@ -241,6 +254,21 @@ const Keterangan = () => {
                                                         />
                                                     </div>
                                                 </div>
+
+                                                <div className='flex mt-6 flex-col'>
+                                                    <Label htmlFor='fasilitas' className="text-[14]">Fasilitas</Label>
+                                                    <div className="relative flex items-cent er">
+                                                        <Input
+                                                            value={formData.fasilitas}
+                                                            onChange={(e) => { setFormData({ ...formData, fasilitas: e.target.value }) }}
+                                                            type='text'
+                                                            required
+                                                            id='fasilitas'
+                                                            placeholder="Masukkan fasilitas yang ingin anda sewakan"
+                                                            className='mt-2 bg-[#DEE4EB] placeholder:text-[12px] lg:placeholder:text-[16px] rounded-xl pl-2 outline-none'
+                                                        />
+                                                    </div>
+                                                </div>
                                             </div>
 
                                             <Button
@@ -250,98 +278,6 @@ const Keterangan = () => {
                                                 onClick={() => buttonFunct()}
                                             />
                                         </div>
-                                        
-                                        {/* <div className="top-24 bg-white shadow-md sticky rounded-xl p-5">
-                                            <h1 className="text-[12px] lg:text-[16px] ">Mulai Dari</h1>
-                                            <span className="text-[18px] lg:text-[25px] font-bold">{rupiahFormatter(sub.harga)}</span>
-                                            <a
-                                                href="https://wa.me/6275156144979"
-                                                target='_blank'
-                                                className="mt-7 p-2 flex justify-center text-[14px] lg:text-[16px] rounded-lg w-full text-[#F78CB2] bg-white border border-[#F78CB2]"
-                                            >Tanya Pemilik</a>
-
-                                            <div className={show ? 'my-5' : 'hidden'}>
-                                                <Label className="font-medium text-[20px]">Isikan Biodata</Label>
-                                                <div className='flex my-5 font-inter flex-col mt-[30px]'>
-                                                    <Label htmlFor="nama" className="text-[14]">Nama</Label>
-                                                    <Input
-                                                        value={formData.nama}
-                                                        onChange={(e) => { setFormData({ ...formData, nama: e.target.value }) }}
-                                                        type="text"
-                                                        required
-                                                        placeholder="Masukkan nama anda"
-                                                        id='nama'
-                                                        className='mt-2 rounded-xl placeholder:text-[12px] lg:placeholder:text-[16px] bg-[#DEE4EB]'
-                                                    />
-                                                </div>
-
-                                                <div className='flex my-5 font-inter flex-col '>
-                                                    <Label htmlFor="tanggal" className="text-[14]">Tanggal</Label>
-                                                    <Input
-                                                        value={formData.tanggal}
-                                                        onChange={(e) => { setFormData({ ...formData, tanggal: e.target.value }) }}
-                                                        type="text"
-                                                        required
-                                                        onFocus={(e) => (e.target.type = "date")}
-                                                        onBlur={(e) => (e.target.type = "text")}
-                                                        placeholder={`Masukkan tanggal sewa`}
-                                                        id='tanggal'
-                                                        className='mt-2 rounded-xl placeholder:text-[12px] lg:placeholder:text-[16px] bg-[#DEE4EB]'
-                                                    />
-                                                </div>
-
-                                                <div className='flex my-5 font-inter flex-col '>
-                                                    <Label htmlFor="keperluan" className="text-[14]">Keperluan</Label>
-                                                    <Input
-                                                        value={formData.keperluan}
-                                                        onChange={(e) => { setFormData({ ...formData, keperluan: e.target.value }) }}
-                                                        type="text"
-                                                        required
-                                                        placeholder="Masukkan Keperluan anda"
-                                                        id='keperluan'
-                                                        className='mt-2 rounded-xl placeholder:text-[12px] lg:placeholder:text-[16px] bg-[#DEE4EB]'
-                                                    />
-                                                </div>
-
-                                                <div className='flex mt-6 flex-col'>
-                                                    <Label htmlFor='nomer' className="text-[14]">No HP</Label>
-                                                    <div className="relative flex items-center">
-                                                        <Input
-                                                            value={formData.nomer}
-                                                            onChange={(e) => { setFormData({ ...formData, nomer: e.target.value }) }}
-                                                            type='number'
-                                                            required
-                                                            id='number'
-                                                            placeholder="Masukkan nomer HP anda"
-                                                            className='mt-2 bg-[#DEE4EB] placeholder:text-[12px] lg:placeholder:text-[16px] rounded-xl pl-2 outline-none'
-                                                        />
-                                                    </div>
-                                                </div>
-
-                                                <div className='flex mt-6 flex-col'>
-                                                    <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
-                                                    <div className="relative flex items-cent er">
-                                                        <Input
-                                                            value={formData.alamat}
-                                                            onChange={(e) => { setFormData({ ...formData, alamat: e.target.value }) }}
-                                                            type='text'
-                                                            required
-                                                            id='alamat'
-                                                            placeholder="Masukkan alamat anda"
-                                                            className='mt-2 bg-[#DEE4EB] placeholder:text-[12px] lg:placeholder:text-[16px] rounded-xl pl-2 outline-none'
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <Button
-                                                type="submit"
-                                                className="mt-3 w-full text-white bg-[#F78CB2] text-[14px] lg:text-[16px] hover:bg-[#f379a3]"
-                                                children="Ajukan Sewa"
-                                                onClick={() => buttonFunct()}
-                                            />
-
-                                        </div> */}
                                     </div>
                                 </div>
                             </>

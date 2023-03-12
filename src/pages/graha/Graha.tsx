@@ -16,7 +16,7 @@ const Graha = () => {
     const getGedungs = async () => {
         try {
             const result = await getGedung()
-            console.log(result)
+            setDataGedung(result?.data.data)
         } catch(err) {
             console.log(err)
         }

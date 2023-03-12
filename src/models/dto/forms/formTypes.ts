@@ -4,6 +4,7 @@ export interface FormData {
     keperluan: string;
     nomer: string;
     alamat: string;
+    fasilitas: string
 };
 
 export interface FormContextType {
