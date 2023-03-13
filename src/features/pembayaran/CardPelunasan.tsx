@@ -1,10 +1,10 @@
-import icons from "../../components/icons/Icons";
+import icons from "../../components/icons";
 import BCA from '../../assets/BCA.svg'
 import bri from '../../assets/bri.svg'
 import Mandiri from '../../assets/mandiri.svg'
 import Bni from '../../assets/bni.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Button from "../../components/button/Button";
+import Button from "../../components/button";
 import Timer from "../../components/timer/Timer";
 import Swal from "sweetalert2";
 import { PembayaranContext } from "../../context/PembayaranContext";

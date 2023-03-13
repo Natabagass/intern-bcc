@@ -1,5 +1,5 @@
 import { Props } from "../../models/dto/forms/buttonTypes";
-import Loader from "../loader/Loader";
+import Loader from "../loader";
 
 const Button = ({
     type,

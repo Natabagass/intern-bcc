@@ -57,7 +57,7 @@ const Home = lazy(() => {
 
 const Graha = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/graha/Graha")), 1500);
+    setTimeout(() => res(import("./pages/graha/Graha")), 3000);
   });
 });
 

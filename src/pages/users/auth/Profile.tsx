@@ -2,11 +2,10 @@ import { useContext, useEffect, useState } from "react";
 import Footer from "../../../components/partials/Footer";
 import Nav from "../../../components/partials/Nav";
 import { getProfile } from "../../../features/service/profile/getDataProfile";
-import icons from "../../../components/icons/Icons";
+import icons from "../../../components/icons";
 import { Cookies } from 'react-cookie';
-import Label from "../../../components/label/Label";
 import { PembayaranContext } from "../../../context/PembayaranContext";
-import Button from "../../../components/button/Button";
+import Button from "../../../components/button";
 
 const Profile = () => {
     const [profil, setProfil] = useState({ Email: '', Nama: '', Number: '', Password: '' })
@@ -60,22 +59,22 @@ const Profile = () => {
                             <hr className="my-3" />
 
                             <div>
-                                <Label htmlFor="nama" className="font-bold">Nama</Label>
+                                <label htmlFor="nama" className="font-bold">Nama</label>
                                 <h1 id="nama" className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.Nama}</h1>
                             </div>
 
                             <div className="mt-5">
-                                <Label htmlFor="phone" className="font-bold">No. Telepon</Label>
+                                <label htmlFor="phone" className="font-bold">No. Telepon</label>
                                 <h1 id="phone" className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.Number}</h1>
                             </div>
 
                             <div className="mt-5">
-                                <Label htmlFor="email" className="font-bold mt-5">Email</Label>
+                                <label htmlFor="email" className="font-bold mt-5">Email</label>
                                 <h1 id="Email" className=" mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.Email}</h1>
                             </div>
 
                             <div className="mt-5 mb-8 flex flex-col">
-                                <Label htmlFor="pwd" className="font-bold mt-5">Password</Label>
+                                <label htmlFor="pwd" className="font-bold mt-5">Password</label>
                                 <input id="pwd" value={profil.Password} type="password" disabled className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]" />
                             </div>
                         </div>

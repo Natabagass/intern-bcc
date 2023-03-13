@@ -3,13 +3,12 @@ import { Cookies } from "react-cookie";
 import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import Button from "../../components/button/Button";
+import Button from "../../components/button";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
-import Input from "../../components/input/Input";
-import Label from "../../components/label/Label";
+import Input from "../../components/input";
 import { FormContext } from "../../context/FormContext";
 import { PembayaranContext } from "../../context/PembayaranContext";
-import icons from "../../components/icons/Icons";
+import icons from "../../components/icons";
 
 const BookMobile = () => {
     const { setVisible, setHarga, harga } = useContext(PembayaranContext)
@@ -81,9 +80,9 @@ const BookMobile = () => {
                 >Tanya Pemilik</a>
 
                 <div className={show ? 'my-5' : 'hidden'}>
-                    <Label className="font-medium text-[20px]">Isikan Biodata</Label>
+                    <label className="font-medium text-[20px]">Isikan Biodata</label>
                     <div className='flex my-5 font-inter flex-col mt-[30px]'>
-                        <Label htmlFor="nama" className="text-[14]">Nama</Label>
+                        <label htmlFor="nama" className="text-[14]">Nama</label>
                         <Input
                             value={formData.nama}
                             onChange={(e) => { setFormData({ ...formData, nama: e.target.value }) }}
@@ -96,7 +95,7 @@ const BookMobile = () => {
                     </div>
 
                     <div className='flex my-5 font-inter flex-col '>
-                        <Label htmlFor="tanggal" className="text-[14]">Tanggal</Label>
+                        <label htmlFor="tanggal" className="text-[14]">Tanggal</label>
                         <Input
                             value={formData.tanggal}
                             onChange={(e) => { setFormData({ ...formData, tanggal: e.target.value }) }}
@@ -111,7 +110,7 @@ const BookMobile = () => {
                     </div>
 
                     <div className='flex my-5 font-inter flex-col '>
-                        <Label htmlFor="keperluan" className="text-[14]">Keperluan</Label>
+                        <label htmlFor="keperluan" className="text-[14]">Keperluan</label>
                         <Input
                             value={formData.keperluan}
                             onChange={(e) => { setFormData({ ...formData, keperluan: e.target.value }) }}
@@ -124,7 +123,7 @@ const BookMobile = () => {
                     </div>
 
                     <div className='flex mt-6 flex-col'>
-                        <Label htmlFor='nomer' className="text-[14]">No HP</Label>
+                        <label htmlFor='nomer' className="text-[14]">No HP</label>
                         <div className="relative flex items-center">
                             <Input
                                 value={formData.nomer}
@@ -139,7 +138,7 @@ const BookMobile = () => {
                     </div>
 
                     <div className='flex mt-6 flex-col'>
-                        <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
+                        <label htmlFor='alamat' className="text-[14]">Alamat</label>
                         <div className="relative flex items-cent er">
                             <Input
                                 value={formData.alamat}
@@ -154,7 +153,7 @@ const BookMobile = () => {
                     </div>
 
                     <div className='flex mt-6 flex-col'>
-                        <Label htmlFor='fasilitas' className="text-[14]">Fasilitas</Label>
+                        <label htmlFor='fasilitas' className="text-[14]">Fasilitas</label>
                         <div className="relative flex items-cent er">
                             <Input
                                 value={formData.fasilitas}

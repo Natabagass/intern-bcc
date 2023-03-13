@@ -1,10 +1,9 @@
 import logo from '../../assets/grent.com.svg'
-import icon from '../../components/icons/Icons';
+import icon from '../../components/icons';
 import sideImg from '../../assets/Daftar image.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import Button from "../../components/button/Button";
-import Input from "../../components/input/Input";
-import Label from "../../components/label/Label";
+import Button from "../../components/button";
+import Input from "../../components/input";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import AxiosInstance from "../../features/api/AxiosInstance";
@@ -76,7 +75,7 @@ const Signup = () => {
                         <h3 className="font-bold font-inter text-[32px] xl:text-[48px]">Daftar</h3>
 
                         <div className='flex my-5 font-inter flex-col mt-[30px]'>
-                            <Label htmlFor="nama" className="font-bold text-[20px] xl:text-[24px]">Nama</Label>
+                            <label htmlFor="nama" className="font-bold text-[20px] xl:text-[24px]">Nama</label>
                             <Input
                                 value={forms.nama}
                                 onChange={e => setForms({ ...forms, nama: e.target.value })}
@@ -89,7 +88,7 @@ const Signup = () => {
                         </div>
 
                         <div className='flex my-5 font-inter flex-col '>
-                            <Label htmlFor="number" className="font-bold text-[20px] xl:text-[24px]">Nomor HP</Label>
+                            <label htmlFor="number" className="font-bold text-[20px] xl:text-[24px]">Nomor HP</label>
                             <Input
                                 value={forms.number}
                                 onChange={e => setForms({ ...forms, number: e.target.value })}
@@ -102,7 +101,7 @@ const Signup = () => {
                         </div>
 
                         <div className='flex my-5 font-inter flex-col '>
-                            <Label htmlFor="email" className="font-bold text-[20px] xl:text-[24px]">E-mail</Label>
+                            <label htmlFor="email" className="font-bold text-[20px] xl:text-[24px]">E-mail</label>
                             <Input
                                 value={forms.email}
                                 onChange={e => setForms({ ...forms, email: e.target.value })}
@@ -115,7 +114,7 @@ const Signup = () => {
                         </div>
 
                         <div className='flex mt-6 flex-col'>
-                            <Label htmlFor='password' className="font-bold text-[20px] xl:text-[24px]">Kata Sandi</Label>
+                            <label htmlFor='password' className="font-bold text-[20px] xl:text-[24px]">Kata Sandi</label>
                             <div className="relative flex items-center">
                                 <Input
                                     value={forms.password}
@@ -133,7 +132,7 @@ const Signup = () => {
                         </div>
 
                         <div className='flex mt-6 flex-col'>
-                            <Label htmlFor='passconfirm' className="font-bold text-[20px] xl:text-[24px]">Ulangi Kata Sandi</Label>
+                            <label htmlFor='passconfirm' className="font-bold text-[20px] xl:text-[24px]">Ulangi Kata Sandi</label>
                             <div className="relative flex items-cent er">
                                 <Input
                                     value={forms.passconfirm}

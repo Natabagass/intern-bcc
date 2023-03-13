@@ -1,11 +1,10 @@
 import { useState } from "react";
 import sideImg from '../../assets/login image.svg'
 import logo from '../../assets/grent.com.svg'
-import icon from '../../components/icons/Icons';
+import icon from '../../components/icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
-import Input from "../../components/input/Input";
-import Label from "../../components/label/Label";
-import Button from "../../components/button/Button";
+import Input from "../../components/input";
+import Button from "../../components/button";
 import { Link } from "react-router-dom";
 import AxiosInstance from "../../features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();
@@ -76,7 +75,7 @@ const Login = () => {
                         <h3 className="font-bold font-inter text-[24px] lg:text-[48px]">Masuk</h3>
 
                         <div className='flex w-full font-inter flex-col mt-[30px]'>
-                            <Label htmlFor="email" className="font-bold text-[20px] lg:text-[24px]">E-mail</Label>
+                            <label htmlFor="email" className="font-bold text-[20px] lg:text-[24px]">E-mail</label>
                             <Input
                                 value={forms.email}
                                 onChange={e => setForms({ ...forms, email: e.target.value })}
@@ -90,7 +89,7 @@ const Login = () => {
                         </div>
 
                         <div className='flex w-full mt-6 flex-col'>
-                            <Label htmlFor='password' className="font-bold text-[20px] lg:text-[24px]">Password</Label>
+                            <label htmlFor='password' className="font-bold text-[20px] lg:text-[24px]">Password</label>
                             <div className="relative flex items-center">
                                 <Input
                                     value={forms.password}

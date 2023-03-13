@@ -1,7 +1,6 @@
 import { useState, useContext, useEffect } from "react";
-import Input from "../../components/input/Input";
+import Input from "../../components/input";
 import { FormContext } from "../../context/FormContext";
-import Label from "../../components/label/Label";
 import { useParams } from "react-router-dom";
 import { gedung } from "../../models/dummy/gedung";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
@@ -25,9 +24,9 @@ const Biodata = () => {
                 <span className="text-[20px] lg:text-[25px] font-bold">{rupiahFormatter(harga)}</span>
                 <hr className="w-full my-5" />
             </div>
-            <Label className="font-medium text-[18px] lg:text-[20px]">Biodata</Label>
+            <label className="font-medium text-[18px] lg:text-[20px]">Biodata</label>
             <div className='flex mb-5 font-inter flex-col mt-[15px]'>
-                <Label htmlFor="nama" className="text-[14]">Nama</Label>
+                <label htmlFor="nama" className="text-[14]">Nama</label>
                 <Input
                     type="text"
                     disabled
@@ -39,7 +38,7 @@ const Biodata = () => {
             </div>
 
             <div className='flex my-5 font-inter flex-col '>
-                <Label htmlFor="tanggal" className="text-[14]">Tanggal</Label>
+                <label htmlFor="tanggal" className="text-[14]">Tanggal</label>
                 <Input
                     type="text"
                     required
@@ -51,7 +50,7 @@ const Biodata = () => {
             </div>
 
             <div className='flex my-5 font-inter flex-col '>
-                <Label htmlFor="keperluan" className="text-[14]">Keperluan</Label>
+                <label htmlFor="keperluan" className="text-[14]">Keperluan</label>
                 <Input
                     type="text"
                     required
@@ -63,7 +62,7 @@ const Biodata = () => {
             </div>
 
             <div className='flex mt-6 flex-col'>
-                <Label htmlFor='nomer' className="text-[14]">No HP</Label>
+                <label htmlFor='nomer' className="text-[14]">No HP</label>
                 <div className="relative flex items-center">
                     <Input
                         type='number'
@@ -77,7 +76,7 @@ const Biodata = () => {
             </div>
 
             <div className='flex mt-6 flex-col'>
-                <Label htmlFor='alamat' className="text-[14]">Alamat</Label>
+                <label htmlFor='alamat' className="text-[14]">Alamat</label>
                 <div className="relative flex items-cent er">
                     <Input
                         type='text'

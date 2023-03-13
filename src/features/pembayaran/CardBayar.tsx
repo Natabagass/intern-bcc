@@ -1,10 +1,10 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { gedung } from "../../models/dummy/gedung";
-import Button from "../../components/button/Button";
+import Button from "../../components/button";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
 import { PembayaranContext } from "../../context/PembayaranContext";
-import icons from "../../components/icons/Icons";
+import icons from "../../components/icons";
 
 const Bayar = () => {
     const { setStep, setHarga, harga, setVisible } = useContext(PembayaranContext)

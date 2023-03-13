@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import icon from '../../components/icons/Icons';
+import icon from '../../components/icons';
 import { useParams } from "react-router-dom";
 import Ruang1 from '../../assets/ruang1.svg'
 import Biodata from "../../features/forms/FormBiodata";
@@ -10,7 +10,7 @@ import Nav from "../../components/partials/Nav";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import Lunas from "../../features/pembayaran/CardPelunasan";
 import Bayar from "../../features/pembayaran/CardBayar";
-import Button from "../../components/button/Button";
+import Button from "../../components/button";
 
 const Pembayaran = () => {
     const [nama, setNama] = useState('')
