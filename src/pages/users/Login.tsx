@@ -1,6 +1,6 @@
 import { useState } from "react";
-import sideImg from '../../assets/login image.svg'
-import logo from '../../assets/grent.com.svg'
+import sideImg from '../../assets/image/login image.svg'
+import logo from '../../assets/image/grent.com.svg'
 import icon from '../../components/icons';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import Input from "../../components/input";

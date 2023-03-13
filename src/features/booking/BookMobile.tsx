@@ -9,13 +9,30 @@ import Input from "../../components/input";
 import { FormContext } from "../../context/FormContext";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import icons from "../../components/icons";
+import AxiosInstance from "../api/AxiosInstance";
 
 const BookMobile = () => {
     const { setVisible, setHarga, harga } = useContext(PembayaranContext)
+    const axiosInstance = AxiosInstance()
+    const [show, setShow] = useState(false)
+    const { id } = useParams()
+    const { formData, setFormData } = useContext(FormContext);
+    const myId = parseInt(id!, 10)
     const cookies = new Cookies();
     const swal = withReactContent(Swal)
     const token = cookies.get('auth')
     const navigate = useNavigate()
+
+    const handleSubmit = async () => {
+        await axiosInstance.post(`/booking/${myId}`, formData)
+            .then(res => {
+                console.log(res)
+                window.location.replace(`/graha/pembayaran/${myId}`)
+            })
+            .catch(err => {
+                console.log(err)
+            })
+    }
 
     const showSignInModal = () => {
         return swal.fire({
@@ -44,9 +61,6 @@ const BookMobile = () => {
             icon: 'info'
         });
     }
-    const [show, setShow] = useState(false)
-    const { id } = useParams()
-    const { formData, setFormData } = useContext(FormContext);
 
     const buttonFunct = () => {
         if (!token) return showSignInModal();
@@ -61,7 +75,7 @@ const BookMobile = () => {
         showConfirmationDialog('Data yang sudah diinput apakah benar?')
             .then((result) => {
                 if (result.isConfirmed) {
-                    window.location.replace(`/graha/pembayaran/${id}`)
+                    handleSubmit()
                 }
             });
     }
@@ -126,8 +140,8 @@ const BookMobile = () => {
                         <label htmlFor='nomer' className="text-[14]">No HP</label>
                         <div className="relative flex items-center">
                             <Input
-                                value={formData.nomer}
-                                onChange={(e) => { setFormData({ ...formData, nomer: e.target.value }) }}
+                                value={formData.nomor}
+                                onChange={(e) => { setFormData({ ...formData, nomor: e.target.value }) }}
                                 type='number'
                                 required
                                 id='number'

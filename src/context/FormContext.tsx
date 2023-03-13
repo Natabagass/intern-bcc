@@ -5,7 +5,7 @@ const initialFormData: FormData = {
     nama: "",
     tanggal: "",
     keperluan: "",
-    nomer: "",
+    nomor: "",
     alamat: "",
     fasilitas: ""
 };

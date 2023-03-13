@@ -1,7 +1,5 @@
 import Nav from "../../components/partials/Nav";
 import icon from '../../components/icons';
-import { gedung } from '../../models/dummy/gedung'
-import fotoGedung from '../../assets/cakrawala.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate, useParams } from "react-router-dom";
 import Footer from "../../components/partials/Footer";

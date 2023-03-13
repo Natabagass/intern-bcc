@@ -2,7 +2,7 @@ export interface FormData {
     nama: string;
     tanggal: string;
     keperluan: string;
-    nomer: string;
+    nomor: string;
     alamat: string;
     fasilitas: string
 };

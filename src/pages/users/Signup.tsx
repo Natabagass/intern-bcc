@@ -1,6 +1,6 @@
-import logo from '../../assets/grent.com.svg'
+import logo from '../../assets/image/grent.com.svg'
 import icon from '../../components/icons';
-import sideImg from '../../assets/Daftar image.svg'
+import sideImg from '../../assets/image/Daftar image.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../../components/button";
 import Input from "../../components/input";

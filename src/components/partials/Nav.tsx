@@ -1,4 +1,4 @@
-import logo from '../../assets/grent.com.svg'
+import logo from '../../assets/image/grent.com.svg'
 import styled from "styled-components";
 import icons from '../icons';
 import { LazyLoadImage } from "react-lazy-load-image-component";
@@ -55,15 +55,6 @@ const Nav = () => {
         e.preventDefault()
         cookies.remove('auth', { path: '/' })
         window.location.replace('/')
-        // await axiosInstance.get('/logout')
-        //     .then(res => {
-        //         console.log(res)
-        //         cookies.remove('auth', { path: '/' })
-        //         window.location.replace('/')
-        //     })
-        //     .catch(err => {
-        //         console.log(err)
-        //     })
     }
 
     return (

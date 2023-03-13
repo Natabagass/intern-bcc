@@ -5,10 +5,9 @@ import { getProfile } from "../../../features/service/profile/getDataProfile";
 import icons from "../../../components/icons";
 import { Cookies } from 'react-cookie';
 import { PembayaranContext } from "../../../context/PembayaranContext";
-import Button from "../../../components/button";
 
 const Profile = () => {
-    const [profil, setProfil] = useState({ Email: '', Nama: '', Number: '', Password: '' })
+    const [profil, setProfil] = useState({ email: '', Nama: '', number: '', password: '' })
     const { visible, setVisible } = useContext(PembayaranContext)
     const cookies = new Cookies();
     const logout = async (e: { preventDefault: () => void }) => {
@@ -65,17 +64,17 @@ const Profile = () => {
 
                             <div className="mt-5">
                                 <label htmlFor="phone" className="font-bold">No. Telepon</label>
-                                <h1 id="phone" className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.Number}</h1>
+                                <h1 id="phone" className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.number}</h1>
                             </div>
 
                             <div className="mt-5">
                                 <label htmlFor="email" className="font-bold mt-5">Email</label>
-                                <h1 id="Email" className=" mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.Email}</h1>
+                                <h1 id="Email" className=" mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.email}</h1>
                             </div>
 
                             <div className="mt-5 mb-8 flex flex-col">
                                 <label htmlFor="pwd" className="font-bold mt-5">Password</label>
-                                <input id="pwd" value={profil.Password} type="password" disabled className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]" />
+                                <input id="pwd" value={profil.password} type="password" disabled className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]" />
                             </div>
                         </div>
                     </div>

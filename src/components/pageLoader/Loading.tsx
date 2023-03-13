@@ -1,4 +1,4 @@
-import Loading from "../../assets/1490.gif";
+import Loading from "../../assets/icon/1490.gif";
 
 const PageLoading = () => {
     return (

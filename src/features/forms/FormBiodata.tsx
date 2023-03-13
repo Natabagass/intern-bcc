@@ -69,7 +69,7 @@ const Biodata = () => {
                         required
                         id='number'
                         disabled
-                        placeholder={formData.nomer}
+                        placeholder={formData.nomor}
                         className='mt-2 bg-[#F4F7FA]  rounded-xl pl-2 outline-none'
                     />
                 </div>

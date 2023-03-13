@@ -1,10 +1,6 @@
 import { useContext } from 'react'
-import { gedung } from '../../../models/dummy/gedung'
 import icon from '../../../components/icons';
 import Nav from "../../../components/partials/Nav";
-import Ruang1 from '../../../assets/ruang1.svg'
-import Ruang2 from '../../../assets/ruang2.svg'
-import Ruang3 from '../../../assets/ruang3.svg'
 import { useEffect, useState } from "react";
 import Button from "../../../components/button";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,17 +8,13 @@ import Keterangan from "../../../features/booking/KeteranganBook";
 import Footer from "../../../components/partials/Footer";
 import BookMobile from "../../../features/booking/BookMobile";
 import { PembayaranContext } from "../../../context/PembayaranContext";
-import icons from '../../../components/icons';
 import AxiosInstance from '../../../features/api/AxiosInstance';
 import { gedungsbyId } from '../../../models/dto/data/gedungbyId';
 import { dataId } from '../../../models/dto/defaultValue/byIdValue';
-import { image } from '../../../models/dto/data/image';
-import { Image } from '../../../models/dto/defaultValue/Image';
 
 const Booking = () => {
     const { visible, setVisible } = useContext(PembayaranContext)
     const axiosInstance = AxiosInstance()
-    const [nama, setNama] = useState('')
     const [imageUrl, setImageUrl] = useState<string[]>([])
     const navigate = useNavigate()
     const [dataGedung, setDataGedung] = useState<gedungsbyId>(dataId)
@@ -34,8 +26,6 @@ const Booking = () => {
             const res = await axiosInstance.get(`/gedungs/${myId}`)
             setDataGedung(res.data.data)
             setImageUrl(res.data.data.Links)
-            console.log(imageUrl)
-            console.log(res)
         } catch (err) {
             console.log(err)
         }

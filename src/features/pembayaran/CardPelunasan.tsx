@@ -1,14 +1,14 @@
 import icons from "../../components/icons";
-import BCA from '../../assets/BCA.svg'
-import bri from '../../assets/bri.svg'
-import Mandiri from '../../assets/mandiri.svg'
-import Bni from '../../assets/bni.svg'
+import BCA from '../../assets/image/BCA.svg'
+import bri from '../../assets/image/bri.svg'
+import Mandiri from '../../assets/image/mandiri.svg'
+import Bni from '../../assets/image/bni.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../../components/button";
 import Timer from "../../components/timer/Timer";
 import Swal from "sweetalert2";
 import { PembayaranContext } from "../../context/PembayaranContext";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { rupiahFormatter } from "../../components/formatter/Rupiah";
 
 const Lunas = () => {

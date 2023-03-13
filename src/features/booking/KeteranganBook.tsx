@@ -17,8 +17,11 @@ import { dataId } from "../../models/dto/defaultValue/byIdValue";
 
 const Keterangan = () => {
     const axiosInstance = AxiosInstance()
-    const [tag, setTag] = useState('')
-    const [fasil, setFasil] = useState('')
+    const [show, setShow] = useState(false)
+    const { id } = useParams()
+    const myId = parseInt(id!, 10)
+    const { formData, setFormData } = useContext(FormContext);
+    const [validation, setValidation] = useState('')
     const cookies = new Cookies();
     const swal = withReactContent(Swal)
     const [dataGedung, setDataGedung] = useState<gedungsbyId>(dataId)
@@ -29,9 +32,8 @@ const Keterangan = () => {
         try {
             const res = await axiosInstance.get(`/gedungs/${myId}`)
             setDataGedung(res?.data.data)
-            console.log(dataGedung)
-        } catch (err) {
-            console.log(err)
+        } catch (error) {
+            console.error(error)
         }
     }
     useEffect(() => {
@@ -39,9 +41,10 @@ const Keterangan = () => {
     }, [])
 
     const handleSubmit = async () => {
-        await axiosInstance.post(`/booking/${id}`, formData)
+        await axiosInstance.post(`/booking/${myId}`, formData)
             .then(res => {
                 console.log(res)
+                window.location.replace(`/graha/pembayaran/${myId}`)
             })
             .catch(err => {
                 console.log(err)
@@ -75,10 +78,6 @@ const Keterangan = () => {
             icon: 'info'
         });
     }
-    const [show, setShow] = useState(false)
-    const { id } = useParams()
-    const myId = parseInt(id!, 10)
-    const { formData, setFormData } = useContext(FormContext);
 
     const buttonFunct = () => {
         if (!token) return showSignInModal();
@@ -200,10 +199,8 @@ const Keterangan = () => {
                                     <Input
                                         value={formData.tanggal}
                                         onChange={(e) => { setFormData({ ...formData, tanggal: e.target.value }) }}
-                                        type="text"
+                                        type="date"
                                         required
-                                        onFocus={(e) => (e.target.type = "date")}
-                                        onBlur={(e) => (e.target.type = "text")}
                                         placeholder={`Masukkan tanggal sewa`}
                                         id='tanggal'
                                         className='mt-2 rounded-xl placeholder:text-[12px] lg:placeholder:text-[16px] bg-[#DEE4EB]'
@@ -227,8 +224,8 @@ const Keterangan = () => {
                                     <label htmlFor='nomer' className="text-[14]">No HP</label>
                                     <div className="relative flex items-center">
                                         <Input
-                                            value={formData.nomer}
-                                            onChange={(e) => { setFormData({ ...formData, nomer: e.target.value }) }}
+                                            value={formData.nomor}
+                                            onChange={(e) => { setFormData({ ...formData, nomor: e.target.value }) }}
                                             type='number'
                                             required
                                             id='number'
