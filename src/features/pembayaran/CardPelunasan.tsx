@@ -5,14 +5,14 @@ import Mandiri from '../../assets/image/mandiri.svg'
 import Bni from '../../assets/image/bni.svg'
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import Button from "../../components/button";
-import Timer from "../../components/timer/Timer";
+import Timer from "../../components/timer";
 import Swal from "sweetalert2";
 import { PembayaranContext } from "../../context/PembayaranContext";
-import { useContext, useState } from "react";
-import { rupiahFormatter } from "../../components/formatter/Rupiah";
+import { useContext, useEffect, useState } from "react";
+import { rupiahFormatter } from "../../components/formatter";
 
 const Lunas = () => {
-    const { harga, setVisible } = useContext(PembayaranContext)
+    const { totalBiaya, setVisible } = useContext(PembayaranContext)
     const berhasil = () => {
         Swal.fire({
             icon: 'success',
@@ -26,7 +26,7 @@ const Lunas = () => {
     }
     return (
         <>
-            <div className="shadow-lg top-24 sticky p-[24px] font-inter">
+            <div className="fixed inline overflow-auto h-full z-10 shadow-lg md:hidden bottom-0 w-full bg-white border border-[#F78CB2] rounded-xl p-5">
                 <div className="flex flex-row justify-between items-center">
                     <h1 className="font-bold">Pilih Metode Pembayaran</h1>
                     <button onClick={() => setVisible(false)}><icons.RxCrossCircled className="text-[24px] md:hidden flex text-[#F78CB2] mt-1" /></button>
@@ -34,11 +34,21 @@ const Lunas = () => {
                 <div className="my-3 flex flex-row justify-between">
                     <div>
                         <h1>Biaya yang harus dibayarkan</h1>
-                        <h3 className="font-bold text-[24px] mt-3">{rupiahFormatter(harga)}</h3>
+                        <h3 className="font-bold text-[24px] mt-3">{rupiahFormatter(totalBiaya)}</h3>
                     </div>
                     <div>
                         <h1>Pilih Dalam Waktu</h1>
                         <Timer />
+                    </div>
+                </div>
+
+                <div>
+                    <hr className="mt-2 mb-3" />
+                    <h2 className="font-bold">Unggah Bukti Pembayaran</h2>
+                    <div className="my-8 flex flex-col lg:flex-row items-center justify-between">
+                        <h3 className="text-[14px]">Unggah bukti pembayaran dengan format .jpg, .png atau .pdf</h3>
+                        <label htmlFor="inputFile" className="p-2 xl:p-3 text-[12px] xl:text-[16px] mt-5 lg:mt-0 cursor-pointer items-center flex flex-row bg-[#F78CB2] text-white rounded-xl"><icons.CgFileAdd className="mr-3 text-[20px]" />Pilih Berkas</label>
+                        <input type="file" id="inputFile" style={{ display: "none" }} accept='image/*,.pdf,.jpg,.png' />
                     </div>
                 </div>
 

@@ -15,7 +15,7 @@ const Faq = () => {
                     <div className="flex flex-col">
                         <hr className="my-2" />
                         <div className="p-5">
-                            <div onClick={() => setVisible(true)} className="flex flex-row items-center">
+                            <div onClick={() => setVisible(prev => !prev)} className="flex flex-row items-center">
                                 <h2 className="font-bold text-[24px]">Bagaimana Cara Sewa gedung di grent.com?</h2>
                                 <span className="ml-10 text-[24px]"><icons.MdOutlineKeyboardArrowDown /></span>
                             </div>

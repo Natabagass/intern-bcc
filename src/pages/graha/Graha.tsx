@@ -1,14 +1,15 @@
 import Nav from "../../components/partials/Nav";
 import icon from '../../components/icons';
 import { LazyLoadImage } from "react-lazy-load-image-component";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import Footer from "../../components/partials/Footer";
-import { rupiahFormatter } from "../../components/formatter/Rupiah";
-import { useEffect, useState } from "react";
+import { rupiahFormatter } from "../../components/formatter";
+import { useEffect, useState, useContext } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { getGedung } from "../../features/service/gedung/getDataGedung";
 import { gedungs } from "../../models/dto/data/gedung";
+import { PembayaranContext } from "../../context/PembayaranContext";
 
 const Graha = () => {
     const [dataGedung, setDataGedung] = useState([])
@@ -33,7 +34,7 @@ const Graha = () => {
         <>
             <Nav />
             <div className="mx-[50px] sm:mx-[100px] my-[100px] font-inter">
-                <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
+                <div data-aos="fade-up" className="grid grid-cols-1 min-h-screen sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
                     {
                         dataGedung.map((data: gedungs, index: number) => {
                             return (

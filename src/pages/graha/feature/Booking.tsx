@@ -15,6 +15,7 @@ import { dataId } from '../../../models/dto/defaultValue/byIdValue';
 const Booking = () => {
     const { visible, setVisible } = useContext(PembayaranContext)
     const axiosInstance = AxiosInstance()
+    const {setHarga} = useContext(PembayaranContext)
     const [imageUrl, setImageUrl] = useState<string[]>([])
     const navigate = useNavigate()
     const [dataGedung, setDataGedung] = useState<gedungsbyId>(dataId)
@@ -25,6 +26,7 @@ const Booking = () => {
         try {
             const res = await axiosInstance.get(`/gedungs/${myId}`)
             setDataGedung(res.data.data)
+            setHarga(res.data.data.Harga)
             setImageUrl(res.data.data.Links)
         } catch (err) {
             console.log(err)

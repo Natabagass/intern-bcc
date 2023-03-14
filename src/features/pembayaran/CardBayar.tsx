@@ -2,31 +2,22 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { gedung } from "../../models/dummy/gedung";
 import Button from "../../components/button";
-import { rupiahFormatter } from "../../components/formatter/Rupiah";
+import { rupiahFormatter } from "../../components/formatter";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import icons from "../../components/icons";
 
 const Bayar = () => {
-    const { setStep, setHarga, harga, setVisible } = useContext(PembayaranContext)
+    const { setStep, setHarga, harga, totalBiaya, setTotalBiaya, setVisible } = useContext(PembayaranContext)
     const [tab, setTab] = useState('')
-    const [jumlah, setJumlah] = useState(0)
     const layanan = 500000
-    const [totalBiaya, setTotalBiaya] = useState(0)
-    const [dp, setDp] = useState(0)
+    const [totalKeseluruhan, setTotalKesuluruhan] = useState(0)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
 
     useEffect(() => {
-        harga
-    }, [setHarga(totalBiaya)])
+        setTotalBiaya(totalKeseluruhan + layanan)
+    }, [totalKeseluruhan, layanan])
 
-    useEffect(() => {
-        gedung.filter(data => {
-            if (data.id === myId) {
-                setJumlah(data.harga)
-            }
-        })
-    }, [])
     return (
         <>
             <div className="shadow-lg top-24 sticky p-[24px]">
@@ -39,10 +30,9 @@ const Bayar = () => {
                         className={`${tab === '30%' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
                             setTab('30%')
-                            const total = jumlah * 0.3
-                            setDp(total)
-                            setHarga(totalBiaya)
-                            setTotalBiaya(total + layanan)
+                            const diskon = harga * 0.3
+                            setTotalKesuluruhan(diskon)
+                            setTotalBiaya(totalKeseluruhan + layanan)
                         }}
                     >
                         30%</Button>
@@ -50,10 +40,9 @@ const Bayar = () => {
                         className={`${tab === "50%" ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
                             setTab('50%')
-                            const total = jumlah * 0.5
-                            setDp(total)
-                            setHarga(totalBiaya)
-                            setTotalBiaya(total + layanan)
+                            const diskon = harga * 0.5
+                            setTotalKesuluruhan(diskon)
+                            setTotalBiaya(totalKeseluruhan + layanan)
                         }}
                     >
                         50%</Button>
@@ -61,10 +50,9 @@ const Bayar = () => {
                         className={`${tab === 'Bayar Lunas' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
                             setTab('Bayar Lunas')
-                            const total = jumlah * 1
-                            setDp(total)
-                            setHarga(totalBiaya)
-                            setTotalBiaya(total + layanan)
+                            const diskon = harga * 1
+                            setTotalKesuluruhan(diskon)
+                            setTotalBiaya(totalKeseluruhan + layanan)
                         }}
                     >
                         Bayar Lunas</Button>
@@ -74,7 +62,7 @@ const Bayar = () => {
                     <h1 className="font-bold">Detail Pembayaran</h1>
                     <div className="mt-3 flex w-full justify-between flex-row">
                         <h3>Total Keseluruhan</h3>
-                        <span className="text-[16px] font-bold">{rupiahFormatter(dp)}</span>
+                        <span className="text-[16px] font-bold">{rupiahFormatter(totalKeseluruhan)}</span>
                     </div>
                 </div>
                 <hr />

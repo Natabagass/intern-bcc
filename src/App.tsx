@@ -1,6 +1,6 @@
 import React, { lazy } from 'react';
 import { Outlet, Route, Routes } from 'react-router-dom'
-import PageLoading from './components/pageLoader/Loading';
+import PageLoading from './components/pageLoader';
 import Pembayaran from './pages/pembayaran/Pembayaran';
 import { FormProvider } from './context/FormContext';
 import AuthRoute from './routes/AuthRoute';
@@ -57,7 +57,7 @@ const Home = lazy(() => {
 
 const Graha = lazy(() => {
   return new Promise<{ default: React.ComponentType<any> }>((res) => {
-    setTimeout(() => res(import("./pages/graha/Graha")), 3000);
+    setTimeout(() => res(import("./pages/graha/Graha")), 1500);
   });
 });
 

@@ -9,7 +9,7 @@ import withReactContent from "sweetalert2-react-content";
 import { Cookies } from 'react-cookie';
 import { useContext } from "react";
 import { FormContext } from "../../context/FormContext";
-import { rupiahFormatter } from "../../components/formatter/Rupiah";
+import { rupiahFormatter } from "../../components/formatter";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import AxiosInstance from "../api/AxiosInstance";
 import { gedungsbyId } from "../../models/dto/data/gedungbyId";
