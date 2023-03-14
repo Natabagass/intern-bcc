@@ -117,7 +117,7 @@ const Nav = () => {
                                 :
                                 <>
                                     <div className="lg:hidden flex relative">
-                                        <button onClick={() => setIsOpen(!isOpen)} className="p-1 bg-white  hover:bg-[#f379a3] border hover:text-white border-[#F78CB2] text-[#F78CB2] rounded-lg px-5 sm:px-7 flex flex-row items-center"><icons.RxHamburgerMenu /></button>
+                                        <button onClick={() => setIsOpen(!isOpen)} className="p-1 bg-white text-[#F78CB2] rounded-lg px-5 sm:px-7 flex flex-row items-center"><icons.RxHamburgerMenu className='text-[20px]'/></button>
                                         {isOpen && (
                                             <div className="absolute mt-5 w-[200%] right-0 top-full bg-white rounded-b-lg shadow-lg z-10">
                                                 <ul className='px-5'>
