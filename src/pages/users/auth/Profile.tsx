@@ -5,10 +5,13 @@ import { getProfile } from "../../../features/service/profile/getDataProfile";
 import icons from "../../../components/icons";
 import { Cookies } from 'react-cookie';
 import { PembayaranContext } from "../../../context/PembayaranContext";
+import Button from "../../../components/button";
+import AkunSaya from "../../../features/profile/akunSaya";
+import UbahProfile from "../../../features/profile/ubahProfile";
 
 const Profile = () => {
     const [profil, setProfil] = useState({ email: '', Nama: '', number: '', password: '' })
-    const { visible, setVisible } = useContext(PembayaranContext)
+    const { visible, setVisible, step, setStep } = useContext(PembayaranContext)
     const cookies = new Cookies();
     const logout = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
@@ -18,9 +21,7 @@ const Profile = () => {
     const dataProfile = async () => {
         try {
             const result = await getProfile()
-            console.log(result)
             setProfil(result?.data.data)
-            console.log(profil)
         } catch (err) {
             console.log(err)
         }
@@ -54,28 +55,13 @@ const Profile = () => {
                     </div>
                     <div className="flex flex-col shadow-lg w-full lg:w-[70%]">
                         <div className="mx-[30px] mt-5">
-                            <h1 className="font-bold text-[28px]">Akun Saya</h1>
+                            <div className="flex flex-row w-full justify-between">
+                                <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : 'Ubah Profile'}</h1>
+                                <Button onClick={() => setStep(2)} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
+                            </div>
                             <hr className="my-3" />
 
-                            <div>
-                                <label htmlFor="nama" className="font-bold">Nama</label>
-                                <h1 id="nama" className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.Nama}</h1>
-                            </div>
-
-                            <div className="mt-5">
-                                <label htmlFor="phone" className="font-bold">No. Telepon</label>
-                                <h1 id="phone" className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.number}</h1>
-                            </div>
-
-                            <div className="mt-5">
-                                <label htmlFor="email" className="font-bold mt-5">Email</label>
-                                <h1 id="Email" className=" mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]">{profil.email}</h1>
-                            </div>
-
-                            <div className="mt-5 mb-8 flex flex-col">
-                                <label htmlFor="pwd" className="font-bold mt-5">Password</label>
-                                <input id="pwd" value={profil.password} type="password" disabled className="mt-3 pl-5 p-3 rounded-lg bg-[#FEF8FA]" />
-                            </div>
+                            {step === 1 ? <AkunSaya/> : <UbahProfile/>}
                         </div>
                     </div>
                 </div>

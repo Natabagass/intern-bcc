@@ -191,37 +191,97 @@ const Lunas = () => {
                 <div>
                     <hr />
                     <div className="flex items-center my-5">
-                        <LazyLoadImage src={BCA} alt="BCA Logo" />
-                        <div className="flex flex-row justify-between w-full items-center">
-                            <h1 className="ml-3">BCA</h1>
-                            <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />
+                        <div onClick={() => setVisibleBCA(prev => !prev)} className="flex flex-col justify-start w-full items-center">
+                            <div className="flex justify-start w-full flex-row">
+                                <LazyLoadImage src={BCA} alt="BCA Logo" />
+                                <div className="flex flex-row justify-between w-full">
+                                    <h1 className="ml-3">BCA</h1>
+                                    {visibleBCA ? <icons.AiOutlineMinus className="text-[24px]" /> : <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />}
+                                </div>
+                            </div>
+                            <div className={`${visibleBCA ? 'inline' : 'hidden'} w-full flex justify-start flex-col my-5`} >
+                                {
+                                    Pembayaran.map(data => {
+                                        return (
+                                            <>
+                                                <h3>{data.id}. <span className="ml-2">{data.text}</span></h3>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
 
                     <hr />
                     <div className="flex items-center my-5">
-                        <LazyLoadImage src={Mandiri} alt="mandiri Logo" />
-                        <div className="flex flex-row justify-between w-full items-center">
-                            <h1 className="ml-3">Mandiri</h1>
-                            <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />
+                        <div onClick={() => setVisibleMandiri(prev => !prev)} className="flex flex-col justify-start w-full items-center">
+                            <div className="flex justify-start w-full flex-row">
+                                <LazyLoadImage src={Mandiri} alt="Mandiri Logo" />
+                                <div className="flex flex-row justify-between w-full">
+                                    <h1 className="ml-3">Mandiri</h1>
+                                    {visibleMandiri ? <icons.AiOutlineMinus className="text-[24px]" /> : <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />}
+                                </div>
+                            </div>
+                            <div className={`${visibleMandiri ? 'inline' : 'hidden'} w-full flex justify-start flex-col my-5`} >
+                                {
+                                    Pembayaran.map(data => {
+                                        return (
+                                            <>
+                                                <h3>{data.id}. <span className="ml-2">{data.text}</span></h3>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
 
                     <hr />
                     <div className="flex items-center my-5">
-                        <LazyLoadImage src={bri} alt="BRI Logo" />
-                        <div className="flex flex-row justify-between w-full items-center">
-                            <h1 className="ml-3">BRI</h1>
-                            <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />
+                        <div onClick={() => setVisibleBRI(prev => !prev)} className="flex flex-col justify-start w-full items-center">
+                            <div className="flex justify-start w-full flex-row">
+                                <LazyLoadImage src={bri} alt="BRI Logo" />
+                                <div className="flex flex-row justify-between w-full">
+                                    <h1 className="ml-3">BRI</h1>
+                                    {visibleBRI ? <icons.AiOutlineMinus className="text-[24px]" /> : <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />}
+                                </div>
+                            </div>
+                            <div className={`${visibleBRI ? 'inline' : 'hidden'} w-full flex justify-start flex-col my-5`} >
+                                {
+                                    Pembayaran.map(data => {
+                                        return (
+                                            <>
+                                                <h3>{data.id}. <span className="ml-2">{data.text}</span></h3>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
 
                     <hr />
                     <div className="flex items-center my-5">
-                        <LazyLoadImage src={Bni} alt="Bni Logo" />
-                        <div className="flex flex-row justify-between w-full items-center">
-                            <h1 className="ml-3">BNI</h1>
-                            <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />
+                        <div onClick={() => setVisibleBNI(prev => !prev)} className="flex flex-col justify-start w-full items-center">
+                            <div className="flex justify-start w-full flex-row">
+                                <LazyLoadImage src={Bni} alt="BNI Logo" />
+                                <div className="flex flex-row justify-between w-full">
+                                    <h1 className="ml-3">BNI</h1>
+                                    {visibleBNI ? <icons.AiOutlineMinus className="text-[24px]" /> : <icons.MdOutlineKeyboardArrowDown className="text-[24px]" />}
+                                </div>
+                            </div>
+                            <div className={`${visibleBNI ? 'inline' : 'hidden'} w-full flex justify-start flex-col my-5`} >
+                                {
+                                    Pembayaran.map(data => {
+                                        return (
+                                            <>
+                                                <h3>{data.id}. <span className="ml-2">{data.text}</span></h3>
+                                            </>
+                                        )
+                                    })
+                                }
+                            </div>
                         </div>
                     </div>
                 </div>
