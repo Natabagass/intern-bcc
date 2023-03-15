@@ -82,7 +82,9 @@ const Keterangan = () => {
     const buttonFunct = () => {
         if (!token) return showSignInModal();
         setShow(true);
+
         if (!show) return;
+
         const isFormDataEmpty = Object.values(formData).every((value) => value === '');
         if (isFormDataEmpty) return showValidationError('Lengkapi dulu data yang diinput');
 

@@ -7,8 +7,8 @@ const AxiosInstance = () => {
     const res = axios.create({
         baseURL: 'https://izraarya.aenzt.tech/v1',
         headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
+            'Content-Type': 'application/json,',
+            'Authorization': `Bearer ${token}`,
         }
     })
 

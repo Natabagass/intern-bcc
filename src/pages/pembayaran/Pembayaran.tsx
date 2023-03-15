@@ -17,8 +17,7 @@ import AxiosInstance from "../../features/api/AxiosInstance";
 
 const Pembayaran = () => {
     const axiosInstance = AxiosInstance()
-    const [nama, setNama] = useState('')
-    const { step, setStep, visible, setHarga, setVisible } = useContext(PembayaranContext)
+    const { step, visible, setHarga, setVisible } = useContext(PembayaranContext)
     const [imageUrl, setImageUrl] = useState<string[]>([])
     const [dataGedung, setDataGedung] = useState<gedungsbyId>(dataId)
     const { id } = useParams()
