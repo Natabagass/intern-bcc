@@ -58,7 +58,7 @@ const Nav = () => {
     }
 
     return (
-        <nav className='p-5 top-0 fixed w-full z-10 bg-white scroll-smooth shadow-xl'>
+        <header className='p-5 top-0 fixed w-full z-10 bg-white scroll-smooth shadow-xl'>
             <div className="flex flex-wrap mx-[30px] sm:mx-[50px] items-center justify-between">
                 <a href="/">
                     <LazyLoadImage
@@ -154,7 +154,7 @@ const Nav = () => {
                     </ul>
                 </div>
             </div>
-        </nav>
+        </header>
     );
 }
 

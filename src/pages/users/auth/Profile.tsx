@@ -8,6 +8,7 @@ import { PembayaranContext } from "../../../context/PembayaranContext";
 import Button from "../../../components/button";
 import AkunSaya from "../../../features/profile/akunSaya";
 import UbahProfile from "../../../features/profile/ubahProfile";
+import History from "./History";
 
 const Profile = () => {
     const [profil, setProfil] = useState({ email: '', Nama: '', number: '', password: '' })
@@ -37,7 +38,7 @@ const Profile = () => {
             <div className="my-[100px] font-inter text-[#1B1D21] mx-[70px]">
                 <div className="flex flex-row justify-between">
                     <a href="/profile" className="text-[20px] font-bold">Akun</a>
-                    <button type="button" onClick={() => setVisible(true)} className="lg:hidden flex p-2 text-[#F78CB2] rounded-lg border border-[#F78CB2]"><icons.RxHamburgerMenu/></button>
+                    <button type="button" onClick={() => setVisible(true)} className="lg:hidden flex p-2 text-[#F78CB2] rounded-lg border border-[#F78CB2]"><icons.RxHamburgerMenu /></button>
                 </div>
                 <div className="flex flex-row mt-8">
                     <div className='lg:inline hidden w-[30%]'>
@@ -48,7 +49,8 @@ const Profile = () => {
                             </div>
                             <hr className="my-3" />
                             <div className="flex-col">
-                                <h1 className="p-3 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white">Akun Saya</h1>
+                                <h1 onClick={() => setStep(1)} className="p-3 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white">Akun Saya</h1>
+                                <h3 onClick={() => setStep(3)} className="p-3 my-5 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white">Riwayat Transaksi</h3>
                                 <h3 onClick={logout} className='my-5 p-3 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white'>Keluar</h3>
                             </div>
                         </div>
@@ -56,12 +58,12 @@ const Profile = () => {
                     <div className="flex flex-col shadow-lg w-full lg:w-[70%]">
                         <div className="mx-[30px] mt-5">
                             <div className="flex flex-row w-full justify-between">
-                                <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : 'Ubah Profile'}</h1>
+                                <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : 'Ubah Profile' ? step === 3 ? 'Riwayat Transaksi' : 'Akun Saya' : ''}</h1>
                                 <Button onClick={() => setStep(2)} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
                             </div>
                             <hr className="my-3" />
 
-                            {step === 1 ? <AkunSaya/> : <UbahProfile/>}
+                            {step === 1 ? <AkunSaya /> : <UbahProfile /> ? step === 3 ? <History /> : <AkunSaya /> : ''}
                         </div>
                     </div>
                 </div>
@@ -77,7 +79,8 @@ const Profile = () => {
                     </div>
                     <hr className="my-3" />
                     <div className="flex-col">
-                        <a href="/profile" className="p-3 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white">Akun Saya</a>
+                        <h1 onClick={() => setStep(1)} className="p-3 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white">Akun Saya</h1>
+                        <h3 onClick={() => setStep(3)} className="p-3 my-5 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white">Riwayat Transaksi</h3>
                         <h3 onClick={logout} className='my-5 p-3 hover:bg-[#F78CB2] hover:rounded-xl opacity-[50%] hover:opacity-100 text-black hover:text-white'>Keluar</h3>
                     </div>
                 </div>

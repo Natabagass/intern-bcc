@@ -1,4 +1,4 @@
-import { image } from "../data/image";
+import { image } from "../dto/data/image";
 
 const Image: image = {
     CreatedAt: new Date(),

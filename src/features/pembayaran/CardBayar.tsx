@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { gedung } from "../../models/dummy/gedung";
 import Button from "../../components/button";
-import { rupiahFormatter } from "../../components/formatter";
+import { rupiahFormatter } from "../../components/formatterRupiah";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import icons from "../../components/icons";
 

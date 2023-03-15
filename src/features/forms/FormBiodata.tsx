@@ -1,13 +1,13 @@
 import { useState, useContext, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { rupiahFormatter } from "../../components/formatter";
+import { rupiahFormatter } from "../../components/formatterRupiah";
 import { biodata } from "../../models/dto/data/biodata";
-import { Biodatas } from "../../models/dto/defaultValue/biodataValue";
+import { Biodatas } from "../../models/defaultValue/biodataValue";
 import { getBiodata } from "../service/pembayaran/getDataBiodata";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import AxiosInstance from "../api/AxiosInstance";
 import { gedungsbyId } from "../../models/dto/data/gedungbyId";
-import { dataId } from "../../models/dto/defaultValue/byIdValue";
+import { dataId } from "../../models/defaultValue/byIdValue";
 
 const Biodata = () => {
     const axiosInstance = AxiosInstance()

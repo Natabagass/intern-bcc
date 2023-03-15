@@ -1,4 +1,4 @@
-import { gedungsbyId } from "../data/gedungbyId";
+import { gedungsbyId } from "../dto/data/gedungbyId";
 
 const dataId : gedungsbyId = {
     Nama: '',

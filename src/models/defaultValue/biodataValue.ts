@@ -1,4 +1,4 @@
-import { biodata } from "../data/biodata";
+import { biodata } from "../dto/data/biodata";
 
 const Biodatas: biodata = {
     nama: '',

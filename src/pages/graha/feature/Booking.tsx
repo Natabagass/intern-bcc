@@ -10,7 +10,7 @@ import BookMobile from "../../../features/booking/BookMobile";
 import { PembayaranContext } from "../../../context/PembayaranContext";
 import AxiosInstance from '../../../features/api/AxiosInstance';
 import { gedungsbyId } from '../../../models/dto/data/gedungbyId';
-import { dataId } from '../../../models/dto/defaultValue/byIdValue';
+import { dataId } from '../../../models/defaultValue/byIdValue';
 
 const Booking = () => {
     const { visible, setVisible } = useContext(PembayaranContext)

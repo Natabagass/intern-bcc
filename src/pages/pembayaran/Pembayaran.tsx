@@ -12,7 +12,7 @@ import Lunas from "../../features/pembayaran/CardPelunasan";
 import Bayar from "../../features/pembayaran/CardBayar";
 import Button from "../../components/button";
 import { gedungsbyId } from "../../models/dto/data/gedungbyId";
-import { dataId } from "../../models/dto/defaultValue/byIdValue";
+import { dataId } from "../../models/defaultValue/byIdValue";
 import AxiosInstance from "../../features/api/AxiosInstance";
 
 const Pembayaran = () => {

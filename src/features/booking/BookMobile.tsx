@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import Button from "../../components/button";
-import { rupiahFormatter } from "../../components/formatter";
+import { rupiahFormatter } from "../../components/formatterRupiah";
 import Input from "../../components/input";
 import { FormContext } from "../../context/FormContext";
 import { PembayaranContext } from "../../context/PembayaranContext";

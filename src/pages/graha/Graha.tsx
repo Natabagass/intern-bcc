@@ -3,13 +3,12 @@ import icon from '../../components/icons';
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/partials/Footer";
-import { rupiahFormatter } from "../../components/formatter";
+import { rupiahFormatter } from "../../components/formatterRupiah";
 import { useEffect, useState, useContext } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { getGedung } from "../../features/service/gedung/getDataGedung";
 import { gedungs } from "../../models/dto/data/gedung";
-import { PembayaranContext } from "../../context/PembayaranContext";
 
 const Graha = () => {
     const [dataGedung, setDataGedung] = useState([])

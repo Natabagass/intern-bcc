@@ -9,15 +9,16 @@ import Timer from "../../components/timer";
 import Swal from "sweetalert2";
 import { PembayaranContext } from "../../context/PembayaranContext";
 import { useContext, useEffect, useState } from "react";
-import { rupiahFormatter } from "../../components/formatter";
+import { rupiahFormatter } from "../../components/formatterRupiah";
 import { Pembayaran } from "../../models/dummy/pembayaran";
 import AxiosInstance from "../api/AxiosInstance";
 import { useParams } from "react-router-dom";
-import LunasMobile from "./CardLunasMob";
+import Input from "../../components/input";
 
 const Lunas = () => {
     const axiosInstance = AxiosInstance()
     const { totalBiaya, setVisible } = useContext(PembayaranContext)
+    const [loading, setLoading] = useState(false)
     const [forms, setForms] = useState<{ nominal: number, bukti: File | undefined }>({
         nominal: 0,
         bukti: undefined
@@ -30,8 +31,10 @@ const Lunas = () => {
     const { id } = useParams()
     const myId = parseInt(id!, 10)
 
+    console.log(forms.nominal)
 
     const handlePayment = async () => {
+        setLoading(true)
         try {
             await axiosInstance.post(`/payment/${myId}`, forms, {
                 headers: {
@@ -48,9 +51,17 @@ const Lunas = () => {
                 }
             })
         } catch (err) {
+            setLoading(false)
             console.log(err)
         }
     }
+
+    useEffect(() => {
+        setForms(prevState => ({
+            ...prevState,
+            nominal: totalBiaya
+        }));
+    }, [totalBiaya]);
     return (
         <>
             <div className="shadow-lg md:top-24 top-0 fixed w-full overflow-auto md:overflow-hidden bg-white bottom-0 md:sticky p-[24px]">
@@ -61,13 +72,11 @@ const Lunas = () => {
                 <div className="my-3 flex flex-row justify-between">
                     <div>
                         <h1>Biaya yang harus dibayarkan</h1>
-                        <input
+                        <Input
                             type="number"
                             name="nominal"
-                            hidden
                             value={rupiahFormatter(totalBiaya)}
-                            onChange={() => setForms({ ...forms, nominal: totalBiaya })}
-                            className="font-bold text-[24px] mt-3" />
+                            onChange={(event) => setForms((prevForms) => ({ ...prevForms, nominal: parseInt(event.target.value) }))} className="font-bold hidden text-[24px] mt-3" />
                         <h3 className="font-bold text-[24px] mt-3">{rupiahFormatter(totalBiaya)}</h3>
                     </div>
                     <div>
@@ -109,7 +118,7 @@ const Lunas = () => {
                                     setFileName(file?.name)
                                     setForms({ ...forms, bukti: file })
                                 }}
-                                style={{marginTop: 45, opacity: 0, marginLeft: 200}}
+                                style={{ marginTop: 45, opacity: 0, marginLeft: 200 }}
                                 accept='image/*,.pdf,.jpg,.png' />
                         </form>
                     </div>
@@ -215,6 +224,7 @@ const Lunas = () => {
                 </div>
                 <Button
                     type="submit"
+                    isLoading={loading}
                     onClick={() => handlePayment()}
                     className="bg-[#F78CB2] hover:bg-white hover:border-[#F78CB2] hover:border hover:text-[#F78CB2] rounded-xl w-full text-white mt-8"
                 >

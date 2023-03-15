@@ -1,4 +1,4 @@
-import { gedungs } from "../data/gedung";
+import { gedungs } from "../dto/data/gedung";
 
 const Gedung : gedungs = {
     id: 0,
