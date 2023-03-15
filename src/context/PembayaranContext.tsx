@@ -5,7 +5,8 @@ const initial: Ctx = {
     harga: 0,
     step: 1,
     visible: false,
-    totalBiaya: 0
+    totalBiaya: 0,
+    status: ''
 };
 
 type PembayaranProviderProps = {
@@ -17,6 +18,8 @@ export const PembayaranContext = createContext<PembayaranContextType>({
     visible: initial.visible,
     harga: initial.harga,
     totalBiaya: initial.totalBiaya,
+    status: initial.status,
+    setStatus: () => { },
     setTotalBiaya: () => { },
     setStep: () => { },
     setHarga: () => { },
@@ -28,9 +31,10 @@ export const PembayaranProvider: React.FC<PembayaranProviderProps> = ({ children
     const [harga, setHarga] = useState<Ctx["harga"]>(initial.harga)
     const [visible, setVisible] = useState<Ctx["visible"]>(initial.visible)
     const [totalBiaya, setTotalBiaya] = useState<Ctx["totalBiaya"]>(initial.totalBiaya)
+    const [status, setStatus] = useState<Ctx["status"]>(initial.status)
 
     return (
-        <PembayaranContext.Provider value={{ setStep, harga, visible, setVisible, setHarga, totalBiaya, setTotalBiaya, step }}>
+        <PembayaranContext.Provider value={{ setStep, status, setStatus, harga, visible, setVisible, setHarga, totalBiaya, setTotalBiaya, step }}>
             {children}
         </PembayaranContext.Provider>
     );

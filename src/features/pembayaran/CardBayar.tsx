@@ -7,8 +7,7 @@ import { PembayaranContext } from "../../context/PembayaranContext";
 import icons from "../../components/icons";
 
 const Bayar = () => {
-    const { setStep, setHarga, harga, totalBiaya, setTotalBiaya, setVisible } = useContext(PembayaranContext)
-    const [tab, setTab] = useState('')
+    const { setStep, setStatus, harga, status, totalBiaya, setTotalBiaya, setVisible } = useContext(PembayaranContext)
     const layanan = 500000
     const [totalKeseluruhan, setTotalKesuluruhan] = useState(0)
     const { id } = useParams()
@@ -27,9 +26,10 @@ const Bayar = () => {
                 </div>
                 <div className="my-3 flex flex-row">
                     <Button
-                        className={`${tab === '30%' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
+                        className={`${status === '30%' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
-                            setTab('30%')
+                            setStatus('30%')
+                            console.log(status)
                             const diskon = harga * 0.3
                             setTotalKesuluruhan(diskon)
                             setTotalBiaya(totalKeseluruhan + layanan)
@@ -37,9 +37,9 @@ const Bayar = () => {
                     >
                         30%</Button>
                     <Button
-                        className={`${tab === "50%" ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
+                        className={`${status === "50%" ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
-                            setTab('50%')
+                            setStatus('50%')
                             const diskon = harga * 0.5
                             setTotalKesuluruhan(diskon)
                             setTotalBiaya(totalKeseluruhan + layanan)
@@ -47,9 +47,9 @@ const Bayar = () => {
                     >
                         50%</Button>
                     <Button
-                        className={`${tab === 'Bayar Lunas' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
+                        className={`${status === 'Bayar Lunas' ? 'bg-[#F78CB2]  rounded-xl text-white' : ''} 'opacity-[50%] px-3 mr-3'`}
                         onClick={() => {
-                            setTab('Bayar Lunas')
+                            setStatus('Bayar Lunas')
                             const diskon = harga * 1
                             setTotalKesuluruhan(diskon)
                             setTotalBiaya(totalKeseluruhan + layanan)

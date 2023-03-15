@@ -35,7 +35,7 @@ const Profile = () => {
         <>
             <Nav />
 
-            <div className="my-[100px] font-inter text-[#1B1D21] mx-[70px]">
+            <div className="my-[100px] font-inter text-[#1B1D21] mx-[30px] md:mx-[70px]">
                 <div className="flex flex-row justify-between">
                     <a href="/profile" className="text-[20px] font-bold">Akun</a>
                     <button type="button" onClick={() => setVisible(true)} className="lg:hidden flex p-2 text-[#F78CB2] rounded-lg border border-[#F78CB2]"><icons.RxHamburgerMenu /></button>

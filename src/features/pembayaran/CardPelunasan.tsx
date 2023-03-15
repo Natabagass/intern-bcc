@@ -17,7 +17,7 @@ import Input from "../../components/input";
 
 const Lunas = () => {
     const axiosInstance = AxiosInstance()
-    const { totalBiaya, setVisible } = useContext(PembayaranContext)
+    const { totalBiaya, setVisible, status } = useContext(PembayaranContext)
     const [loading, setLoading] = useState(false)
     const [forms, setForms] = useState<{ nominal: number, bukti: File | undefined }>({
         nominal: 0,
@@ -61,7 +61,11 @@ const Lunas = () => {
             ...prevState,
             nominal: totalBiaya
         }));
-    }, [totalBiaya]);
+        setForms(prevState => ({
+            ...prevState,
+            status: status
+        }));
+    }, [totalBiaya, status]);
     return (
         <>
             <div className="shadow-lg md:top-24 top-0 fixed w-full overflow-auto md:overflow-hidden bg-white bottom-0 md:sticky p-[24px]">
@@ -77,6 +81,12 @@ const Lunas = () => {
                             name="nominal"
                             value={rupiahFormatter(totalBiaya)}
                             onChange={(event) => setForms((prevForms) => ({ ...prevForms, nominal: parseInt(event.target.value) }))} className="font-bold hidden text-[24px] mt-3" />
+
+                        <Input
+                            type="text"
+                            name="status"
+                            value={status}
+                            onChange={(event) => setForms((prevForms) => ({ ...prevForms, status: event.target.value }))} className="font-bold hidden text-[24px] mt-3" />
                         <h3 className="font-bold text-[24px] mt-3">{rupiahFormatter(totalBiaya)}</h3>
                     </div>
                     <div>
