@@ -100,11 +100,11 @@ const Nav = () => {
                                                 </div>
                                                 <hr className='my-2 lg:hidden flex' />
                                                 <li className='my-2'>
-                                                    <a href="/profile" className="w-full text-[#F78CB2] flex text-[16px] sm:text-[18px] hover:bg-gray-100">Profile</a>
+                                                    <a href="/profile" className="w-full text-[#F78CB2] flex text-[16px] sm:text-[18px] hover:px-1 hover:rounded-lg hover:bg-gray-100">Profile</a>
                                                 </li>
                                                 <li className='my-2'>
                                                     <button
-                                                        className="w-full text-[#F78CB2] flex text-[16px] sm:text-[18px] hover:rounded-b-lg hover:bg-gray-100"
+                                                        className="w-full text-[#F78CB2] flex text-[16px] sm:text-[18px] hover:rounded-b-lg hover:px-1 hover:rounded-lg hover:bg-gray-100"
                                                         onClick={logout}
                                                     >
                                                         <span className="flex flex-row justify-start items-center">Logout <IoLogOutOutline className="ml-2 text-[20px] mr-5 mt-1" /></span>

@@ -5,5 +5,6 @@ export interface history {
     gedung_id: number,
     nama_gedung: string,
     link_gedung: string,
-    nominal: number
+    nominal: number,
+    status: string
 }

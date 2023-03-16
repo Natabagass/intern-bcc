@@ -1,4 +1,4 @@
-import { IoIosArrowForward } from 'react-icons/io'
+import { IoIosArrowForward, IoMdArrowRoundBack } from 'react-icons/io'
 import { FaRegEyeSlash } from 'react-icons/fa';
 import { MdArrowBackIos, MdAppRegistration } from "react-icons/md";
 import { AiOutlineEye, AiOutlineMinus } from 'react-icons/ai';
@@ -12,6 +12,7 @@ import {CgProfile, CgFileAdd} from 'react-icons/cg'
 
 const icons = {
     IoIosArrowForward,
+    IoMdArrowRoundBack,
     CgFileAdd,
     AiOutlineMinus,
     CgProfile,

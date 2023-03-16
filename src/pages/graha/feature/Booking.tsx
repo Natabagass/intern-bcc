@@ -49,8 +49,8 @@ const Booking = () => {
                         <span className="font-bold text-black opacity-[100%]">&nbsp; {dataGedung.Nama}</span>
                     </div>
                     <div className="flex items-stretch justify-between md:flex-row flex-col">
-                        <div className="md:w-[70%] w-full bg-cover bg-center min-h-[400px] rounded-lg"  />
-                        <div className="md:w-[30%] flex md:flex-col flex-row justify-between md:ml-5 md:mt-0 mt-5">
+                        <div className="md:w-[70%] w-full bg-cover bg-center min-h-[400px] rounded-lg" style={{ backgroundImage: `url(${imageUrl[0]})` }} />
+                        <div className="md:w-[30%] flex md:flex-col flex-row justify-between md:ml-5 md:mt-0 mt-5" >
                             <div className="bg-cover bg-center w-full min-h-[200px] rounded-lg md:mb-5 md:mr-0 mr-5" style={{ backgroundImage: `url(${imageUrl[1]})` }} />
                             <div className="flex justify-end w-full">
                                 <div className="bg-cover bg-center w-full min-h-[200px] rounded-lg" style={{ backgroundImage: `url(${imageUrl[2]})` }} />

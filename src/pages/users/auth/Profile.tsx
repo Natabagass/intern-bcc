@@ -9,10 +9,22 @@ import Button from "../../../components/button";
 import AkunSaya from "../../../features/profile/akunSaya";
 import UbahProfile from "../../../features/profile/ubahProfile";
 import History from "./History";
+import Input from "../../../components/input";
+import AxiosInstance from "../../../features/api/AxiosInstance";
+import Swal from "sweetalert2";
+import { EditContext } from "../../../context/ProfileContext";
 
 const Profile = () => {
+    const axiosInstance = AxiosInstance()
+    const [passwordShown, setPasswordShown] = useState(false);
+    const toggleShow = () => {
+        setPasswordShown(!passwordShown);
+    }
+    const [loading, setLoading] = useState(false)
     const [profil, setProfil] = useState({ email: '', Nama: '', number: '', password: '' })
-    const { visible, setVisible, step, setStep } = useContext(PembayaranContext)
+    const [pwd, setPwd] = useState('')
+    const { step, setStep, setVisible, visible } = useContext(PembayaranContext)
+    const { visibleProfile } = useContext(EditContext)
     const cookies = new Cookies();
     const logout = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
@@ -24,6 +36,29 @@ const Profile = () => {
             const result = await getProfile()
             setProfil(result?.data.data)
         } catch (err) {
+            console.log(err)
+        }
+    }
+
+    const handleDelete = async () => {
+        setLoading(true)
+        try {
+            const res = await axiosInstance.delete('/delete-account', {
+                data: {
+                    password: pwd
+                }
+            })
+            Swal.fire({
+                icon: 'success',
+                title: 'Silahkan Login ulang',
+            }).then((result) => {
+                if (result.dismiss) {
+                    cookies.remove('auth', { path: '/' })
+                    window.location.replace('/login')
+                }
+            })
+        } catch (err) {
+            setLoading(false)
             console.log(err)
         }
     }
@@ -55,15 +90,40 @@ const Profile = () => {
                             </div>
                         </div>
                     </div>
-                    <div className="flex flex-col shadow-lg w-full lg:w-[70%]">
-                        <div className="mx-[30px] mt-5">
-                            <div className="flex flex-row w-full justify-between">
-                                <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : 'Ubah Profile' ? step === 3 ? 'Riwayat Transaksi' : 'Akun Saya' : ''}</h1>
-                                <Button onClick={() => setStep(2)} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
-                            </div>
-                            <hr className="my-3" />
+                    <div className="flex flex-col  w-full lg:w-[70%]">
+                        <div className="flex flex-col shadow-lg">
+                            <div className="mx-[30px] mt-5">
+                                <div className="flex flex-row w-full justify-between">
+                                    <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : step === 2 ? 'Ubah Profile' : step === 3 ? 'Riwayat Transaksi' : 'Akun Saya'}</h1>
+                                    <div className="flex flex-row items-center">
+                                        <button onClick={() => setStep(1)} className={`${step === 2 ? 'flex items-center text-[20px] mr-5 cursor-pointer' : 'hidden'}`}><icons.IoMdArrowRoundBack className="text-[#F78CB2]" /></button>
+                                        <button onClick={() => setStep(4)} className={`${step === 2 ? 'flex bg-[#F78CB2] p-2 rounded-lg text-white' : 'hidden'}`}>Ubah Password</button>
+                                    </div>
+                                    <Button onClick={() => setStep(2)} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
+                                </div>
+                                <hr className="my-3" />
 
-                            {step === 1 ? <AkunSaya /> : <UbahProfile /> ? step === 3 ? <History /> : <AkunSaya /> : ''}
+                                {step === 1 ? <AkunSaya /> : step === 2 ? <UbahProfile /> : step === 3 ? <History /> : <AkunSaya />}
+                            </div>
+                        </div>
+                        <div className={`${step === 2 ? 'flex flex-col p-[30px] shadow-lg mt-8' : 'hidden'}`}>
+                            <h1 className="font-bold text-[24px]">Delete Account</h1>
+                            <div className="mt-5">
+                                <label htmlFor="pass" className="font-bold">Password Confirmation</label>
+                                <div className="relative flex flex-col items-center">
+                                    <Input
+                                        type={passwordShown ? "text" : "password"}
+                                        id="pass"
+                                        onChange={(e) => setPwd(e.target.value)}
+                                        className="mt-3 pl-5 p-3 placeholder:text-black rounded-lg bg-[#FEF8FA]" />
+                                    <button onClick={toggleShow} className="cursor-pointer flex items-center">
+                                        {!passwordShown ? <icons.FaRegEyeSlash className="absolute right-3 -mt-10 text-[25px] pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] -mt-10 pr-1" />}
+                                    </button>
+                                </div>
+                                <div className="w-full mt-3  justify-end flex">
+                                    <Button onClick={handleDelete} className=" text-white bg-red-400">Delete</Button>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

@@ -7,7 +7,8 @@ const Historys: history = {
     gedung_id: 0,
     nama_gedung: '',
     link_gedung: '',
-    nominal: 0
+    nominal: 0,
+    status: ''
 }
 
 export {Historys}
