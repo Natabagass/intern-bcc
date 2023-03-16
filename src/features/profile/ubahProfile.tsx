@@ -75,6 +75,7 @@ const UbahProfile = () => {
             </div>
 
             <div className="w-full justify-end flex-row flex my-5">
+                <Button onClick={() => setVisibleProfile(true)} className="p-2 mr-4 text-[14px] px-4 bg-red-500 text-white">Delete Profile</Button>
                 <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[14px] px-4 bg-[#F78CB2] text-white">Submit</Button>
             </div>
         </>

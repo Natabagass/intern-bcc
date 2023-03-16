@@ -2,7 +2,7 @@ import React, { useState, createContext } from "react";
 import { Ctx, EditContextType } from "../models/dto/forms/editTypes";
 
 const initial: Ctx = {
-    visibleProfile: true,
+    visibleProfile: false,
 };
 
 type EditProviderProps = {
@@ -14,7 +14,7 @@ export const EditContext = createContext<EditContextType>({
     setVisibleProfile: () => { }
 });
 
-export const PembayaranProvider: React.FC<EditProviderProps> = ({ children }) => {
+export const EditProvider: React.FC<EditProviderProps> = ({ children }) => {
     const [visibleProfile, setVisibleProfile] = useState<Ctx["visibleProfile"]>(initial.visibleProfile)
 
     return (

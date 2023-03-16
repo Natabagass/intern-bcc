@@ -8,34 +8,37 @@ import PrivateRoute from './routes/PrivateRoute';
 import { CookiesProvider } from 'react-cookie'
 import { PembayaranProvider } from './context/PembayaranContext';
 import Profile from './pages/users/auth/Profile';
+import { EditProvider } from './context/ProfileContext';
 
 function App() {
   return (
     <CookiesProvider>
-      <FormProvider>
-        <PembayaranProvider>
-          <div className='app'>
-            <Routes>
-              <Route element={<SuspenseWrapper />}>
-                <Route path='/graha' element={<Graha />} />
-                <Route path='/faq' element={<Faq />} />
-                <Route path='/graha/:id' element={<Booking />} />
-                <Route path='/' element={<Home />} />
+      <EditProvider>
+        <FormProvider>
+          <PembayaranProvider>
+            <div className='app'>
+              <Routes>
+                <Route element={<SuspenseWrapper />}>
+                  <Route path='/graha' element={<Graha />} />
+                  <Route path='/faq' element={<Faq />} />
+                  <Route path='/graha/:id' element={<Booking />} />
+                  <Route path='/' element={<Home />} />
 
-                <Route element={<AuthRoute />}>
-                  <Route path='/login' element={<Login />} />
-                  <Route path='/signup' element={<Signup />} />
-                </Route>
+                  <Route element={<AuthRoute />}>
+                    <Route path='/login' element={<Login />} />
+                    <Route path='/signup' element={<Signup />} />
+                  </Route>
 
-                <Route element={<PrivateRoute />}>
-                  <Route path='/graha/pembayaran/:id' element={<Pembayaran />} />
-                  <Route path='/profile' element={<Profile/>} />
+                  <Route element={<PrivateRoute />}>
+                    <Route path='/graha/pembayaran/:id' element={<Pembayaran />} />
+                    <Route path='/profile' element={<Profile />} />
+                  </Route>
                 </Route>
-              </Route>
-            </Routes>
-          </div>
-        </PembayaranProvider>
-      </FormProvider>
+              </Routes>
+            </div>
+          </PembayaranProvider>
+        </FormProvider>
+      </EditProvider>
     </CookiesProvider>
   );
 }

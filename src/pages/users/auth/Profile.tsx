@@ -13,6 +13,7 @@ import Input from "../../../components/input";
 import AxiosInstance from "../../../features/api/AxiosInstance";
 import Swal from "sweetalert2";
 import { EditContext } from "../../../context/ProfileContext";
+import UbahPwd from "../../../features/profile/ubahPassword";
 
 const Profile = () => {
     const axiosInstance = AxiosInstance()
@@ -43,18 +44,18 @@ const Profile = () => {
     const handleDelete = async () => {
         setLoading(true)
         try {
-            const res = await axiosInstance.delete('/delete-account', {
+            await axiosInstance.delete('/delete-account', {
                 data: {
                     password: pwd
                 }
             })
             Swal.fire({
                 icon: 'success',
-                title: 'Silahkan Login ulang',
+                title: 'Delete Account Berhasil',
             }).then((result) => {
-                if (result.dismiss) {
+                if (result.isConfirmed) {
                     cookies.remove('auth', { path: '/' })
-                    window.location.replace('/login')
+                    window.location.replace('/')
                 }
             })
         } catch (err) {
@@ -69,7 +70,6 @@ const Profile = () => {
     return (
         <>
             <Nav />
-
             <div className="my-[100px] font-inter text-[#1B1D21] mx-[30px] md:mx-[70px]">
                 <div className="flex flex-row justify-between">
                     <a href="/profile" className="text-[20px] font-bold">Akun</a>
@@ -94,19 +94,20 @@ const Profile = () => {
                         <div className="flex flex-col shadow-lg">
                             <div className="mx-[30px] mt-5">
                                 <div className="flex flex-row w-full justify-between">
-                                    <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : step === 2 ? 'Ubah Profile' : step === 3 ? 'Riwayat Transaksi' : 'Akun Saya'}</h1>
+                                    <h1 className="font-bold text-[28px]">{step === 1 ? 'Akun Saya' : step === 2 ? 'Ubah Profile' : step === 3 ? 'Riwayat Transaksi' : step === 4 ? 'Ubah Password' : 'Akun Saya'}</h1>
                                     <div className="flex flex-row items-center">
                                         <button onClick={() => setStep(1)} className={`${step === 2 ? 'flex items-center text-[20px] mr-5 cursor-pointer' : 'hidden'}`}><icons.IoMdArrowRoundBack className="text-[#F78CB2]" /></button>
+                                        <button onClick={() => setStep(2)} className={`${step === 4 ? 'flex items-center text-[20px] mr-5 cursor-pointer' : 'hidden'}`}><icons.IoMdArrowRoundBack className="text-[#F78CB2]" /></button>
                                         <button onClick={() => setStep(4)} className={`${step === 2 ? 'flex bg-[#F78CB2] p-2 rounded-lg text-white' : 'hidden'}`}>Ubah Password</button>
                                     </div>
-                                    <Button onClick={() => setStep(2)} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
+                                    <Button onClick={() => {setStep(2)}} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
                                 </div>
                                 <hr className="my-3" />
 
-                                {step === 1 ? <AkunSaya /> : step === 2 ? <UbahProfile /> : step === 3 ? <History /> : <AkunSaya />}
+                                {step === 1 ? <AkunSaya /> : step === 2 ? <UbahProfile /> : step === 3 ? <History /> : step === 4 ? <UbahPwd/> : <AkunSaya/>}
                             </div>
                         </div>
-                        <div className={`${step === 2 ? 'flex flex-col p-[30px] shadow-lg mt-8' : 'hidden'}`}>
+                        <div className={`${step === 2 && visibleProfile ? 'flex flex-col p-[30px] shadow-lg mt-8' : 'hidden'}`}>
                             <h1 className="font-bold text-[24px]">Delete Account</h1>
                             <div className="mt-5">
                                 <label htmlFor="pass" className="font-bold">Password Confirmation</label>
@@ -114,8 +115,9 @@ const Profile = () => {
                                     <Input
                                         type={passwordShown ? "text" : "password"}
                                         id="pass"
+                                        placeholder="Masukkan password anda"
                                         onChange={(e) => setPwd(e.target.value)}
-                                        className="mt-3 pl-5 p-3 placeholder:text-black rounded-lg bg-[#FEF8FA]" />
+                                        className="mt-3 pl-5 p-3 placeholder:text-[14px] rounded-lg bg-[#FEF8FA]" />
                                     <button onClick={toggleShow} className="cursor-pointer flex items-center">
                                         {!passwordShown ? <icons.FaRegEyeSlash className="absolute right-3 -mt-10 text-[25px] pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] -mt-10 pr-1" />}
                                     </button>

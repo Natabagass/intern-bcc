@@ -13,6 +13,7 @@ import { searchGraha } from "../../features/service/searchGraha/SearchGraha";
 
 const Graha = () => {
     const [dataGedung, setDataGedung] = useState([])
+    const [name, setName] = useState('')
     const [searchParams, setSearchParams] = useSearchParams()
     const getGedungs = async () => {
         try {
@@ -23,14 +24,22 @@ const Graha = () => {
         }
     }
 
-    const handleSearch = async () => {
-        try {
-            const result = await searchGraha(searchParams.get('name')!)
-            setDataGedung(result?.data.data)
-        } catch (error) {
-            console.error(error)
-        }
+    const handleSearch = async (e: {preventDefault: () => void}) => {
+        e.preventDefault()
+        setSearchParams({ name: name })
     }
+
+    useEffect(() => {
+        const search = async () => {
+            try {
+                const result = await searchGraha(searchParams.get('name')!, searchParams.get('kecamatan')!)
+                setDataGedung(result?.data.data)
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        search()
+    }, [searchParams])
 
     useEffect(() => {
         AOS.init({
@@ -38,26 +47,25 @@ const Graha = () => {
             duration: 500
         });
         getGedungs()
-        handleSearch()
-    }, [searchParams])
+    }, [])
     const navigate = useNavigate()
     return (
         <>
             <Nav />
-            <div className="mx-[30px] md:mx-[50px] lg:mx-[100px] my-[100px] font-inter">
+            <div className="mx-[30px] md:mx-[50px] lg:mx-[100px] min-h-screen my-[100px] font-inter">
                 <form onSubmit={handleSearch}>
-                    <div className="w-[50%] mx-auto">
+                    <div className="w-[100%] sm:w-[80%] lg:w-[50%] mx-auto">
                         <label htmlFor="default-search" className="mb-2 text-sm font-medium sr-only">Search</label>
                         <div className="relative">
                             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
                                 <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
                             </div>
-                            <input type="search" id="default-search" className="block outline-none shadow-lg rounded-xl w-full p-4 pl-10 text-sm  " placeholder="Cari nama gedung" required />
-                            <button onClick={() => navigate(`/graha?name=${searchParams}`)} type="submit" className="text-white bg-[#F78CB2] hover:bg-[#fc74a4] absolute right-2.5 bottom-2.5  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
+                            <input name="name" onChange={(e) => { setName(e.target.value) }} type="search" id="default-search" className="block outline-none shadow-lg rounded-xl w-full p-4 pl-10 text-sm  " placeholder="Cari nama gedung" required />
+                            <button type="submit" className="text-white bg-[#F78CB2] hover:bg-[#fc74a4] absolute right-2.5 bottom-2.5  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                         </div>
                     </div>
                 </form>
-                <div data-aos="fade-up" className="grid grid-cols-1 min-h-screen sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
+                <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">
                     {
                         dataGedung.map((data: gedungs, index: number) => {
                             return (
