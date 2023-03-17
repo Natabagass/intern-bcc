@@ -34,25 +34,33 @@ const Lunas = () => {
     console.log(forms.nominal)
 
     const handlePayment = async () => {
-        setLoading(true)
-        try {
-            await axiosInstance.post(`/payment/${myId}`, forms, {
-                headers: {
-                    'Content-Type': 'multipart/form-data',
-                }
-            })
+        if (fileName === 'No Selected File'){
             Swal.fire({
-                icon: 'success',
-                showConfirmButton: false,
-                title: 'Pembayaran Berhasil'
-            }).then(result => {
-                if (result.dismiss) {
-                    window.location.replace('/')
-                }
+                icon: 'error',
+                title: 'Gagal',
+                text: 'Anda belum upload bukti pembayaran!',
             })
-        } catch (err) {
-            setLoading(false)
-            console.log(err)
+        }else {
+            setLoading(true)
+            try {
+                await axiosInstance.post(`/payment/${myId}`, forms, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data',
+                    }
+                })
+                Swal.fire({
+                    icon: 'success',
+                    showConfirmButton: false,
+                    title: 'Pembayaran Berhasil'
+                }).then(result => {
+                    if (result.dismiss) {
+                        window.location.replace('/')
+                    }
+                })
+            } catch (err) {
+                setLoading(false)
+                console.log(err)
+            }
         }
     }
 
@@ -128,7 +136,7 @@ const Lunas = () => {
                                     setFileName(file?.name)
                                     setForms({ ...forms, bukti: file })
                                 }}
-                                style={{ marginTop: 45, opacity: 0, marginLeft: 200 }}
+                                style={{ display: 'flex', marginTop:60, opacity: 0, alignItems:'center', marginLeft: 200, alignContent: 'center' }}
                                 accept='image/*,.pdf,.jpg,.png' />
                         </form>
                     </div>

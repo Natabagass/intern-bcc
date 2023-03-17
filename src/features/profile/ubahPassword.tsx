@@ -11,8 +11,16 @@ const UbahPwd = () => {
     const cookies = new Cookies();
     const [loading, setLoading] = useState(false)
     const [passwordShown, setPasswordShown] = useState(false);
+    const [passwordShownOld, setPasswordShownOld] = useState(false);
+    const [confirmPwd, setConfirmPwd] = useState(false);
     const toggleShow = () => {
         setPasswordShown(!passwordShown);
+    }
+    const toggleShowOld = () => {
+        setPasswordShownOld(!passwordShownOld);
+    }
+    const toggleShowConfirm = () => {
+        setConfirmPwd(!confirmPwd);
     }
     const [forms, setForms] = useState({
         old_pass: '',
@@ -44,14 +52,14 @@ const UbahPwd = () => {
                 <div className="relative flex items-center">
                     <Input
                         onChange={e => setForms({ ...forms, old_pass: e.target.value })}
-                        type={passwordShown ? "text" : "password"}
+                        type={passwordShownOld ? "text" : "password"}
                         required
                         id='password'
                         placeholder="Masukkan kata sandi lama anda"
                         className='mt-2 rounded-lg bg-[#FEF8FA] lg:placeholder:text-[14px] placeholder:text-[12px] pl-2 outline-none'
                     />
-                    <button onClick={toggleShow} className="cursor-pointer flex items-center">
-                        {!passwordShown ? <icons.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                    <button onClick={toggleShowOld} className="cursor-pointer flex items-center">
+                        {!passwordShownOld ? <icons.FaRegEyeSlash className="absolute right-3 text-[20px] sm:text-[25px] mt-1 pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                     </button>
                 </div>
             </div>
@@ -65,10 +73,10 @@ const UbahPwd = () => {
                         required
                         id='password'
                         placeholder="Masukkan kata sandi baru anda"
-                        className='mt-2 rounded-lg bg-[#FEF8FA] lg:placeholder:text-[14px] placeholder:text-[12px] pl-2 outline-none'
+                        className='mt-2 rounded-lg bg-[#FEF8FA] sm:placeholder:text-[14px] placeholder:text-[12px] pl-2 outline-none'
                     />
                     <button onClick={toggleShow} className="cursor-pointer flex items-center">
-                        {!passwordShown ? <icons.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                        {!passwordShown ? <icons.FaRegEyeSlash className="absolute right-3 text-[20px] sm:text-[25px] mt-1 pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                     </button>
                 </div>
             </div>
@@ -78,20 +86,20 @@ const UbahPwd = () => {
                 <div className="relative flex items-center">
                     <Input
                         onChange={e => setForms({ ...forms, confirm: e.target.value })}
-                        type={passwordShown ? "text" : "password"}
+                        type={confirmPwd ? "text" : "password"}
                         required
                         id='password'
                         placeholder="Masukkan kata ulang sandi baru anda"
-                        className='mt-2 rounded-lg bg-[#FEF8FA] lg:placeholder:text-[14px] placeholder:text-[12px] pl-2 outline-none'
+                        className='mt-2 rounded-lg bg-[#FEF8FA] sm:placeholder:text-[14px] placeholder:text-[12px] pl-2 outline-none'
                     />
-                    <button onClick={toggleShow} className="cursor-pointer flex items-center">
-                        {!passwordShown ? <icons.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
+                    <button onClick={toggleShowConfirm} className="cursor-pointer flex items-center">
+                        {!confirmPwd ? <icons.FaRegEyeSlash className="absolute right-3 text-[20px] sm:text-[25px] mt-1 pr-1" /> : <icons.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
                     </button>
                 </div>
             </div>
 
             <div className="w-full justify-end flex-row flex my-5">
-                <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[14px] px-4 bg-[#F78CB2] text-white">Submit</Button>
+                <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[14px] px-4 hover:bg-white hover:border hover:border-[#F78CB2] hover:text-[#F78CB2] bg-[#F78CB2] text-white">Submit</Button>
             </div>
         </>
     );

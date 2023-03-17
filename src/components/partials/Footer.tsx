@@ -8,13 +8,13 @@ const Footer = () => {
                 <div className="flex flex-col md:flex-row mx-[70px] justify-center md:justify-around font-inter">
                     <div className='flex flex-col justify-between w-full lg:flex-row'>
                         <div className="flex flex-col my-[50px]">
-                            <h1 className="text-[32px] font-bold">Grent.com</h1>
-                            <h3 className="mt-10">© Dibuat oleh Kelompok 13</h3>
+                            <h1 className="text-[24px] md:text-[32px] font-bold">Grent.com</h1>
+                            <h3 className="mt-10 text-[14px] sm:text-[16px]">© Dibuat oleh Kelompok 13</h3>
                         </div>
 
                         <div className="flex flex-col my-[50px]">
-                            <h1 className="text-[32px] font-bold">Layanan Kami</h1>
-                            <ul className="mt-5">
+                            <h1 className="text-[24px] md:text-[32px] font-bold">Layanan Kami</h1>
+                            <ul className="mt-5 text-[14px] sm:text-[16px]">
                                 <li>
                                     <a href="/" className='hover:text-[#F898BA]'>Home</a>
                                 </li>
@@ -30,8 +30,8 @@ const Footer = () => {
 
                     <div className='flex flex-col justify-around w-full lg:flex-row'>
                         <div className="flex flex-col my-[50px]">
-                            <h1 className="text-[32px] font-bold">Hubungi Kami</h1>
-                            <ul className="mt-5">
+                            <h1 className="text-[24px] md:text-[32px] font-bold">Hubungi Kami</h1>
+                            <ul className="mt-5 text-[14px] sm:text-[16px]">
                                 <li className="mt-3">
                                     <span>0812345679812</span>
                                 </li>
@@ -42,8 +42,8 @@ const Footer = () => {
                         </div>
 
                         <div className="flex flex-col my-[50px]">
-                            <h1 className="text-[32px] font-bold">Sosial Media</h1>
-                            <ul className="mt-5">
+                            <h1 className="text-[24px] md:text-[32px] font-bold">Sosial Media</h1>
+                            <ul className="mt-5 text-[14px] sm:text-[16px]">
                                 <li>
                                     <span>grent@mail.com</span>
                                 </li>

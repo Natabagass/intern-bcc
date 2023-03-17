@@ -51,7 +51,7 @@ const UbahProfile = () => {
                     id="nama"
                     placeholder={profil.Nama}
                     onChange={(e) => setForms({ ...forms, nama: e.target.value })}
-                    className="mt-3 pl-5 p-3 placeholder:text-black rounded-lg bg-[#FEF8FA]" />
+                    className="mt-3 pl-5 p-3  placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-black rounded-lg bg-[#FEF8FA]" />
             </div>
 
             <div className="mt-5">
@@ -60,8 +60,8 @@ const UbahProfile = () => {
                     type="number"
                     placeholder={profil.number}
                     id="phone"
-                    onChange={(e) => setForms({ ...forms, nama: e.target.value })}
-                    className="mt-3 pl-5 p-3 placeholder:text-black rounded-lg bg-[#FEF8FA]" />
+                    onChange={(e) => setForms({ ...forms, number: e.target.value })}
+                    className="mt-3 pl-5 p-3 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-black rounded-lg bg-[#FEF8FA]" />
             </div>
 
             <div className="mt-5">
@@ -70,13 +70,13 @@ const UbahProfile = () => {
                     type="text"
                     placeholder={profil.email}
                     id="email"
-                    onChange={(e) => setForms({ ...forms, nama: e.target.value })}
-                    className="mt-3 pl-5 p-3 placeholder:text-black rounded-lg bg-[#FEF8FA]" />
+                    onChange={(e) => setForms({ ...forms, email: e.target.value })}
+                    className="mt-3 pl-5 p-3 placeholder:text-[12px] sm:placeholder:text-[14px] placeholder:text-black rounded-lg bg-[#FEF8FA]" />
             </div>
 
             <div className="w-full justify-end flex-row flex my-5">
-                <Button onClick={() => setVisibleProfile(true)} className="p-2 mr-4 text-[14px] px-4 text-[#F78CB2] hover:border hover:border-[#F78CB2]">Hapus Akun</Button>
-                <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[14px] px-4 hover:bg-white hover:border hover:text-[#F78CB2] hover:border-[#F78CB2] bg-[#F78CB2] text-white">Simpan perubahan</Button>
+                <Button onClick={() => setVisibleProfile(true)} className="p-2 mr-1 sm:mr-4 text-[12px] sm:text-[14px] px-4 text-[#F78CB2] hover:border hover:border-[#F78CB2]">Hapus Akun</Button>
+                <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[12px] sm:text-[14px] px-2 sm:px-4 hover:bg-white hover:border hover:text-[#F78CB2] hover:border-[#F78CB2] bg-[#F78CB2] text-white">Simpan perubahan</Button>
             </div>
         </>
     );

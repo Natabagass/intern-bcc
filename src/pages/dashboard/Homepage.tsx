@@ -194,7 +194,7 @@ const Homepage = () => {
                                                             data.nama === 'Suryani Mahalini' ? foto2 : foto3}
                                                             `}
                                                         alt='Foto Pemilik'
-                                                        className="w-[50%]" />
+                                                        className="w-[50%] min-h-[200px]" />
                                                     <div className="flex justify-center flex-wrap flex-col text-center">
                                                         <h1 className="font-bold text-[12px] lg:text-[24px] mt-7">{data.nama}</h1>
                                                         <h3 className="text-[14px] lg:text-[16px] opacity-[50%]">{data.gedung}</h3>
@@ -212,7 +212,7 @@ const Homepage = () => {
                                     spaceBetween={50}
                                     modules={[Navigation]}
                                     slidesPerView={1}
-                                    className="mySwiper w-[60%] my-10 flex">
+                                    className="mySwiper w-[80%] sm:w-[60%] my-10 flex">
                                     {
                                         pemilikGraha.map((data) => {
                                             return (
@@ -224,7 +224,7 @@ const Homepage = () => {
                                                                     data.nama === 'Suryani Mahalini' ? foto2 : foto3}
                                                             `}
                                                                 alt='Foto Pemilik'
-                                                                className="w-[80%] sm:w-[50%]" />
+                                                                className="w-[80%] min-h-[100px] sm:w-[50%]" />
                                                         </div>
                                                         <div className="flex justify-center flex-wrap flex-col text-center">
                                                             <h1 className="font-bold text-[12px] lg:text-[24px] mt-7">{data.nama}</h1>

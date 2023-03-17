@@ -40,11 +40,11 @@ const Pembayaran = () => {
     return (
         <>
             <Nav />
-            <div className="mx-[50px] font-inter text-[#1B1D21] my-[100px]">
+            <div className="mx-[15px] sm:mx-[50px] font-inter text-[#1B1D21] my-[100px]">
                 <div className="my-[30px] items-center font-inter flex flex-row">
-                    <h1 className="opacity-[50%]">Graha &nbsp;</h1>
+                    <h1 className="text-[12px] sm:text-[16px] opacity-[50%]">Graha &nbsp;</h1>
                     <icon.IoIosArrowForward className="opacity-[50%]" />
-                    <span className="font-bold text-black opacity-[100%]">&nbsp; {dataGedung.Nama}</span>
+                    <span className="font-bold text-[12px] sm:text-[16px] text-black opacity-[100%]">&nbsp; {dataGedung.Nama}</span>
                 </div>
                 <div className="flex justify-between flex-col md:flex-row">
                     <div className="flex w-full md:w-[50%] mr-10 flex-col">
@@ -56,7 +56,7 @@ const Pembayaran = () => {
                         <div>
                             <div className="flex flex-row justify-between ">
                                 <div className="flex flex-col w-full p-5 font-inter">
-                                    <h1 className="font-inter font-bold text-[24px] lg:text-[32px]">{dataGedung.Nama}</h1>
+                                    <h1 className="font-inter font-bold text-[20px] sm:text-[24px] lg:text-[32px]">{dataGedung.Nama}</h1>
                                     <h3 className="text-[14px] lg:text-[18px]">{dataGedung.Alamat}</h3>
                                     <h3 className="mt-2 opacity-[70%] text-[14px] lg:text-[16px] flex flex-row items-center"><span className="mr-2"><icon.GrLocation /></span>{dataGedung.Kecamatan}</h3>
                                     <div className="w-full p-5 shadow-lg mt-5 rounded-xl">

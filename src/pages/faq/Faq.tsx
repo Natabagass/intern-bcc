@@ -10,20 +10,20 @@ const Faq = () => {
     return (
         <>
             <Nav />
-            <div className="my-[100px] mx-[70px]">
+            <div className="my-[100px] mx-[20px]  sm:mx-[50px] lg:mx-[70px]">
                 <h1 className="font-bold text-[20px]">Frequently Asked Question</h1>
 
-                <div className="flex flex-row w-[90%] items-start mt-20 min-h-[400px] justify-between">
-                    <h1 className="font-bold text-[32px]">Pertanyaan Umum</h1>
+                <div className="flex flex-col lg:flex-row w-[90%] items-start mt-20 min-h-[350px] justify-between">
+                    <h1 className="font-bold text-[18px] sm:text-[24px] lg:text-[32px]">Pertanyaan Umum</h1>
                     <div className="flex flex-col">
                         <div className="flex flex-col">
                             <hr className="my-2" />
                             <div className="p-5">
                                 <div onClick={() => setVisibleFirst(prev => !prev)} className="flex flex-row items-center">
-                                    <h2 className="font-bold text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
-                                    <span className="ml-10 text-[24px]">{visibleFirst ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
+                                    <h2 className="font-bold text-[16px] sm:text-[20px] lg:text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
+                                    <span className="ml-10 text-[16px] sm:text-[20px] lg:text-[24px]">{visibleFirst ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
                                 </div>
-                                <h4 className={`${visibleFirst ? 'inline' : 'hidden'} text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
+                                <h4 className={`${visibleFirst ? 'inline' : 'hidden'} text-[14px] sm:text-[16px] lg:text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
                             </div>
                             <hr className="my-2" />
                         </div>
@@ -31,38 +31,38 @@ const Faq = () => {
                             <hr className="my-2" />
                             <div className="p-5">
                                 <div onClick={() => setVisibleSecond(prev => !prev)} className="flex flex-row items-center">
-                                    <h2 className="font-bold text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
-                                    <span className="ml-10 text-[24px]">{visibleSecond ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
+                                    <h2 className="font-bold text-[16px] sm:text-[20px] lg:text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
+                                    <span className="ml-10 text-[16px] sm:text-[20px]] lg:text-[24px]">{visibleSecond ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
                                 </div>
-                                <h4 className={`${visibleSecond ? 'inline' : 'hidden'} text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
+                                <h4 className={`${visibleSecond ? 'inline' : 'hidden'} text-[14px] sm:text-[16px] lg:text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
                             </div>
                             <hr className="my-2" />
                         </div>
                     </div>
                 </div>
 
-                <div className="flex flex-row w-[90%] items-start min-h-[300px] justify-between">
-                    <h1 className="font-bold text-[32px]">Akun</h1>
+                <div className="flex flex-col mt-20 lg:flex-row w-[90%] items-start min-h-[350px] justify-between">
+                    <h1 className="font-bold text-[18px] sm:text-[24px] lg:text-[32px]">Akun</h1>
                     <div className="flex flex-col">
                         <div className="flex flex-col">
                             <hr className="my-2" />
                             <div className="p-5">
-                                <div onClick={() => setVisibleFirst(prev => !prev)} className="flex flex-row items-center">
-                                    <h2 className="font-bold text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
-                                    <span className="ml-10 text-[24px]">{visibleThird ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
+                                <div onClick={() => setVisibleThird(prev => !prev)} className="flex flex-row items-center">
+                                    <h2 className="font-bold text-[16px] sm:text-[20px] lg:text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
+                                    <span className="ml-10 text-[16px] sm:text-[20px] lg:text-[24px]">{visibleThird ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
                                 </div>
-                                <h4 className={`${visibleThird ? 'inline' : 'hidden'} text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
+                                <h4 className={`${visibleThird ? 'inline' : 'hidden'} text-[14px] sm:text-[16px] lg:text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
                             </div>
                             <hr className="my-2" />
                         </div>
                         <div className="flex flex-col">
                             <hr className="my-2" />
                             <div className="p-5">
-                                <div onClick={() => setVisibleSecond(prev => !prev)} className="flex flex-row items-center">
-                                    <h2 className="font-bold text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
-                                    <span className="ml-10 text-[24px]">{visibleFourth ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
+                                <div onClick={() => setVisibleFourth(prev => !prev)} className="flex flex-row items-center">
+                                    <h2 className="font-bold text-[16px] sm:text-[20px] lg:text-[24px] my-5">Bagaimana Cara Sewa gedung di grent.com?</h2>
+                                    <span className="ml-10 text-[16px] sm:text-[20px] lg:text-[24px]">{visibleFourth ? <icons.AiOutlineMinus /> : <icons.MdOutlineKeyboardArrowDown />}</span>
                                 </div>
-                                <h4 className={`${visibleFourth ? 'inline' : 'hidden'} text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
+                                <h4 className={`${visibleFourth ? 'inline' : 'hidden'} text-[14px] sm:text-[16px] lg:text-[20px]`}>Bagaimana cara sewa gedung di grent.com?</h4>
                             </div>
                             <hr className="my-2" />
                         </div>
