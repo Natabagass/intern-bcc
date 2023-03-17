@@ -4,7 +4,7 @@ import { history } from "../../../models/dto/data/history"
 import { dateFormatter } from "../../../components/formatterDate"
 import { LazyLoadImage } from "react-lazy-load-image-component"
 import { rupiahFormatter } from "../../../components/formatterRupiah"
-import { PembayaranContext } from "../../../context/PembayaranContext"
+import icons from "../../../components/icons"
 
 const History = () => {
     const [dataHistory, getDataHistory] = useState<history[]>([])
@@ -43,14 +43,19 @@ const History = () => {
                                                 <h1 className="font-bold text-[16px] xl:text-[20px]">{data.nama_gedung}</h1>
                                                 <h3 className="xl:text-[16px] text-[14px] text-[#6A7682]">{`${data.status === 'Bayar Lunas' ? 'Lunas' : `Sudah Terbayar ${data.status}`}`}</h3>
                                             </div>
-                                            <div className="flex flex-col md:flex-row items-end  md:items-center w-full">
-                                                <hr className="rotate-0 md:flex hidden md:rotate-90 w-[20%]" />
+                                            <div className="flex flex-col md:flex-row items-end md:items-center w-full">
+                                                <hr className="rotate-0 md:flex hidden md:rotate-90 w-[30%]" />
                                                 <div className="flex md:mt-0 mt-4 flex-col">
                                                     <h4 className="text-[#6A7682] text-[12px]">{`${data.status === 'Bayar Lunas' ? 'Total Biaya' : `Biaya yang Sudah Dibayarkan`}`}</h4>
                                                     <h1 className="sm:text-[16px] text-[14px] md:text-[18px] lg:text-[20px] font-bold">{rupiahFormatter(data.nominal)}</h1>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
+                                    <div className="flex text-[12px] mr-14 justify-end items-center flex-row">
+                                        <h2>Lihat Detail Transaksi</h2>
+                                        <h3 className="bg-[#F78CB2] mx-3 text-white p-2 rounded-lg">{`${data.status === 'Bayar Lunas' ? 'Selesai' : 'Lanjut Pembayaran'}`}</h3>
+                                        <a href="https://wa.me/6289602668749"><icons.HiDotsHorizontal className="text-[25px] border-[#F78CB2] border rounded-md text-[#F78CB2] opacity-50"/></a>
                                     </div>
                                 </div>
                             </>

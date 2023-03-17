@@ -8,7 +8,7 @@ import icons from "../../components/icons";
 
 const Bayar = () => {
     const { setStep, setStatus, harga, status, totalBiaya, setTotalBiaya, setVisible } = useContext(PembayaranContext)
-    const layanan = 500000
+    const layanan = 200000
     const [totalKeseluruhan, setTotalKesuluruhan] = useState(0)
     const { id } = useParams()
     const myId = parseInt(id!, 10)

@@ -53,52 +53,52 @@ export const kataMereka = [
 
 export const kataMereka2 = [
     {
-        id: 1,
+        id: 'satu',
         nama: 'Surti Bayem',
         review: '“ Kenapa baru tauu sekarang sih “'
     },
     {
-        id: 2,
+        id: 'dua',
         nama: 'Supri Batu',
         review: '“ Ga perlu repot-repot cari gedung buat acara “'
     },
     {
-        id: 3,
+        id: 'tiga',
         nama: 'Yayan Lumayan',
         review: '“ Sangat membantu bintang 5 deh “'
     },
     {
-        id: 4,
+        id: 'empat',
         nama: 'Koko Crunch',
         review: '“ Baru nemu yang sesimpel ini “'
     },
     {
-        id: 5,
+        id: 'lima',
         nama: 'Yanto Cool',
         review: '“ Kenapa baru tauu sekarang sih “'
     },
     {
-        id: 6,
+        id: 'enam',
         nama: 'Dewi Balita',
         review: '“ Pelayanan adminnya fast respond banget “'
     },
     {
-        id: 7,
+        id: 'tujuh',
         nama: 'Roki Gesper',
         review: '“ Gedungnya Beragam “'
     },
     {
-        id: 8,
+        id: 'depalan',
         nama: 'Asep Gayung',
         review: '“ Wah sangat membantu “'
     },
     {
-        id: 9,
+        id: 'sembilan',
         nama: 'Lampu Terang',
         review: '“ Merasa tercerahkan setelah memakai ini “'
     },
     {
-        id: 10,
+        id: 'sepuluh',
         nama: 'Roni Karung',
         review: '“ Harusnya tau dari dulu “'
     },

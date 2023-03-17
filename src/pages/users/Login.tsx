@@ -39,22 +39,26 @@ const Login = () => {
             try {
                 console.log(email)
                 const res = await axiosInstance.post('/pass-reset', {
-                    data: {
-                        email: email
-                    }
+                    email: email
                 })
-                if (res.statusText === 'ok') {
+                if (res.statusText === 'OK') {
                     Swal.fire({
                         title: 'Periksa Email Anda',
-                        text: 'Kami telah mengirimkan verifikasi pada email yang sudah terdaftar, silakan diperiksa',
+                        text: 'Kami telah mengirimkan password baru pada email yang sudah terdaftar, silakan diperiksa',
                         imageUrl: `${emailLogo}`,
                         imageWidth: 400,
                         imageHeight: 200,
                         imageAlt: 'Check your email!',
                     })
                 }
+                console.log(res)
             } catch (err) {
                 console.log(err)
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Akun Anda tidak ditemukan',
+                    text:"Silahkan masukkan email anda lagi"
+                })
             }
         }
     }
