@@ -96,11 +96,11 @@ const Profile = () => {
                                 <div className="flex flex-row w-full justify-between">
                                     <h1 className="font-bold text-[20px] sm:text-[28px]">{step === 1 ? 'Akun Saya' : step === 2 ? 'Ubah Profile' : step === 3 ? 'Riwayat Transaksi' : step === 4 ? 'Ubah Password' : 'Akun Saya'}</h1>
                                     <div className="flex flex-row items-center">
-                                        <button onClick={() => setStep(1)} className={`${step === 2 ? 'flex items-center text-[10px] sm:text-[14px] mr-3 sm:mr-5 cursor-pointer text-[#F78CB2] border border-[#F78CB2] p-2 rounded-lg' : 'hidden'}`}><icons.IoMdArrowRoundBack className=" mr-2" />Kembali</button>
-                                        <button onClick={() => setStep(2)} className={`${step === 4 ? 'flex items-center text-[10px] sm:text-[14px] mr-5 cursor-pointer text-[#F78CB2] border border-[#F78CB2] hover:bg-[#F78CB2] hover:text-white p-2 rounded-lg' : 'hidden'}`}><icons.IoMdArrowRoundBack className=" mr-2" />Kembali</button>
+                                        <button onClick={() => setStep(1)} className={`${step === 2 ? 'flex items-center text-[10px] sm:text-[14px] mr-3 sm:mr-5 cursor-pointer text-[#F78CB2] border border-[#F78CB2] hover:bg-[#F78CB2] hover:text-white p-2 rounded-lg' : 'hidden'}`}><icons.MdKeyboardArrowLeft className="text-[20px] mr-2" />Kembali</button>
+                                        <button onClick={() => setStep(2)} className={`${step === 4 ? 'flex items-center text-[10px] sm:text-[14px] mr-5 cursor-pointer text-[#F78CB2] border border-[#F78CB2] hover:bg-[#F78CB2] hover:text-white p-2 rounded-lg' : 'hidden'}`}><icons.MdKeyboardArrowLeft className="text-[20px] mr-2" />Kembali</button>
                                         <button onClick={() => setStep(4)} className={`${step === 2 ? 'flex bg-[#F78CB2] hover:bg-white text-[10px] hover:border hover:text-[#F78CB2] hover:border-[#F78CB2] sm:text-[14px] p-2 rounded-lg text-white' : 'hidden'}`}>Ubah Kata Sandi</button>
                                     </div>
-                                    <Button onClick={() => {setStep(2)}} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
+                                    <Button onClick={() => {setStep(2)}} className={`${step === 1 ? 'inline bg-[#F78CB2] text-white text-[14px] hover:bg-white hover:border hover:border-[#F78CB2] hover:text-[#F78CB2] rounded-xl' : 'hidden text-white'}}`}>Ubah Profil</Button>
                                 </div>
                                 <hr className="my-3" />
                                 {step === 1 ? <AkunSaya /> : step === 2 ? <UbahProfile /> : step === 3 ? <History /> : step === 4 ? <UbahPwd/> : <AkunSaya/>}
