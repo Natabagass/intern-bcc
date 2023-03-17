@@ -83,7 +83,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan nama anda"
                                 id='nama'
-                                className='mt-2 xl:placeholder:text-[16px] placeholder:text-[12px] rounded-lg bg-[#F4F7FA]'
+                                className='mt-2 xl:placeholder:text-[14px] placeholder:text-[12px] rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -96,7 +96,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan nomor HP anda"
                                 id='number'
-                                className='mt-2 xl:placeholder:text-[16px] placeholder:text-[12px] rounded-lg bg-[#F4F7FA]'
+                                className='mt-2 xl:placeholder:text-[14px] placeholder:text-[12px] rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -109,7 +109,7 @@ const Signup = () => {
                                 required
                                 placeholder="Masukkan E-mail anda"
                                 id='email'
-                                className='mt-2 xl:placeholder:text-[16px] placeholder:text-[12px] rounded-lg bg-[#F4F7FA]'
+                                className='mt-2 xl:placeholder:text-[14px] placeholder:text-[12px] rounded-lg bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -123,7 +123,7 @@ const Signup = () => {
                                     required
                                     id='password'
                                     placeholder="Masukkan kata sandi anda"
-                                    className='mt-2 xl:placeholder:text-[16px] placeholder:text-[12px] bg-[#F4F7FA] rounded-lg pl-2 outline-none'
+                                    className='mt-2 xl:placeholder:text-[14px] placeholder:text-[12px] bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
                                     {!passwordShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
@@ -141,7 +141,7 @@ const Signup = () => {
                                     required
                                     id='passconfirm'
                                     placeholder="Masukkan kata sandi anda"
-                                    className='mt-2 xl:placeholder:text-[16px] placeholder:text-[12px] bg-[#F4F7FA] rounded-lg pl-2 outline-none'
+                                    className='mt-2 xl:placeholder:text-[14px] placeholder:text-[12px] bg-[#F4F7FA] rounded-lg pl-2 outline-none'
                                 />
                                 <button onClick={toggleShowRepeat} className="cursor-pointer flex items-center">
                                     {!passwordRepeatShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}

@@ -9,6 +9,8 @@ import { Link } from "react-router-dom";
 import AxiosInstance from "../../features/api/AxiosInstance";
 const axiosInstance = AxiosInstance();
 import { Cookies } from 'react-cookie';
+import Swal from "sweetalert2";
+import emailLogo from '../../assets/image/email periksa.svg'
 const cookies = new Cookies();
 
 
@@ -24,6 +26,38 @@ const Login = () => {
         email: '',
         password: '',
     })
+
+    const handleSendEmail = async () => {
+        const { value: email } = await Swal.fire({
+            title: 'Masukkan Email akun',
+            input: 'email',
+            inputLabel: 'Email',
+            inputPlaceholder: 'Masukkan email anda'
+        })
+
+        if (email) {
+            try {
+                console.log(email)
+                const res = await axiosInstance.post('/pass-reset', {
+                    data: {
+                        email: email
+                    }
+                })
+                if (res.statusText === 'ok') {
+                    Swal.fire({
+                        title: 'Periksa Email Anda',
+                        text: 'Kami telah mengirimkan verifikasi pada email yang sudah terdaftar, silakan diperiksa',
+                        imageUrl: `${emailLogo}`,
+                        imageWidth: 400,
+                        imageHeight: 200,
+                        imageAlt: 'Check your email!',
+                    })
+                }
+            } catch (err) {
+                console.log(err)
+            }
+        }
+    }
 
     const handleLogin = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
@@ -72,7 +106,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="w-[80%] sm:w-[60%] mt-8 lg:mt-0">
-                        <h3 className="font-bold font-inter text-[24px] lg:text-[48px]">Masuk</h3>
+                        <h3 className="font-bold font-inter text-[24px] lg:text-[36px]">Masuk</h3>
 
                         <div className='flex w-full font-inter flex-col mt-[30px]'>
                             <label htmlFor="email" className="font-bold text-[20px] lg:text-[24px]">E-mail</label>
@@ -84,7 +118,7 @@ const Login = () => {
                                 required
                                 placeholder="Masukkan E-mail anda"
                                 id='email'
-                                className='mt-2 rounded-lg lg:placeholder:text-[16px] placeholder:text-[12px] bg-[#F4F7FA]'
+                                className='mt-2 rounded-lg lg:placeholder:text-[14px] placeholder:text-[12px] bg-[#F4F7FA]'
                             />
                         </div>
 
@@ -98,7 +132,7 @@ const Login = () => {
                                     required
                                     id='password'
                                     placeholder="Masukkan kata sandi anda"
-                                    className='mt-2 rounded-lg bg-[#F4F7FA] lg:placeholder:text-[16px] placeholder:text-[12px] pl-2 outline-none'
+                                    className='mt-2 rounded-lg bg-[#F4F7FA] lg:placeholder:text-[14px] placeholder:text-[12px] pl-2 outline-none'
                                 />
                                 <button onClick={toggleShow} className="cursor-pointer flex items-center">
                                     {!passwordShown ? <icon.FaRegEyeSlash className="absolute right-3 text-[25px] mt-1 pr-1" /> : <icon.AiOutlineEye className="absolute right-3 text-[25px] mt-1 pr-1" />}
@@ -108,7 +142,7 @@ const Login = () => {
                         </div>
 
                         <div className="font-inter">
-                            <h1><a href="" className="my-3 text-[12px] opacity-[50%] flex justify-end w-full">Lupa kata sandi?</a></h1>
+                            <h1><button onClick={handleSendEmail} className="my-3 text-[12px] opacity-[50%] flex justify-end w-full">Lupa kata sandi?</button></h1>
                             <Button onClick={handleLogin} isLoading={loading} className="p-2 lg:p-3 bg-[#F78CB2] text-white w-full text-[14px]" type="submit">Masuk</Button>
                             <span className="mt-5 text-red-500 text-[13px] flex justify-center w-full">{validation}</span>
                         </div>

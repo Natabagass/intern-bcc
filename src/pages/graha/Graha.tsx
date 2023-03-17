@@ -13,7 +13,10 @@ import { searchGraha } from "../../features/service/searchGraha/SearchGraha";
 
 const Graha = () => {
     const [dataGedung, setDataGedung] = useState([])
+    const navigate = useNavigate()
     const [name, setName] = useState('')
+    const [kecamatan, setKecamatan] = useState('')
+    console.log(kecamatan)
     const [searchParams, setSearchParams] = useSearchParams()
     const getGedungs = async () => {
         try {
@@ -24,9 +27,9 @@ const Graha = () => {
         }
     }
 
-    const handleSearch = async (e: {preventDefault: () => void}) => {
+    const handleSearch = async (e: { preventDefault: () => void }) => {
         e.preventDefault()
-        setSearchParams({ name: name })
+        setSearchParams({ name: name, kecamatan: kecamatan })
     }
 
     useEffect(() => {
@@ -48,21 +51,30 @@ const Graha = () => {
         });
         getGedungs()
     }, [])
-    const navigate = useNavigate()
+
     return (
         <>
             <Nav />
             <div className="mx-[30px] md:mx-[50px] lg:mx-[100px] min-h-screen my-[100px] font-inter">
                 <form onSubmit={handleSearch}>
-                    <div className="w-[100%] sm:w-[80%] lg:w-[50%] mx-auto">
-                        <label htmlFor="default-search" className="mb-2 text-sm font-medium sr-only">Search</label>
-                        <div className="relative">
-                            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-                                <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                    <div className="flex justify-center flex-row">
+                        <div className="w-[100%] sm:w-[80%] lg:w-[50%] mr-5">
+                            <label htmlFor="default-search" className="mb-2 text-sm font-medium sr-only">Search</label>
+                            <div className="relative">
+                                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+                                    <svg aria-hidden="true" className="w-5 h-5 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                                </div>
+                                <input name='name' onChange={(e) => setName(e.target.value)} type="search" id="default-search" className="block outline-none shadow-lg rounded-xl w-full p-4 pl-10 text-sm  " placeholder="Cari nama gedung" />
+                                <button type="submit" className="text-white bg-[#F78CB2] hover:bg-[#fc74a4] absolute right-2.5 bottom-2.5  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                             </div>
-                            <input name="name" onChange={(e) => { setName(e.target.value) }} type="search" id="default-search" className="block outline-none shadow-lg rounded-xl w-full p-4 pl-10 text-sm  " placeholder="Cari nama gedung" required />
-                            <button type="submit" className="text-white bg-[#F78CB2] hover:bg-[#fc74a4] absolute right-2.5 bottom-2.5  focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2">Search</button>
                         </div>
+                        <select name="kecamatan" placeholder="Pilih Kecamatan" onChange={(e) => setKecamatan(e.target.value)} className="outline-none border border-[#F78CB2] rounded-xl p-1 px-2 cursor-pointer text-[14px] text-[#F78CB2]">
+                            <option value="">Pilih Kecamatan</option>
+                            <option value="Klojen">Klojen</option>
+                            <option value="Lowokwaru">Lowokwaru</option>
+                            <option value="Karang Ploso">Karang Ploso</option>
+                            <option value="Blimbing">Blimbing</option>
+                        </select>
                     </div>
                 </form>
                 <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 w-full">

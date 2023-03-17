@@ -75,8 +75,8 @@ const UbahProfile = () => {
             </div>
 
             <div className="w-full justify-end flex-row flex my-5">
-                <Button onClick={() => setVisibleProfile(true)} className="p-2 mr-4 text-[14px] px-4 bg-red-500 text-white">Delete Profile</Button>
-                <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[14px] px-4 bg-[#F78CB2] text-white">Submit</Button>
+                <Button onClick={() => setVisibleProfile(true)} className="p-2 mr-4 text-[14px] px-4 text-[#F78CB2] hover:border hover:border-[#F78CB2]">Hapus Akun</Button>
+                <Button isLoading={loading} type="submit" onClick={() => handleSubmit()} className="p-2 text-[14px] px-4 hover:bg-white hover:border hover:text-[#F78CB2] hover:border-[#F78CB2] bg-[#F78CB2] text-white">Simpan perubahan</Button>
             </div>
         </>
     );
