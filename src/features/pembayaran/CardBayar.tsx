@@ -9,7 +9,7 @@ import Swal from "sweetalert2";
 
 const Bayar = () => {
     const { setStep, setStatus, harga, status, totalBiaya, setTotalBiaya, setVisible } = useContext(PembayaranContext)
-    const layanan = 200000
+    const layanan = 50000
     const [totalKeseluruhan, setTotalKesuluruhan] = useState(0)
     const { id } = useParams()
     const myId = parseInt(id!, 10)
@@ -83,7 +83,7 @@ const Bayar = () => {
                 <div className="my-5">
                     <div className="flex flex-row justify-between w-full">
                         <h1>Biaya Layanan</h1>
-                        <h3>Rp 200.000</h3>
+                        <h3>Rp 50.000</h3>
                     </div>
                     <div className="mt-3 flex flex-row justify-between w-full">
                         <h1>Biaya yang harus dibayar</h1>
