@@ -108,7 +108,7 @@ const Keterangan = () => {
                         <div className="flex flex-row items-center mt-5">
                             <div>
                                 <ul>
-                                    <li className="flex flex-row"
+                                    <li className="flex flex-col md:flex-row"
                                     >
                                         {dataGedung.Tag.map(data => {
                                             return <h3 className={`${data === 'Gathering' ? 'lg:p-3 p-2 text-[14px] lg:text-[16px] bg-[#88ADF1] text-white rounded-lg' 
@@ -116,7 +116,7 @@ const Keterangan = () => {
                                             : data === 'Seminar' ? 'lg:p-3 p-2 text-[14px] lg:text-[16px] bg-[#F79C8C] text-white rounded-lg'
                                             : data === 'Konser' ? 'lg:p-3 p-2 text-[14px] lg:text-[16px] bg-[#baf78c] text-white rounded-lg'
                                             : data === 'Pameran' ? 'lg:p-3 p-2 text-[14px] lg:text-[16px] bg-[#8cf5f7] text-white rounded-lg'
-                                            : data === 'Pernikahan' ? 'lg:p-3 p-2 text-[14px] lg:text-[16px] bg-[#c98cf7] text-white rounded-lg': ''} mr-3`}>{data}</h3>
+                                            : data === 'Pernikahan' ? 'lg:p-3 p-2 text-[14px] lg:text-[16px] bg-[#c98cf7] text-white rounded-lg': ''} mt-3 md:mt-0 mr-3`}>{data}</h3>
                                         })}
                                     </li>
                                 </ul>
