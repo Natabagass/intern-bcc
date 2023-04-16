@@ -7,9 +7,11 @@ import { rupiahFormatter } from "../../components/formatterRupiah";
 import { useEffect, useState, useContext } from "react";
 import AOS from 'aos';
 import 'aos/dist/aos.css';
+import fotoGedung from "../../assets/image/atria hotel.svg"
 import { getGedung } from "../../features/service/gedung/getDataGedung";
 import { gedungs } from "../../models/dto/data/gedung";
 import { searchGraha } from "../../features/service/searchGraha/SearchGraha";
+import { gedung } from "../../models/dummy/gedung";
 
 const Graha = () => {
     const [dataGedung, setDataGedung] = useState([])
@@ -80,7 +82,35 @@ const Graha = () => {
                     </div>
                 </form>
                 <div data-aos="fade-up" className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 mt-7 lg:grid-cols-4 w-full">
+
+
                     {
+                        gedung.map((data, index) => {
+                            return (
+                                <div key={index} onClick={() => navigate(`/graha/${data.id}`)} className="mr-[20px] hover:opacity-80 shadow-md outline-none cursor-pointer hover:-translate-y-2 transition rounded-xl border my-[30px] bg-white">
+                                    <div>
+                                        <LazyLoadImage className="w-full rounded-t-xl" src={fotoGedung} alt="Foto gedung" />
+                                    </div>
+                                    <div className="bg-white py-[10px] font-inter text-black rounded-b-xl w-full">
+                                        <div className="mx-[20px]">
+                                            <h1 className="sm:text-[16px] text-[18px] font-bold">{data.name}</h1>
+                                            <div className="my-5 font-inter text-[12px]">
+                                                <h3 className="lg:text-[12px]">{data.alamat}</h3>
+                                                <h3 className="mt-1 text-[#6A7682] flex flex-row items-center"><span className="mr-2"><icon.GrLocation /></span>{data.kecamatan}</h3>
+                                            </div>
+                                            <div className="flex flex-col">
+                                                <h3 className="text-[10px] text-[#1B1D21]">Mulai Dari</h3>
+                                                <span className="text-[14px] lg:text-[16px] font-bold">{rupiahFormatter(data.harga)}</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            )
+                        })
+                    }
+
+                    {/** Ini adalah bagian map gedung dengan call api */}
+                    {/* {
                         dataGedung.map((data: gedungs, index: number) => {
                             return (
                                 <div key={index} onClick={() => navigate(`/graha/${data.id}`)} className="mr-[20px] hover:opacity-80 shadow-md outline-none cursor-pointer hover:-translate-y-2 transition rounded-xl border mb-[30px] bg-white">
@@ -103,7 +133,7 @@ const Graha = () => {
                                 </div>
                             )
                         })
-                    }
+                    } */}
                 </div>
             </div>
             <Footer />

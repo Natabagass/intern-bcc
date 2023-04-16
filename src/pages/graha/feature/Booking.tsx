@@ -5,17 +5,22 @@ import { useEffect, useState } from "react";
 import Button from "../../../components/button";
 import { useNavigate, useParams } from "react-router-dom";
 import Keterangan from "../../../features/booking/KeteranganBook";
+import foto1 from '../../../assets/image/ruang1.svg'
+import foto2 from '../../../assets/image/ruang2.svg'
+import foto3 from '../../../assets/image/ruang3.svg'
 import Footer from "../../../components/partials/Footer";
 import BookMobile from "../../../features/booking/BookMobile";
 import { PembayaranContext } from "../../../context/PembayaranContext";
 import AxiosInstance from '../../../features/api/AxiosInstance';
 import { gedungsbyId } from '../../../models/dto/data/gedungbyId';
 import { dataId } from '../../../models/defaultValue/byIdValue';
+import { gedung } from '../../../models/dummy/gedung';
 
 const Booking = () => {
     const { visible, setVisible } = useContext(PembayaranContext)
     const axiosInstance = AxiosInstance()
-    const {setHarga} = useContext(PembayaranContext)
+    const [nama, setNama] = useState('');
+    const { setHarga } = useContext(PembayaranContext)
     const [imageUrl, setImageUrl] = useState<string[]>([])
     const navigate = useNavigate()
     const [dataGedung, setDataGedung] = useState<gedungsbyId>(dataId)
@@ -37,6 +42,13 @@ const Booking = () => {
     useEffect(() => {
         getGedungbyId()
     }, [])
+    useEffect(() => {
+        gedung.filter(data => {
+            if (data.id === myId) {
+                setNama(data.name)
+            }
+        })
+    }, [])
     return (
         <>
             <Nav />
@@ -44,6 +56,28 @@ const Booking = () => {
 
                 <>
                     <div className="my-[30px] items-center font-inter flex flex-row">
+                        <h1 className="opacity-[50%]">Graha &nbsp;</h1>
+                        <icon.IoIosArrowForward className="opacity-[50%]" />
+                        <span className="font-bold text-black opacity-[100%]">&nbsp; {nama}</span>
+                    </div>
+                    <div className="flex items-stretch justify-between md:flex-row flex-col">
+                        <div className="md:w-[70%] w-full bg-cover bg-center min-h-[400px] rounded-lg" style={{ backgroundImage: `url(${foto1})` }} />
+                        <div className="md:w-[30%] flex md:flex-col flex-row justify-between md:ml-5 md:mt-0 mt-5" >
+                            <div className="bg-cover bg-center w-full min-h-[200px] rounded-lg md:mb-5 md:mr-0 mr-5" style={{ backgroundImage: `url(${foto2})` }} />
+                            <div className="flex justify-end w-full">
+                                <div className="bg-cover bg-center w-full min-h-[200px] rounded-lg" style={{ backgroundImage: `url(${foto3})` }} />
+                                <Button
+                                    type="button"
+                                    className="px-2 xl:px-3 absolute text-[#F78CB2] text-[12px] lg:text-[16px] items-center mt-36 md:mt-32 flex mr-5 bg-white border-2 border-[#F78CB2]"
+                                    children="Lihat semua foto"
+                                    onClick={() => navigate('/')}
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    {/** Ini adalah section untuk call api */}
+                    {/* <div className="my-[30px] items-center font-inter flex flex-row">
                         <h1 className="opacity-[50%]">Graha &nbsp;</h1>
                         <icon.IoIosArrowForward className="opacity-[50%]" />
                         <span className="font-bold text-black opacity-[100%]">&nbsp; {dataGedung.Nama}</span>
@@ -62,7 +96,7 @@ const Booking = () => {
                                 />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </>
 
                 <Keterangan />

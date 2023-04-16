@@ -5,7 +5,7 @@ export const gedung = [
     {
         id: 1,
         name: 'Graha Cakrawala',
-        alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
+        alamat: 'Jl. Cakrawala, Sumbersari, Kec. Lowokwaru, Kota Malang, Jawa Timur',
         kecamatan: 'Lowokwaru',
         harga: 20000000,
         kapasitas: '100 Ribu Orang',
@@ -63,9 +63,9 @@ export const gedung = [
     },
     {
         id: 2,
-        name: 'Graha Cakrawala',
-        alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
-        kecamatan: 'Lowokwaru',
+        name: 'UMM Dome',
+        alamat: 'Jl. Karyawiguna No.90, Babatan, Tegalgondo, Kec. Karang Ploso, Kabupaten Malang, Jawa Timur',
+        kecamatan: 'Karang Ploso',
         harga: 20000000,
         kapasitas: '100 Ribu Orang',
         Luas: '2 Km²',
@@ -122,8 +122,8 @@ export const gedung = [
     },
     {
         id: 3,
-        name: 'Graha Awikwok',
-        alamat: 'Universitas Negeri Malang, Jl. Cakrawala',
+        name: 'Grand Ballroom Ijen Suite',
+        alamat: 'Jl. Ijen Nirwana Raya Blok A No.16, Bareng, Kec. Klojen, Kota Malang, Jawa Timur',
         kecamatan: 'Lowokwaru',
         harga: 20000000,
         kapasitas: '100 Ribu Orang',
